@@ -1,0 +1,88 @@
+{
+	"name": "xampp-manager",
+	"displayName": "XAMPP Control Panel Pro",
+	"description": "Powerful XAMPP manager inside VS Code with Auto-installer and Pro UI.",
+	"version": "1.0.0",
+	"publisher": "Royhtml",
+	"author": {
+		"name": "Royhtml",
+		"email": "Dwibakti76@gmail.com",
+		"url": "https://github.com/royhtml"
+	},
+	"license": "MIT",
+	"icon": "resources/icon.png",
+	"keywords": [
+		"xampp",
+		"php",
+		"mysql",
+		"apache",
+		"server",
+		"control panel"
+	],
+	"engines": {
+		"vscode": "^1.80.0"
+	},
+	"categories": [
+		"Programming Languages",
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:xampp.openPanel"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "xampp.openPanel",
+				"title": "XAMPP: Open Control Panel",
+				"icon": "$(server-environment)",
+				"category": "XAMPP Pro"
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"command": "xampp.openPanel",
+					"group": "navigation",
+					"when": "resourceExtname == .php"
+				}
+			],
+			"view/title": [
+				{
+					"command": "xampp.openPanel",
+					"when": "view == explorer",
+					"group": "navigation"
+				}
+			],
+			"commandPalette": [
+				{
+					"command": "xampp.openPanel"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@types/mocha": "^10.0.10",
+		"@types/node": "^18.19.0",
+		"@types/vscode": "^1.75.0",
+		"typescript": "^5.3.3"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/royhtml"
+	},
+	"bugs": {
+		"url": "https://github.com/royhtml"
+	},
+	"homepage": "https://github.com/royhtml",
+	"__metadata": {
+		"installedTimestamp": 1776589069043,
+		"targetPlatform": "undefined",
+		"size": 281006
+	}
+}
