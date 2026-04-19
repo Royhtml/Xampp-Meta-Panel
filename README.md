@@ -1,7 +1,7 @@
-# XAMPP Manager for VS Code
+# XAMPP Meta Panel For Vscode
 
 <p align="center">
-  <img src="https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/resources/icon.png?raw=true" alt="XAMPP Manager Logo" width="128" />
+  <img src="https://github.com/Royhtml/Xampp-Meta-Panel/raw/main/resources/icon.png?raw=true" alt="XAMPP Manager Logo" width="128" />
 </p>
 
 <p align="center">
@@ -9,12 +9,14 @@
 </p>
 
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=dwibakti.xampp-manager"><img src="https://img.shields.io/visual-studio-marketplace/v/dwibakti.xampp-manager?color=fb7a24&label=VS%20Marketplace" alt="Version"></a>
-  <a href="https://github.com/dwibakti/xampp-manager/stargazers"><img src="https://img.shields.io/github/stars/dwibakti/xampp-manager?style=social" alt="GitHub stars"></a>
-  <a href="https://github.com/dwibakti/xampp-manager/issues"><img src="https://img.shields.io/github/issues/dwibakti/xampp-manager" alt="Issues"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=royhtml.xampp-manager"><img src="https://img.shields.io/visual-studio-marketplace/v/royhtml.xampp-manager?color=fb7a24&label=VS%20Marketplace" alt="Version"></a>
+  <a href="https://github.com/royhtml/xampp-manager/stargazers">
+  <a href="https://github.com/Royhtml/Xampp-Meta-Panel/issues"><img src="https://img.shields.io/github/issues/royhtml/xampp-manager" alt="Issues"></a>
 </p>
 
 ---
+
+<img src = "https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/Roy.gif?raw=true">
 
 ## 🎯 Kenapa Harus XAMPP Manager?
 
@@ -52,17 +54,8 @@ Bosan harus bolak-balik membuka **XAMPP Control Panel** hanya untuk menyalakan s
 
 *Rasakan kontrol penuh tanpa meninggalkan editor kode Anda.*
 
-| Sidebar Control Panel | Quick Access Status Bar |
-| :---: | :---: |
-| ![Sidebar View](https://raw.githubusercontent.com/dwibakti/xampp-manager/main/media/screenshot-sidebar.png) | ![Status Bar](https://raw.githubusercontent.com/dwibakti/xampp-manager/main/media/screenshot-status.png) |
-| *Monitor status Apache & MySQL dalam satu tampilan.* | *Start/Stop server langsung dari pojok kanan bawah.* |
+<img src = "https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/meta.png?raw=true" alt = "Screenshot XAMPP Manager" width = "100%" />
 
-| Command Palette Integration | Virtual Host Wizard |
-| :---: | :---: |
-| ![Command Palette](https://raw.githubusercontent.com/dwibakti/xampp-manager/main/media/screenshot-commands.png) | ![Virtual Host](https://raw.githubusercontent.com/dwibakti/xampp-manager/main/media/screenshot-vhost.png) |
-| *Akses semua fungsi via `Ctrl+Shift+P`.* | *Buat domain lokal seperti `myapp.test` dengan mudah.* |
-
----
 
 ## ⚙️ Persyaratan & Dependensi
 
