@@ -1,7 +1,7 @@
 # XAMPP Manager for VS Code
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/dwibakti/xampp-manager/main/media/xampp-manager-icon.png" alt="XAMPP Manager Logo" width="128" />
+  <img src="https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/resources/icon.png?raw=true" alt="XAMPP Manager Logo" width="128" />
 </p>
 
 <p align="center">
