@@ -63,7 +63,7 @@ Get real-time notifications when the server is running successfully or encounter
     <tr>
       <td align="center" width="50%">
         <img src="https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/main/main%20(1).jpeg?raw=true" alt="Main Panel" width="100%" style="border-radius: 8px;"/>
-        <br/><sub><b>Main Control Panel</b></sub>
+        <br/><sub><b>WhatsApp Bot Control</b></sub>
       </td>
       <td align="center" width="50%">
         <img src="https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/main/main%20(2).jpeg?raw=true" alt="WhatsApp Bot" width="100%" style="border-radius: 8px;"/>
@@ -73,11 +73,11 @@ Get real-time notifications when the server is running successfully or encounter
     <tr>
       <td align="center" width="50%">
         <img src="https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/main/main%20(3).jpeg?raw=true" alt="Network Topology" width="100%" style="border-radius: 8px;"/>
-        <br/><sub><b>Network Topology Simulator</b></sub>
+        <br/><sub><b>WhatsApp Bot Control</b></sub>
       </td>
       <td align="center" width="50%">
         <img src="https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/main/main%20(4).jpeg?raw=true" alt="SQL Editor" width="100%" style="border-radius: 8px;"/>
-        <br/><sub><b>SQL Editor & Visualizer</b></sub>
+        <br/><sub><b>WhatsApp Bot Control</b></sub>
       </td>
     </tr>
   </table>
@@ -87,7 +87,7 @@ Get real-time notifications when the server is running successfully or encounter
     <tr>
       <td align="center" width="50%">
         <img src="https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/main/main%20(5).jpeg?raw=true" alt="Main Panel" width="100%" style="border-radius: 8px;"/>
-        <br/><sub><b>Main Control Panel</b></sub>
+        <br/><sub><b>WhatsApp Bot Control</b></sub>
       </td>
       <td align="center" width="50%">
         <img src="https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/main/main%20(6).jpeg?raw=true" alt="WhatsApp Bot" width="100%" style="border-radius: 8px;"/>
@@ -97,11 +97,11 @@ Get real-time notifications when the server is running successfully or encounter
     <tr>
       <td align="center" width="50%">
         <img src="https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/main/main%20(7).jpeg?raw=true" alt="Network Topology" width="100%" style="border-radius: 8px;"/>
-        <br/><sub><b>Network Topology Simulator</b></sub>
+        <br/><sub><b>WhatsApp Bot Control</b></sub>
       </td>
       <td align="center" width="50%">
         <img src="https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/main/main%20(8).jpeg?raw=true" alt="SQL Editor" width="100%" style="border-radius: 8px;"/>
-        <br/><sub><b>SQL Editor & Visualizer</b></sub>
+        <br/><sub><b>WhatsApp Bot Control</b></sub>
       </td>
     </tr>
   </table>
