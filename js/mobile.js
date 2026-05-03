@@ -73,54 +73,6 @@ function syncMAccount() {
         user.style.display = 'none';
     }
 }
-function syncMServer() {
-    const ai = document.getElementById('icon-apache');
-    const mi = document.getElementById('icon-mysql');
-    const aOn = ai && ai.classList.contains('text-green-500');
-    const mOn = mi && mi.classList.contains('text-green-500');
-    const aSt = document.getElementById('m-st-apache');
-    const aTb = document.getElementById('m-tb-apache');
-    if (aOn) {
-        aSt.className = 'm-srv-st on';
-        aSt.innerHTML = '<i class="fas fa-circle" style="font-size:6px"></i> Aktif';
-        aTb.className = 'm-srv-tb no'; aTb.textContent = 'Stop';
-    } else {
-        aSt.className = 'm-srv-st off';
-        aSt.innerHTML = '<i class="fas fa-circle" style="font-size:6px"></i> Tidak Aktif';
-        aTb.className = 'm-srv-tb go'; aTb.textContent = 'Start';
-    }
-    const mSt = document.getElementById('m-st-mysql');
-    const mTb = document.getElementById('m-tb-mysql');
-    if (mOn) {
-        mSt.className = 'm-srv-st on';
-        mSt.innerHTML = '<i class="fas fa-circle" style="font-size:6px"></i> Aktif';
-        mTb.className = 'm-srv-tb no'; mTb.textContent = 'Stop';
-    } else {
-        mSt.className = 'm-srv-st off';
-        mSt.innerHTML = '<i class="fas fa-circle" style="font-size:6px"></i> Tidak Aktif';
-        mTb.className = 'm-srv-tb go'; mTb.textContent = 'Start';
-    }
-    const dot = document.getElementById('m-dot-srv');
-    if (dot) dot.classList.toggle('on', aOn || mOn);
-}
-const mObs = new MutationObserver(syncMServer);
-const _ai = document.getElementById('icon-apache');
-const _mi = document.getElementById('icon-mysql');
-if (_ai) mObs.observe(_ai, { attributes: true, attributeFilter: ['class'] });
-if (_mi) mObs.observe(_mi, { attributes: true, attributeFilter: ['class'] });
-const _prObs = new MutationObserver(syncMAccount);
-const _pr = document.getElementById('user-profile');
-if (_pr) _prObs.observe(_pr, { attributes: true, attributeFilter: ['class'] });
-const _drObs = new MutationObserver(() => {
-    const dr = document.getElementById('issue-drawer');
-    if (dr && !dr.classList.contains('translate-x-full')) closeMSheet();
-});
-const _dr = document.getElementById('issue-drawer');
-if (_dr) _drObs.observe(_dr, { attributes: true, attributeFilter: ['class'] });
-function updateMBadge(count) {
-    const b = document.getElementById('m-badge-issue');
-    if (b) { b.textContent = count; b.style.display = count > 0 ? 'flex' : 'none'; }
-}
 syncMServer();
 syncMAccount();
 const _ham = document.querySelector('.lg\\:hidden[onclick]');
