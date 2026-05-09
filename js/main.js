@@ -83,8 +83,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
-
-    // === BAR CHART (Kecepatan & Kemudahan Akses) ===
     const barCtx = document.getElementById('barChart').getContext('2d');
     new Chart(barCtx, {
         type: 'bar',
@@ -147,8 +145,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
-
-    // === LINE CHART (Keunggulan WA Bot) ===
     const lineCtx = document.getElementById('lineChart').getContext('2d');
     new Chart(lineCtx, {
         type: 'line',
@@ -209,8 +205,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
-
-    // === TASK BAR CHART (Waktu per Task) ===
     const taskCtx = document.getElementById('taskBarChart').getContext('2d');
     new Chart(taskCtx, {
         type: 'bar',
@@ -263,8 +257,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
-
-    // === DOUGHNUT CHART (Alur Kerja) ===
     const doughnutCtx = document.getElementById('doughnutChart').getContext('2d');
     new Chart(doughnutCtx, {
         type: 'doughnut',
@@ -304,12 +296,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// === Copy Code Function ===
 function copyCode(btn) {
     const codeBlock = btn.parentElement;
     let textToCopy = '';
 
-    // Ambil teks tanpa tombol copy
     for (const node of codeBlock.childNodes) {
         if (node.nodeName !== 'BUTTON') {
             textToCopy += node.textContent;
@@ -323,7 +313,6 @@ function copyCode(btn) {
     });
 }
 
-// === Toast Notification ===
 function showToast(msg) {
     const toast = document.getElementById('toast');
     document.getElementById('toast-msg').textContent = msg;
@@ -331,7 +320,6 @@ function showToast(msg) {
     setTimeout(function () { toast.classList.remove('show'); }, 2500);
 }
 
-// === Navbar Scroll Effect ===
 window.addEventListener('scroll', function () {
     const navbar = document.getElementById('navbar');
     if (window.scrollY > 10) {
@@ -341,7 +329,6 @@ window.addEventListener('scroll', function () {
     }
 });
 
-// === Sidebar Active Section Tracking ===
 const sections = document.querySelectorAll('.doc-section');
 const sidebarLinks = document.querySelectorAll('#sidebar-nav .sidebar-link');
 
