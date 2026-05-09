@@ -1,635 +1,1594 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth"> 
+<html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meta Panel API - Dokumentasi Resmi</title>
+  <title>Meta Panel API Key</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="icon/icon.png">
-  <style>
-    html { scroll-behavior: smooth; } 
-    body { font-family: 'Roboto', sans-serif; background-color: #030712; color: #e5e7eb; }
-    .product-sans { font-family: 'Product Sans', sans-serif; }
-    .nav-glass { background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid #1f2937; }
-    
-    .toast { display: none; position: fixed; bottom: 20px; right: 20px; background: #1f2937; color: #10b981; border: 1px solid #047857; padding: 10px 20px; border-radius: 8px; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.5); font-weight: 500; }
-    .code-block { background: #0f172a; border: 1px solid #1e293b; border-radius: 10px; position: relative; margin-bottom: 1.5rem; box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); }
-    .code-block pre { margin: 0; padding: 16px; overflow-x: auto; font-family: 'Roboto Mono', monospace; font-size: 14px; line-height: 1.6; color: #cbd5e1; white-space: pre; }
-    .copy-btn { position: absolute; top: 12px; right: 12px; background: #1e293b; color: #94a3b8; border: 1px solid #334155; padding: 4px 10px; border-radius: 6px; font-size: 12px; cursor: pointer; transition: all 0.2s; }
-    .copy-btn:hover { background: #334155; color: #fff; }
-    
-    .doc-section { scroll-margin-top: 100px; margin-bottom: 4rem; }
-    .section-title { font-size: 1.5rem; font-weight: 700; color: #f8fafc; display: flex; align-items: center; gap: 0.75rem; border-bottom: 1px solid #1e293b; padding-bottom: 0.75rem; margin-bottom: 1.5rem; }
-    .section-number { background: #1e3a8a; color: #60a5fa; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 1rem; }
-    
-    .btn-primary { background: #2563eb; color: white; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid transparent; }
-    .btn-primary:hover { background: #1d4ed8; }
-    .btn-outline { border: 1px solid #334155; color: #cbd5e1; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; background: #0f172a; }
-    .btn-outline:hover { background: #1e293b; border-color: #475569; color: #fff; }
-    ::-webkit-scrollbar { width: 8px; height: 8px; }
-    ::-webkit-scrollbar-track { background: #030712; }
-    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #475569; }
-    .sidebar-active {
-        background-color: rgba(31, 41, 55, 1) !important; 
-        color: white !important;
-        border-left: 4px solid #3b82f6 !important; 
-        padding-left: 0.5rem !important;
-    }
-    @media (max-width: 1023px) {
-      .sidebar-desktop { 
-        display: none;
-      }
-      .main-docs { 
-        padding-bottom: 7rem !important; 
-      }
-    }
-    .mobile-bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      z-index: 50;
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(16px);
-      border-top: 1px solid #1e293b;
-      padding: 0.5rem 0 calc(0.5rem + env(safe-area-inset-bottom));
-      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .mobile-bottom-nav button {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.25rem;
-      padding: 0.5rem;
-      border-radius: 0.75rem;
-      transition: all 0.2s ease;
-      background: transparent;
-      border: none;
-      color: #94a3b8;
-      font-size: 10px;
-      font-weight: 500;
-      width: 100%;
-    }
-
-    .mobile-bottom-nav button i {
-      font-size: 18px;
-      transition: transform 0.2s ease;
-    }
-
-    .mobile-bottom-nav button:hover,
-    .mobile-bottom-nav button:active {
-      background: #1e293b;
-      color: #fff;
-    }
-    
-    .mobile-bottom-nav button:hover i {
-      transform: scale(1.15);
-    }
-
-    .mobile-bottom-nav .btn-home-special {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: white !important;
-      margin-top: -1rem;
-      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      padding: 0;
-      justify-content: center;
-    }
-    
-    .mobile-bottom-nav .btn-home-special span {
-      display: none; 
-    }
-    
-    .mobile-bottom-nav .btn-home-special:hover {
-      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.7);
-      transform: scale(1.05);
-    }
-    .doc-info-box {
-      background: rgba(30, 58, 138, 0.1);
-      border: 1px solid rgba(59, 130, 246, 0.2);
-      border-left: 4px solid #3b82f6;
-      border-radius: 0 12px 12px 0;
-      padding: 1rem 1.25rem;
-      margin-top: 1rem;
-    }
-    .doc-info-box p {
-      font-size: 0.875rem;
-      color: #94a3b8;
-      line-height: 1.6;
-    }
-    .doc-info-box strong {
-      color: #bfdbfe;
-    }
-  </style>
+  <script type="importmap">
+  { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js", "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/" } }
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore-compat.js"></script>
 </head>
-
-<body class="overflow-x-hidden antialiased selection:bg-blue-500/30">
-  <div id="toast" class="toast"><i class="fas fa-check-circle mr-2"></i><span id="toast-msg">Tersalin!</span></div>
-  <nav id="navbar" class="nav-glass fixed top-0 left-0 w-full z-40">
-    <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl flex items-center justify-center bg-blue-600/20 text-blue-400 border border-blue-500/30">
-          <i class="fas fa-server"></i>
-        </div>
-        <span class="product-sans font-bold text-xl tracking-tight text-white">META<span class="text-blue-500 font-medium">Panel API</span></span>
+  <div id="mobile-wall" class="mobile-wall">
+    <div class="login-wall-glow" style="background:var(--accent-red);top:10%;left:20%"></div>
+    <div class="login-wall-glow" style="background:var(--accent-orange);bottom:10%;right:20%"></div>
+    <div class="mobile-wall-inner">
+      <div class="w-16 h-16 rounded-2xl mx-auto mb-6 flex items-center justify-center"
+        style="background:rgba(242, 139, 130, 0.15);border:1px solid rgba(242, 139, 130, 0.25)">
+        <i class="fas fa-desktop text-3xl text-[var(--accent-red)]"></i>
       </div>
-      <div class="hidden lg:flex items-center gap-5 text-sm font-medium">
-        <a href="index.html" class="text-gray-400 hover:text-white transition-colors"><i class="fas fa-home mr-1.5"></i>Home</a>
-        <a href="web.js" class="text-gray-400 hover:text-white transition-colors"><i class="fas fa-brands fa-java mr-1.5"></i>Web.js</a>
-        <a href="#api-reference" class="text-gray-400 hover:text-white transition-colors"><i class="fas fa-code mr-1.5"></i> Referensi API</a>
-        <a href="#live-demo" class="btn-primary text-sm py-2 px-5 rounded-lg shadow-lg">
-          <i class="fas fa-bolt"></i> Live Demo
-        </a>
-      </div>
+      <h1 class="text-xl font-bold mb-2">Desktop Only</h1>
+      <p class="text-[var(--text-secondary)] text-[13px] leading-relaxed">
+        Sistem mendeteksi kamu menggunakan perangkat mobile. Silakan buka <strong>Meta Panel</strong> ini melalui browser Desktop/PC untuk mengakses fitur.
+      </p>
     </div>
-  </nav>
-  <header class="hero-section mt-28 mb-16 relative" id="hero">
-    <div class="max-w-7xl mx-auto px-6 w-full flex flex-col md:flex-row items-center gap-10">
-      <div class="w-full md:w-2/3">
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-xs text-blue-400 mb-5 font-bold tracking-wide">
-          <i class="fas fa-book-open"></i> API DOKUMENTASI RESMI v2.0
+  </div>
+<body class="antialiased">
+  <canvas id="three-bg"></canvas>
+  <div id="toast-container" class="toast-container"></div>
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+  <div id="modal-root"></div>
+  <div id="login-wall" class="login-wall" style="display:none">
+    <div class="login-wall-glow" style="background:var(--accent-blue);top:20%;left:30%"></div>
+    <div class="login-wall-glow" style="background:var(--accent-purple);bottom:20%;right:30%"></div>
+    <div class="login-wall-inner" style="position:relative;z-index:2">
+      <div class="w-16 h-16 rounded-2xl mx-auto mb-6 flex items-center justify-center"
+        style="background:var(--accent-blue-bg);border:1px solid rgba(138,180,248,0.2)">
+        <i class="fas fa-server text-2xl text-[var(--accent-blue)]"></i>
+      </div>
+      <h1 class="text-2xl font-bold mb-2">Meta Panel</h1>
+      <p class="text-[var(--text-secondary)] text-sm mb-2">XAMPP API Dashboard v2.0</p>
+      <p class="text-[var(--text-muted)] text-xs mb-8">Sign in with Google to access all features. Data is saved &
+        synced to Database.</p>
+      <button onclick="doGoogleLogin()" class="btn btn-blue text-sm mx-auto" style="padding:12px 32px">
+        <i class="fab fa-google"></i>Sign in with Google
+      </button>
+      <div id="login-error" class="text-[var(--accent-red)] text-xs mt-4" style="display:none"></div>
+    </div>
+  </div>
+
+  <div class="app-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="p-4 pb-3 flex items-center gap-3 border-b border-[var(--border-color)]">
+        <div
+          class="w-9 h-9 rounded-xl bg-[var(--accent-blue-bg)] flex items-center justify-center border border-[rgba(138,180,248,0.2)]">
+          <img src="icon/icon.png" alt="XAMPP Meta Panel Icon" class="w-6 h-6">
         </div>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold product-sans text-white mb-5 leading-tight tracking-tight">
-          Kontrol XAMPP Service<br>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Via REST API Node.js</span>
-        </h1>
-        <p class="text-lg text-gray-400 mb-8 max-w-xl leading-relaxed">
-          <strong>Meta Panel API</strong> adalah skrip backend untuk menghubungkan UI Panel Web Anda dengan XAMPP Control Panel. Dilengkapi fitur <strong>Auto-Start</strong> dan sistem <strong>Force-Kill (Taskkill)</strong> yang akurat untuk memastikan server benar-benar menyala dan mati.
-        </p>
-        <div class="flex flex-wrap gap-4">
-          <a href="#instalasi" class="btn-primary py-2.5 px-6 rounded-lg font-medium">
-            Mulai Instalasi
-          </a>
-          <a href="#live-demo" class="btn-outline py-2.5 px-6 rounded-lg font-medium group">
-            <i class="fas fa-terminal text-gray-400 group-hover:text-blue-400 transition-colors"></i>Demo
-          </a>
-            <a href="index.html" class="btn-outline py-2.5 px-6 rounded-lg font-medium group">
-            <i class="fas fa-home text-gray-400 group-hover:text-blue-400 transition-colors"></i> Home
-          </a>
+        <div>
+          <div class="font-bold text-[14px]">Meta Panel</div>
+          <div class="text-[10px] text-[var(--text-muted)] font-medium">XAMPP API v2.0</div>
         </div>
       </div>
-      <div class="w-full md:w-1/3 flex justify-center md:justify-end mt-10 md:mt-0">
-        <div class="bg-[#0d1117] border border-[#30363d] rounded-xl p-5 shadow-[0_10px_30px_rgba(0,0,0,0.5)] font-mono text-sm w-full max-w-sm relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-cyan-400"></div>
-          <div class="flex gap-2 mb-4 border-b border-[#30363d] pb-3">
-            <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
-            <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
-            <span class="w-3 h-3 rounded-full bg-[#27c93f]"></span>
+      <nav class="flex-1 py-3 px-2 flex flex-col gap-0.5 overflow-y-auto">
+        <div class="px-4 mb-1.5 text-[9px] font-bold text-[var(--text-muted)] uppercase tracking-[0.15em]">Main</div>
+        <a class="nav-item active" data-section="dashboard" onclick="switchSection('dashboard')"><i
+            class="fas fa-th-large"></i>Dashboard</a>
+        <a class="nav-item" data-section="mysql-terminal" onclick="switchSection('mysql-terminal')"><i
+            class="fas fa-terminal"></i>MySQL Terminal</a>
+        <a class="nav-item" data-section="services" onclick="switchSection('services')"><i
+            class="fas fa-cogs"></i>Service Control</a>
+        <a class="nav-item" data-section="runners" onclick="switchSection('runners')"><i
+            class="fas fa-rocket"></i>Project Runner</a>
+        <a class="nav-item" data-section="linker" onclick="switchSection('linker')"><i class="fas fa-link"></i>Link
+          Notifier</a>
+        <a class="nav-item" data-section="apikeys" onclick="switchSection('apikeys')"><i class="fas fa-key"></i>API
+          Keys</a>
+        <div class="glow-line my-3"></div>
+        <div class="px-4 mb-1.5 text-[9px] font-bold text-[var(--text-muted)] uppercase tracking-[0.15em]">Social</div>
+        <a class="nav-item" data-section="chat" onclick="switchSection('chat')"><i class="fas fa-comments"></i>Public
+          Chat<span id="chat-unread-dot" class="ml-auto unread-dot" style="display:none"></span></a>
+        <div class="glow-line my-3"></div>
+        <div class="px-4 mb-1.5 text-[9px] font-bold text-[var(--text-muted)] uppercase tracking-[0.15em]">Documentation
+        </div>
+        <a class="nav-item" data-section="doc-install" onclick="switchSection('doc-install')"><i
+            class="fas fa-download"></i>Installation</a>
+        <a class="nav-item" data-section="doc-source" onclick="switchSection('doc-source')"><i
+            class="fas fa-server"></i>Rest API</a>
+        <a class="nav-item" data-section="doc-run" onclick="switchSection('doc-run')"><i
+            class="fas fa-play-circle"></i>How to Run</a>
+        <a class="nav-item" data-section="doc-endpoints" onclick="switchSection('doc-endpoints')"><i
+            class="fas fa-network-wired"></i>API Endpoints</a>
+        <a class="nav-item" data-section="doc-fetch" onclick="switchSection('doc-fetch')"><i
+            class="fas fa-laptop-code"></i>Fetch Examples</a>
+        <a class="nav-item" data-section="doc-troubleshoot" onclick="switchSection('doc-troubleshoot')"><i
+            class="fas fa-wrench"></i>Troubleshooting</a>
+        <div class="glow-line my-3"></div>
+        <a class="nav-item" href="http://localhost/phpmyadmin" target="_blank"><i class="fas fa-table"></i>phpMyAdmin<i
+            class="fas fa-external-link-alt text-[9px] ml-auto opacity-40"></i></a>
+      </nav>
+      <div class="p-3 border-t border-[var(--border-color)] space-y-2">
+        <div id="sidebar-user" class="flex items-center gap-2.5 px-1">
+          <div id="sidebar-avatar"
+            class="w-8 h-8 rounded-full bg-[var(--bg-tertiary)] flex items-center justify-center text-[var(--text-muted)] text-xs">
+            <i class="fas fa-user"></i>
           </div>
-          <p class="mb-2 text-gray-400">C:\Users\Admin> <span class="text-white">node web.js</span></p>
-          <p class="text-cyan-400 leading-relaxed">Meta Panel API running on Port 8080</p>
-          <p class="text-yellow-400 leading-relaxed mt-2">[INFO] Auto-Starting Services...</p>
-          <p class="text-[#27c93f] leading-relaxed">[OK] Apache berhasil dihidupkan</p>
-          <p class="text-[#27c93f] leading-relaxed">[OK] MariaDB berhasil dihidupkan</p>
+          <div class="flex-1 min-w-0">
+            <div id="sidebar-username" class="text-[12px] font-semibold text-[var(--text-muted)] truncate">Not signed in
+            </div>
+          </div>
+          <button id="btn-login-sidebar" onclick="doGoogleLogin()" class="btn btn-ghost btn-xs"><i
+              class="fab fa-google text-[10px]"></i>Login</button>
+          <button id="btn-logout-sidebar" onclick="doLogout()" class="btn btn-ghost btn-xs" style="display:none"><i
+              class="fas fa-sign-out-alt text-[10px]"></i></button>
         </div>
-      </div>
-    </div>
-  </header>
-  <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-start gap-10">
-    <aside class="sidebar-desktop w-full lg:w-1/4 shrink-0 py-2 sticky top-24">
-      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-4 shadow-lg">
-        <a href="index.html" class="flex items-center justify-center gap-2 w-full bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white border border-gray-700 py-2.5 rounded-lg font-medium transition-colors mb-5">
-          <i class="fas fa-arrow-left"></i> Kembali Ke Home
-        </a>
-
-        <h4 class="text-gray-100 font-bold mb-3 text-sm uppercase tracking-widest product-sans flex items-center gap-2 px-2">
-          <i class="fas fa-compass text-blue-500"></i> Navigasi Dokumen
-        </h4>
-        <nav id="sidebar-nav" class="flex flex-col gap-1 text-sm font-medium">
-          <a href="#pengenalan" class="nav-item block px-3 py-2.5 text-gray-400 border-l-4 border-transparent rounded-r-lg hover:bg-gray-800 hover:text-white transition-all duration-200">
-            <i class="fas fa-info-circle w-5 text-center mr-2 opacity-70"></i> 1. Pengenalan API
-          </a>
-          <a href="#instalasi" class="nav-item block px-3 py-2.5 text-gray-400 border-l-4 border-transparent rounded-r-lg hover:bg-gray-800 hover:text-white transition-all duration-200">
-            <i class="fas fa-download w-5 text-center mr-2 opacity-70"></i> 2. Kode Source
-          </a>
-          <a href="#menjalankan" class="nav-item block px-3 py-2.5 text-gray-400 border-l-4 border-transparent rounded-r-lg hover:bg-gray-800 hover:text-white transition-all duration-200">
-            <i class="fas fa-terminal w-5 text-center mr-2 opacity-70"></i> 3. Cara Menjalankan
-          </a>
-          <a href="#api-reference" class="nav-item block px-3 py-2.5 text-gray-400 border-l-4 border-transparent rounded-r-lg hover:bg-gray-800 hover:text-white transition-all duration-200">
-            <i class="fas fa-network-wired w-5 text-center mr-2 opacity-70"></i> 4. Endpoints API
-          </a>
-          <a href="#implementasi" class="nav-item block px-3 py-2.5 text-gray-400 border-l-4 border-transparent rounded-r-lg hover:bg-gray-800 hover:text-white transition-all duration-200">
-            <i class="fas fa-laptop-code w-5 text-center mr-2 opacity-70"></i> 5. Contoh Fetch
-          </a>
-          <a href="#troubleshooting" class="nav-item block px-3 py-2.5 text-gray-400 border-l-4 border-transparent rounded-r-lg hover:bg-gray-800 hover:text-white transition-all duration-200">
-            <i class="fas fa-wrench w-5 text-center mr-2 opacity-70"></i> 6. Troubleshooting
-          </a>
-          <div class="h-px w-full bg-gray-800 my-2"></div>
-          <a href="#live-demo" class="nav-item block px-3 py-2.5 border-l-4 border-transparent rounded-r-lg text-blue-400 hover:bg-gray-800 hover:text-blue-300 transition-all duration-200">
-            <i class="fas fa-play-circle w-5 text-center mr-2"></i> 7. Coba Live Demo
-          </a>
-        </nav>
       </div>
     </aside>
-
-    <main class="main-docs w-full lg:w-3/4 docs-content pb-20 pt-2">
-      <section id="pengenalan" class="doc-section">
-        <h2 class="section-title product-sans"><span class="section-number">1</span> Pengenalan Meta Panel API</h2>
-        <div class="mt-4 text-gray-400 leading-relaxed text-base">
-          <p class="mb-4">Skrip <strong>web.js</strong> berfungsi sebagai server lokal (REST API) di Windows Anda. Karena kebijakan keamanan Browser (CORS/Sandbox) tidak mengizinkan website untuk langsung mengeksekusi file <code>.bat</code> di komputer Anda, Node.js hadir sebagai eksekutornya.</p>
-          
-          <div class="bg-[#1e1a0f] border border-[#4d3a12] rounded-xl p-5 mt-6 shadow-md relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-1 h-full bg-yellow-500"></div>
-            <h4 class="font-bold text-yellow-500 mb-2 flex items-center gap-2"><i class="fas fa-bolt"></i> Auto-Start & Taskkill (Force Stop)</h4>
-            <p class="text-sm text-gray-300">Pada versi terbaru ini, file <code>.bat</code> XAMPP tidak lagi digunakan untuk mematikan server karena sering gagal meninggalkan <i>zombie process</i> di background. Skrip ini sekarang secara natif menggunakan perintah <code class="bg-gray-800 px-1.5 py-0.5 rounded text-yellow-400 border border-gray-700">taskkill /F</code> milik Windows agar service benar-benar di-kill secara akurat.</p>
-          </div>
-          <div class="doc-info-box">
-            <p><strong><i class="fas fa-book-reader mr-1"></i> Penjelasan Arsitektur:</strong> Secara teknis, browser Anda berjalan di lingkungan sandbox yang ketat. Ketika Anda menekan tombol "Start Apache" di UI web, browser tidak bisa langsung menyentuh sistem operasi. Skrip <code>web.js</code> bertindak sebagai <strong>jembatan (bridge)</strong>. Browser mengirim permintaan HTTP GET ke <code>localhost:8080</code>, lalu Node.js (yang memiliki akses langsung ke sistem Windows) mengeksekusi perintah <code>.bat</code> atau <code>taskkill</code> melalui modul <code>child_process</code>.</p>
+    <div class="main-content">
+      <header class="top-bar">
+        <div class="flex items-center gap-3">
+          <button onclick="toggleSidebar()"
+            class="lg:hidden w-8 h-8 rounded-lg flex items-center justify-center hover:bg-[var(--bg-hover)] transition-colors text-[var(--text-secondary)]"><i
+              class="fas fa-bars text-sm"></i></button>
+          <div>
+            <h1 id="topbar-title" class="text-[14px] font-semibold">Dashboard</h1>
+            <p id="topbar-subtitle" class="text-[10px] text-[var(--text-muted)]">Monitor & control your XAMPP services
+            </p>
           </div>
         </div>
-      </section>
-      <section id="instalasi" class="doc-section">
-        <h2 class="section-title product-sans"><span class="section-number">2</span> Persiapan & Kode Source</h2>
-        <div class="mt-4 text-gray-400">
-          <h3 class="font-bold text-lg mb-3 text-gray-200">Kode Source <code>web.js</code></h3>
-          <p class="mb-4">Buat file <code>web.js</code> di PC Anda (sebaiknya di dalam folder XAMPP atau folder panel), lalu paste kode server ini ke dalamnya.</p>
-          
-          <div class="code-block">
-            <button class="copy-btn" onclick="copyCode(this)"><i class="far fa-copy mr-1"></i> Salin</button>
-<pre><code><span class="text-pink-400">const</span> { exec } = <span class="text-blue-300">require</span>(<span class="text-green-300">'child_process'</span>);
-<span class="text-pink-400">const</span> http = <span class="text-blue-300">require</span>(<span class="text-green-300">'http'</span>);
-<span class="text-pink-400">const</span> XAMPP_PATH = <span class="text-green-300">'C:\\xampp'</span>;
-
-<span class="text-gray-500">// Fungsi eksekusi background (Auto-Start)</span>
-<span class="text-pink-400">const</span> <span class="text-blue-400">runCommand</span> = (command, msg) => {
-    exec(`cmd /c "${command}"`, (err) => {
-        if (err) console.error(`\x1b[31m[ERROR]\x1b[0m ${err.message}`);
-        else console.log(`\x1b[32m[OK]\x1b[0m ${msg}`);
-    });
-};
-
-<span class="text-pink-400">const</span> server = http.<span class="text-blue-400">createServer</span>((req, res) => {
-    res.<span class="text-blue-400">setHeader</span>(<span class="text-green-300">'Access-Control-Allow-Origin'</span>, <span class="text-green-300">'*'</span>);
-    res.<span class="text-blue-400">setHeader</span>(<span class="text-green-300">'Content-Type'</span>, <span class="text-green-300">'application/json'</span>);
-
-    <span class="text-pink-400">const</span> <span class="text-blue-400">executeStart</span> = (command, msg) => {
-        exec(`cmd /c "${command}"`, (err) => {
-            if (err) res.end(JSON.stringify({ success: false, message: err.message }));
-            else res.end(JSON.stringify({ success: true, message: msg }));
-        });
-    };
-
-    <span class="text-pink-400">const</span> <span class="text-blue-400">executeStop</span> = (command, msg) => {
-        exec(command, () => {
-            res.end(JSON.stringify({ success: true, message: msg }));
-        });
-    };
-
-    if (req.url === <span class="text-green-300">'/api/start-apache'</span>) executeStart(`${XAMPP_PATH}\\apache_start.bat`, <span class="text-green-300">"Apache Started"</span>);
-    else if (req.url === <span class="text-green-300">'/api/stop-apache'</span>) executeStop(`taskkill /F /IM httpd.exe /T`, <span class="text-green-300">"Apache Force Stopped"</span>);
-    else if (req.url === <span class="text-green-300">'/api/start-mysql'</span>) executeStart(`${XAMPP_PATH}\\mysql_start.bat`, <span class="text-green-300">"MySQL Started"</span>);
-    else if (req.url === <span class="text-green-300">'/api/stop-mysql'</span>) executeStop(`taskkill /F /IM mysqld.exe /T`, <span class="text-green-300">"MySQL Force Stopped"</span>);
-    else res.end(JSON.stringify({ error: <span class="text-green-300">"Not Found"</span> }));
-});
-
-<span class="text-pink-400">const</span> PORT = <span class="text-orange-400">8080</span>;
-
-server.<span class="text-blue-400">listen</span>(PORT, () => {
-    console.log(`\x1b[36m%s\x1b[0m`, `=================================================`);
-    console.log(`\x1b[36m%s\x1b[0m`, `Meta Panel API running on http://localhost:${PORT}`);
-    console.log(`\x1b[36m%s\x1b[0m`, `To FORCE STOP XAMPP and quit, press Ctrl+C`);
-    console.log(`\x1b[36m%s\x1b[0m`, `=================================================`);
-
-    console.log(`\n\x1b[33m[INFO]\x1b[0m Memulai Apache & MariaDB secara otomatis...`);
-    runCommand(`${XAMPP_PATH}\\apache_start.bat`, <span class="text-green-300">"Apache berhasil dihidupkan"</span>);
-    runCommand(`${XAMPP_PATH}\\mysql_start.bat`, <span class="text-green-300">"MariaDB berhasil dihidupkan"</span>);
-});
-
-<span class="text-pink-400">const</span> <span class="text-blue-400">shutdown</span> = () => {
-    console.log(`\n\n\x1b[33m[INFO]\x1b[0m Mematikan Apache & MariaDB (Force Kill)...`);
-    exec(`taskkill /F /IM httpd.exe /T`, () => {
-        console.log(`\x1b[31m[STOP]\x1b[0m Proses Apache (httpd.exe) dibunuh.`);
-        exec(`taskkill /F /IM mysqld.exe /T`, () => {
-            console.log(`\x1b[31m[STOP]\x1b[0m Proses MariaDB (mysqld.exe) dibunuh.`);
-            process.exit(0);
-        });
-    });
-};
-
-process.on(<span class="text-green-300">'SIGINT'</span>, shutdown);  
-process.on(<span class="text-green-300">'SIGTERM'</span>, shutdown);</code></pre>
+        <div class="flex items-center gap-2">
+          <div id="topbar-connection"
+            class="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full bg-[var(--bg-tertiary)] border border-[var(--border-color)] text-[11px]">
+            <span class="status-dot" id="conn-dot" style="width:5px;height:5px;background:var(--text-muted)"></span>
+            <span class="text-[var(--text-muted)]" id="conn-text">Not connected</span>
           </div>
-          <div class="doc-info-box">
-            <p><strong><i class="fas fa-layer-group mr-1"></i> Struktur Logika Kode:</strong> Kode di atas terdiri dari 3 bagian utama: <br>1. <strong>Inisialisasi & Variabel:</strong> Memuat modul <code>child_process</code> untuk menjalankan perintah terminal Windows dan <code>http</code> untuk membuat server. <br>2. <strong>Routing Endpoint:</strong> Skrip menganalisis URL yang diminta (<code>req.url</code>) dan mengarahkannya ke fungsi <code>executeStart</code> atau <code>executeStop</code>. <br>3. <strong>Lifecycle Events:</strong> Saat server pertama kali dijalankan (<code>listen</code>), ia langsung menjalankan Apache dan MySQL di background. Saat dihentikan (<code>SIGINT/Ctrl+C</code>), ia menjalankan fungsi <code>shutdown()</code> untuk memastikan tidak ada proses zombie tertinggal.</p>
+          <div id="topbar-firebase"
+            class="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full bg-[var(--bg-tertiary)] border border-[var(--border-color)] text-[11px]">
+            <span class="status-dot" id="fb-dot" style="width:5px;height:5px;background:var(--text-muted)"></span>
+            <span class="text-[var(--text-muted)]" id="fb-text">Database: --</span>
+          </div>
+          <a href="index.html" class="btn btn-ghost btn-sm"><i class="fas fa-home"></i><span
+              class="hidden sm:inline">Back To Home</span></a>
+        </div>
+      </header>
+
+      <div class="sections-container">
+        <div id="section-dashboard" class="section-panel active">
+          <div class="grid grid-cols-2 xl:grid-cols-4 gap-4 mb-7">
+            <div class="card p-4">
+              <div class="flex items-center justify-between mb-2"><span
+                  class="text-[var(--text-muted)] text-[11px] font-medium">Apache</span>
+                <div class="w-8 h-8 rounded-lg bg-[var(--accent-blue-bg)] flex items-center justify-center"><i
+                    class="fas fa-feather-alt text-[var(--accent-blue)] text-xs"></i></div>
+              </div>
+              <div id="dash-apache-status" class="status-badge status-idle mb-1.5"><span class="status-dot"></span>Idle
+              </div>
+              <div class="text-[10px] text-[var(--text-muted)]">Port 80/443</div>
+            </div>
+            <div class="card p-4">
+              <div class="flex items-center justify-between mb-2"><span
+                  class="text-[var(--text-muted)] text-[11px] font-medium">MariaDB</span>
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center"
+                  style="background:rgba(120,217,236,0.08)"><i
+                    class="fas fa-database text-[var(--accent-cyan)] text-xs"></i></div>
+              </div>
+              <div id="dash-mysql-status" class="status-badge status-idle mb-1.5"><span class="status-dot"></span>Idle
+              </div>
+              <div class="text-[10px] text-[var(--text-muted)]">Port 3306</div>
+            </div>
+            <div class="card p-4">
+              <div class="flex items-center justify-between mb-2"><span
+                  class="text-[var(--text-muted)] text-[11px] font-medium">Runners</span>
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center"
+                  style="background:rgba(244,162,97,0.08)"><i
+                    class="fas fa-rocket text-[var(--accent-orange)] text-xs"></i></div>
+              </div>
+              <div id="dash-runners-count" class="stat-number text-[var(--text-primary)] text-[22px]">0</div>
+              <div class="text-[10px] text-[var(--text-muted)] mt-1">Active</div>
+            </div>
+            <div class="card p-4">
+              <div class="flex items-center justify-between mb-2"><span
+                  class="text-[var(--text-muted)] text-[11px] font-medium">Total Actions</span>
+                <div class="w-8 h-8 rounded-lg bg-[var(--accent-yellow-bg)] flex items-center justify-center"><i
+                    class="fas fa-chart-bar text-[var(--accent-yellow)] text-xs"></i></div>
+              </div>
+              <div class="stat-number text-[var(--text-primary)] text-[22px]" id="dash-total-actions">0</div>
+              <div class="text-[10px] text-[var(--text-muted)] mt-1">This session</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-7">
+            <div id="dash-card-apache" class="card p-5">
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-3">
+                  <div id="dash-icon-apache"
+                    class="w-10 h-10 rounded-xl bg-[var(--bg-tertiary)] flex items-center justify-center text-[var(--text-muted)] transition-all">
+                    <i class="fas fa-feather-alt"></i>
+                  </div>
+                  <div>
+                    <div class="font-bold text-[14px]">Apache HTTP Server</div>
+                    <div class="text-[11px] text-[var(--text-muted)]">Local web server</div>
+                  </div>
+                </div>
+                <div id="dash-badge-apache" class="status-badge status-idle"><span class="status-dot"></span>Idle</div>
+              </div>
+              <div class="flex gap-2"><button onclick="controlService('/api/start-apache','apache','start')"
+                  class="btn btn-green btn-sm flex-1 justify-center"><i
+                    class="fas fa-play text-[9px]"></i>Start</button><button
+                  onclick="controlService('/api/stop-apache','apache','stop')"
+                  class="btn btn-red btn-sm flex-1 justify-center"><i class="fas fa-stop text-[9px]"></i>Stop</button>
+              </div>
+            </div>
+            <div id="dash-card-mysql" class="card p-5">
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-3">
+                  <div id="dash-icon-mysql"
+                    class="w-10 h-10 rounded-xl bg-[var(--bg-tertiary)] flex items-center justify-center text-[var(--text-muted)] transition-all">
+                    <i class="fas fa-database"></i>
+                  </div>
+                  <div>
+                    <div class="font-bold text-[14px]">MariaDB Database</div>
+                    <div class="text-[11px] text-[var(--text-muted)]">Database engine</div>
+                  </div>
+                </div>
+                <div id="dash-badge-mysql" class="status-badge status-idle"><span class="status-dot"></span>Idle</div>
+              </div>
+              <div class="flex gap-2"><button onclick="controlService('/api/start-mysql','mysql','start')"
+                  class="btn btn-green btn-sm flex-1 justify-center"><i
+                    class="fas fa-play text-[9px]"></i>Start</button><button
+                  onclick="controlService('/api/stop-mysql','mysql','stop')"
+                  class="btn btn-red btn-sm flex-1 justify-center"><i class="fas fa-stop text-[9px]"></i>Stop</button>
+              </div>
+            </div>
+          </div>
+          <div class="card p-5">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-semibold text-[14px] flex items-center gap-2"><i
+                  class="fas fa-terminal text-[var(--accent-blue)]"></i>Activity Log</h3><button
+                onclick="clearLog('dash-log-body')" class="btn btn-ghost btn-sm"><i
+                  class="fas fa-trash-alt text-[9px]"></i>Clear</button>
+            </div>
+            <div class="terminal">
+              <div class="terminal-body" id="dash-log-body" style="min-height:160px;max-height:240px">
+                <div style="color:var(--text-muted)">[ System ] Ready to receive commands...</div>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-      <section id="menjalankan" class="doc-section">
-        <h2 class="section-title product-sans"><span class="section-number">3</span> Tata Cara Menjalankan Server</h2>
-        <div class="mt-4 text-gray-400">
-          <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 shadow-sm space-y-6">
-            <div class="flex items-start gap-4">
-              <div class="bg-blue-600/20 text-blue-400 font-bold rounded-xl w-10 h-10 flex items-center justify-center shrink-0 border border-blue-500/20 shadow-inner">1</div>
-              <div class="w-full">
-                <strong class="text-gray-200 block mb-1 text-lg">Eksekusi Skrip</strong>
-                <p class="text-sm mb-3">Arahkan terminal Anda ke folder tempat file disimpan, lalu jalankan node:</p>
-                <div class="bg-[#0d1117] border border-gray-700 text-green-400 font-mono text-sm p-3 rounded-xl flex justify-between items-center w-full">
-                  <span>> node web.js</span>
-                  <button onclick="navigator.clipboard.writeText('node web.js'); alert('Disalin!');" class="text-gray-500 hover:text-white transition-colors p-1"><i class="far fa-copy"></i></button>
+        <div id="section-mysql-terminal" class="section-panel">
+          <div class="grid grid-cols-1 xl:grid-cols-3 gap-5">
+            <div class="xl:col-span-2">
+              <div class="card overflow-hidden">
+                <div class="terminal-bar">
+                  <div class="terminal-dot" style="background:#ff5f57"></div>
+                  <div class="terminal-dot" style="background:#ffbd2e"></div>
+                  <div class="terminal-dot" style="background:#27c93f"></div>
+                  <span class="ml-2 text-[12px] text-[var(--text-secondary)] font-medium">MariaDB Terminal —
+                    root@localhost</span>
+                  <div class="ml-auto flex gap-1.5">
+                    <button onclick="clearTermBody('mysql-term-body')" class="btn btn-ghost btn-sm text-[10px]"><i
+                        class="fas fa-eraser"></i>Clear</button>
+                  </div>
+                </div>
+                <div class="terminal-body" id="mysql-term-body" style="min-height:380px;max-height:500px">
+                  <div style="color:var(--accent-green)">-- Meta Panel MySQL Terminal v3.0 (FIXED)</div>
+                  <div style="color:var(--text-muted)">-- FIX: Queries auto-prefixed with USE &lt;db&gt; if database
+                    selected</div>
+                  <div style="color:var(--text-muted)">-- Use "use db_name" to select database</div>
+                  <div style="color:var(--text-muted)">-- Use "use none" to return without database</div>
+                  <div style="color:var(--text-muted)">-- History navigation: Arrow Up / Arrow Down</div>
+                  <div style="color:var(--text-muted)">-----------------------------------------------------------</div>
+                </div>
+                <div class="terminal-input-line">
+                  <span class="terminal-prompt" id="mysql-prompt">MariaDB [(none)]&gt;</span>
+                  <input type="text" class="terminal-input" id="mysql-input" placeholder="Enter SQL query..."
+                    autocomplete="off" spellcheck="false">
                 </div>
               </div>
             </div>
-            
-            <div class="h-px w-full bg-gray-800"></div>
-
-            <div class="flex items-start gap-4">
-              <div class="bg-red-500/20 text-red-400 font-bold rounded-xl w-10 h-10 flex items-center justify-center shrink-0 border border-red-500/20"><i class="fas fa-power-off"></i></div>
-              <div>
-                <strong class="text-gray-200 block mb-1 text-lg">Mematikan Server (Force-Stop)</strong>
-                <p class="text-sm">Klik di dalam jendela terminal, lalu tekan kombinasi keyboard <strong class="text-white bg-gray-800 px-2 py-0.5 rounded border border-gray-700">Ctrl + C</strong>. Skrip akan mengirim perintah Taskkill untuk membunuh semua proses XAMPP secara instan sebelum keluar.</p>
+            <div class="space-y-4">
+              <div class="card p-4">
+                <h3 class="font-semibold text-[13px] mb-3 flex items-center gap-2"><i
+                    class="fas fa-bolt text-[var(--accent-yellow)]"></i>Quick Queries</h3>
+                <div class="flex flex-col gap-1.5" id="quick-queries">
+                  <button onclick="execQuick('SHOW DATABASES;')"
+                    class="btn btn-ghost btn-sm justify-start text-[11px]"><i
+                      class="fas fa-database w-4 text-center text-[var(--accent-cyan)]"></i>SHOW DATABASES;</button>
+                  <button onclick="execQuick('SHOW TABLES;')" class="btn btn-ghost btn-sm justify-start text-[11px]"><i
+                      class="fas fa-table w-4 text-center text-[var(--accent-blue)]"></i>SHOW TABLES;</button>
+                  <button onclick="execQuick('SELECT VERSION();')"
+                    class="btn btn-ghost btn-sm justify-start text-[11px]"><i
+                      class="fas fa-info-circle w-4 text-center text-[var(--accent-purple)]"></i>SELECT
+                    VERSION();</button>
+                  <button onclick="execQuick('SELECT USER();')"
+                    class="btn btn-ghost btn-sm justify-start text-[11px]"><i
+                      class="fas fa-user w-4 text-center text-[var(--accent-green)]"></i>SELECT USER();</button>
+                  <button onclick="execQuick('SHOW PROCESSLIST;')"
+                    class="btn btn-ghost btn-sm justify-start text-[11px]"><i
+                      class="fas fa-list w-4 text-center text-[var(--accent-yellow)]"></i>SHOW PROCESSLIST;</button>
+                  <button onclick="execQuick('SHOW STATUS;')" class="btn btn-ghost btn-sm justify-start text-[11px]"><i
+                      class="fas fa-heartbeat w-4 text-center text-[var(--accent-red)]"></i>SHOW STATUS;</button>
+                </div>
+              </div>
+              <div class="card p-4">
+                <h3 class="font-semibold text-[13px] mb-2 flex items-center gap-2"><i
+                    class="fas fa-history text-[var(--accent-blue)]"></i>Query History</h3>
+                <div id="mysql-history"
+                  class="space-y-0.5 max-h-[180px] overflow-y-auto text-[11px] text-[var(--text-muted)]">
+                  <div class="opacity-50">No queries yet...</div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="doc-info-box">
-            <p><strong><i class="fas fa-shield-alt mr-1"></i> Mengapa Harus Ctrl+C?</strong> Jika Anda langsung menutup jendela terminal dengan mengklik tombol 'X', event <code>SIGINT</code> tidak akan tertangkap oleh Node.js. Akibatnya, fungsi <code>shutdown()</code> tidak terpicu, dan proses Apache/MariaDB akan tetap berjalan di background sebagai zombie process. Selalu gunakan <strong>Ctrl+C</strong> untuk memastikan pembersihan proses yang aman.</p>
+        </div>
+        <div id="section-services" class="section-panel">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-7">
+            <div id="svc-card-apache" class="card p-6">
+              <div class="flex items-center gap-4 mb-5">
+                <div id="svc-icon-apache"
+                  class="w-14 h-14 rounded-2xl bg-[var(--bg-tertiary)] flex items-center justify-center text-xl text-[var(--text-muted)] transition-all">
+                  <i class="fas fa-feather-alt"></i>
+                </div>
+                <div class="flex-1">
+                  <h2 class="text-lg font-bold">Apache HTTP Server</h2>
+                  <p class="text-[12px] text-[var(--text-muted)] mt-0.5">Local web server — port 80 & 443</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-between mb-4">
+                <div id="svc-badge-apache" class="status-badge status-idle"><span class="status-dot"></span>Idle</div>
+                <span class="text-[11px] text-[var(--text-muted)] font-mono">httpd.exe</span>
+              </div>
+              <div class="flex gap-2"><button onclick="controlService('/api/start-apache','apache','start')"
+                  class="btn btn-green flex-1 justify-center"><i class="fas fa-play"></i>Start Apache</button><button
+                  onclick="controlService('/api/stop-apache','apache','stop')"
+                  class="btn btn-red flex-1 justify-center"><i class="fas fa-stop"></i>Stop Apache</button></div>
+            </div>
+            <div id="svc-card-mysql" class="card p-6">
+              <div class="flex items-center gap-4 mb-5">
+                <div id="svc-icon-mysql"
+                  class="w-14 h-14 rounded-2xl bg-[var(--bg-tertiary)] flex items-center justify-center text-xl text-[var(--text-muted)] transition-all">
+                  <i class="fas fa-database"></i>
+                </div>
+                <div class="flex-1">
+                  <h2 class="text-lg font-bold">MariaDB Database</h2>
+                  <p class="text-[12px] text-[var(--text-muted)] mt-0.5">SQL database engine — port 3306</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-between mb-4">
+                <div id="svc-badge-mysql" class="status-badge status-idle"><span class="status-dot"></span>Idle</div>
+                <span class="text-[11px] text-[var(--text-muted)] font-mono">mysqld.exe</span>
+              </div>
+              <div class="flex gap-2"><button onclick="controlService('/api/start-mysql','mysql','start')"
+                  class="btn btn-green flex-1 justify-center"><i class="fas fa-play"></i>Start MariaDB</button><button
+                  onclick="controlService('/api/stop-mysql','mysql','stop')"
+                  class="btn btn-red flex-1 justify-center"><i class="fas fa-stop"></i>Stop MariaDB</button></div>
+            </div>
+          </div>
+          <div class="card p-5">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-semibold text-[14px] flex items-center gap-2"><i
+                  class="fas fa-terminal text-[var(--accent-blue)]"></i>Console Output</h3><button
+                onclick="clearLog('svc-log-body')" class="btn btn-ghost btn-sm"><i
+                  class="fas fa-trash-alt text-[9px]"></i>Clear</button>
+            </div>
+            <div class="terminal">
+              <div class="terminal-body" id="svc-log-body" style="min-height:180px;max-height:280px">
+                <div style="color:var(--text-muted)">[ System ] Ready to receive service commands...</div>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-      <section id="api-reference" class="doc-section">
-        <h2 class="section-title product-sans"><span class="section-number">4</span> Referensi API (Endpoints)</h2>
-        <div class="mt-4 text-gray-400">
-          <div class="overflow-x-auto border border-gray-800 rounded-2xl shadow-lg">
-            <table class="w-full text-sm text-left text-gray-400">
-              <thead class="bg-gray-800 text-gray-300 font-bold uppercase tracking-wide border-b border-gray-700">
-                <tr>
-                  <th class="px-5 py-4">Method</th>
-                  <th class="px-5 py-4">Endpoint</th>
-                  <th class="px-5 py-4">Aksi Eksekusi</th>
+        <div id="section-runners" class="section-panel">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <h2 class="text-xl font-bold">Project Runner</h2>
+              <p class="text-[var(--text-secondary)] text-[13px] mt-0.5">Run Laravel & PHP projects from your browser.
+                Data is auto-saved.</p>
+            </div><button onclick="openRunnerModal()" class="btn btn-blue"><i class="fas fa-plus"></i>New
+              Project</button>
+          </div>
+          <div id="runners-list" class="space-y-4 mb-6">
+            <div class="card p-8 text-center"><i class="fas fa-rocket text-3xl text-[var(--text-muted)] mb-3"></i>
+              <p class="text-[var(--text-muted)] text-[14px]">No projects running yet</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-linker" class="section-panel">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <h2 class="text-xl font-bold">Link Notifier</h2>
+              <p class="text-[var(--text-secondary)] text-[13px] mt-0.5">Save important links & paths — synced to
+                Database</p>
+            </div><button onclick="openLinkerModal()" class="btn btn-blue"><i class="fas fa-plus"></i>Add Link</button>
+          </div>
+          <div class="flex gap-2 mb-5 flex-wrap"><button class="tab-btn active"
+              onclick="filterLinks('all',this)">All</button><button class="tab-btn"
+              onclick="filterLinks('project',this)"><i class="fas fa-folder mr-1"></i>Project</button><button
+              class="tab-btn" onclick="filterLinks('api',this)"><i class="fas fa-plug mr-1"></i>API</button><button
+              class="tab-btn" onclick="filterLinks('docs',this)"><i class="fas fa-book mr-1"></i>Docs</button><button
+              class="tab-btn" onclick="filterLinks('tool',this)"><i class="fas fa-wrench mr-1"></i>Tools</button><button
+              class="tab-btn" onclick="filterLinks('other',this)"><i class="fas fa-ellipsis-h mr-1"></i>Other</button>
+          </div>
+          <div id="links-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="card p-6 text-center col-span-full"><i
+                class="fas fa-link text-3xl text-[var(--text-muted)] mb-3"></i>
+              <p class="text-[var(--text-muted)] text-[14px]">No links saved yet</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-apikeys" class="section-panel">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <h2 class="text-xl font-bold">API Key Management</h2>
+              <p class="text-[var(--text-secondary)] text-[13px] mt-0.5">Generate & manage API keys to secure your
+                web.js</p>
+            </div><button onclick="generateApiKey()" class="btn btn-blue"><i class="fas fa-plus"></i>Generate New
+              Key</button>
+          </div>
+          <div class="info-box info-box-blue mb-5 text-[13px]"><strong><i class="fas fa-shield-alt mr-1"></i>How it
+              works:</strong> Each API key is generated for your user account. Add the key to your <code
+              style="color:var(--accent-blue)">web.js</code> so only your Meta Panel can access the API. Keys are
+            auto-saved and validated per request.</div>
+          <div class="card p-5 mb-5">
+            <h3 class="font-semibold text-[14px] mb-3 flex items-center gap-2"><i
+                class="fas fa-code text-[var(--accent-green)]"></i>Implementation in web.js</h3>
+            <div class="code-block"><button class="code-copy-btn" onclick="copyCode(this)"><i
+                  class="far fa-copy mr-1"></i>Copy</button>
+              <pre><span style="color:var(--text-muted)">// Add this at the top of web.js after const http = require('http')</span>
+<span style="color:#c58af9">const</span> VALID_API_KEYS = <span style="color:#c58af9">new</span> Set([
+  <span style="color:#81c995" id="webjs-code-keys">/* paste key here */</span>
+]);
+
+<span style="color:var(--text-muted)">// Inside createServer, add validation:</span>
+<span style="color:#c58af9">const</span> reqKey = req.headers[<span style="color:#81c995">'x-api-key'</span>];
+<span style="color:#c58af9">if</span> (!VALID_API_KEYS.has(reqKey)) {
+  res.writeHead(<span style="color:#fdd663">401</span>, {<span style="color:#81c995">'Content-Type'</span>: <span style="color:#81c995">'application/json'</span>});
+  res.end(JSON.stringify({error:<span style="color:#81c995">'Invalid API key'</span>}));
+  <span style="color:#c58af9">return</span>;
+}</pre>
+            </div>
+          </div>
+          <div class="info-box info-box-yellow mb-5 text-[12px]"><strong><i
+                class="fas fa-exclamation-triangle mr-1"></i>Important:</strong> After adding the key to web.js, restart
+            the server with <code>node web.js</code>. Meta Panel will automatically send the <code>X-API-Key</code>
+            header on every request.</div>
+          <div id="apikeys-list" class="space-y-3">
+            <div class="card p-8 text-center"><i class="fas fa-key text-3xl text-[var(--text-muted)] mb-3"></i>
+              <p class="text-[var(--text-muted)] text-[14px]">No API keys yet</p>
+              <p class="text-[var(--text-muted)] text-[12px] mt-1">Click "Generate New Key" to create one</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-chat" class="section-panel">
+          <div class="flex items-center justify-between mb-5">
+            <div>
+              <h2 class="text-xl font-bold">Public Chat</h2>
+              <p class="text-[var(--text-secondary)] text-[13px] mt-0.5">Global chat room — visible to all users</p>
+            </div>
+            <div id="chat-online-count" class="text-[11px] text-[var(--text-muted)] flex items-center gap-1.5"><span
+                class="status-dot"
+                style="width:6px;height:6px;background:var(--accent-green);box-shadow:0 0 6px rgba(129,201,149,0.6)"></span>Online
+            </div>
+          </div>
+          <div id="chat-main" style="display:none">
+            <div class="card overflow-hidden" style="height: calc(100vh - 220px); display:flex; flex-direction:column;">
+              <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-3"
+                style="background:var(--bg-primary);min-height:0">
+                <div class="text-center text-[12px] text-[var(--text-muted)] py-4">Loading messages...</div>
+              </div>
+              <div class="p-3 border-t border-[var(--border-color)] flex gap-2" style="background:var(--bg-secondary)">
+                <input type="text" id="chat-input" class="input-field" placeholder="Type a message..." style="flex:1"
+                  maxlength="500" onkeydown="if(event.key==='Enter')sendChat()">
+                <button onclick="sendChat()" class="btn btn-blue"><i class="fas fa-paper-plane"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="section-doc-install" class="section-panel">
+          <h2 class="text-xl font-bold mb-1">Installation & Setup</h2>
+          <p class="text-[var(--text-secondary)] text-[13px] mb-7">Steps to prepare your environment before using Meta
+            Panel API.</p>
+          <div class="space-y-5">
+            <div class="card p-5">
+              <div class="flex items-center gap-3 mb-3">
+                <div
+                  class="w-8 h-8 rounded-lg bg-[var(--accent-blue-bg)] flex items-center justify-center text-[var(--accent-blue)] font-bold text-xs">
+                  1</div>
+                <h3 class="font-semibold text-[15px]">Install XAMPP</h3>
+              </div>
+              <p class="text-[var(--text-secondary)] text-[13px] leading-relaxed mb-3">Download XAMPP from Apache
+                Friends. Make sure <strong class="text-[var(--text-primary)]">Apache</strong> and <strong
+                  class="text-[var(--text-primary)]">MariaDB</strong> are installed.</p>
+              <div class="info-box info-box-blue text-[12px]"><strong>Path Note:</strong> This tutorial assumes XAMPP is
+                in <code>C:\xampp</code>. Adjust <code>XAMPP_PATH</code> if different.</div>
+            </div>
+            <div class="card p-5">
+              <div class="flex items-center gap-3 mb-3">
+                <div
+                  class="w-8 h-8 rounded-lg bg-[var(--accent-blue-bg)] flex items-center justify-center text-[var(--accent-blue)] font-bold text-xs">
+                  2</div>
+                <h3 class="font-semibold text-[15px]">Install Node.js</h3>
+              </div>
+              <p class="text-[var(--text-secondary)] text-[13px] leading-relaxed mb-3">Download Node.js LTS from <a
+                  href="https://nodejs.org" target="_blank"
+                  class="text-[var(--accent-blue)] underline underline-offset-2">nodejs.org</a>.</p>
+              <div class="code-block"><button class="code-copy-btn" onclick="copyCode(this)"><i
+                    class="far fa-copy mr-1"></i>Copy</button>
+                <pre>node --version
+npm --version</pre>
+              </div>
+            </div>
+            <div class="card p-5">
+              <div class="flex items-center gap-3 mb-3">
+                <div
+                  class="w-8 h-8 rounded-lg bg-[var(--accent-blue-bg)] flex items-center justify-center text-[var(--accent-blue)] font-bold text-xs">
+                  3</div>
+                <h3 class="font-semibold text-[15px]">Create web.js File</h3>
+              </div>
+              <p class="text-[var(--text-secondary)] text-[13px] leading-relaxed">Create a working folder, create a
+                <code>web.js</code> file, and copy the code from the <strong
+                  class="text-[var(--text-primary)] cursor-pointer hover:text-[var(--accent-blue)]"
+                  onclick="switchSection('doc-source')">Source Code</strong> page.
+              </p>
+            </div>
+            <div class="card p-5">
+              <div class="flex items-center gap-3 mb-3">
+                <div
+                  class="w-8 h-8 rounded-lg bg-[var(--accent-green-bg)] flex items-center justify-center text-[var(--accent-green)] font-bold text-xs">
+                  4</div>
+                <h3 class="font-semibold text-[15px]">Verify</h3>
+              </div>
+              <p class="text-[var(--text-secondary)] text-[13px]">After running <code>node web.js</code>, open
+                <code>http://localhost:8080/api/start-apache</code>. If you see JSON output, installation is successful.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="section-doc-source" class="section-panel">
+          <h2 class="text-xl font-bold mb-1">web.js Source Code</h2>
+          <p class="text-[var(--text-secondary)] text-[13px] mb-5">Copy this entire code into your <code>web.js</code>
+            file.</p>
+          <div class="info-box info-box-yellow mb-5 text-[13px]"><strong><i
+                class="fas fa-exclamation-triangle mr-1"></i>Important:</strong> Adjust <code>XAMPP_PATH</code> to match
+            your XAMPP installation location.</div>
+          <div class="code-block"><button class="code-copy-btn" onclick="copyCode(this)"><i
+                class="far fa-copy mr-1"></i>Copy</button>
+            <pre><span style="color:#c58af9">const</span> { exec } = <span style="color:#8ab4f8">require</span>(<span style="color:#81c995">'child_process'</span>);
+<span style="color:#c58af9">const</span> http = <span style="color:#8ab4f8">require</span>(<span style="color:#81c995">'http'</span>);
+<span style="color:#c58af9">const</span> XAMPP_PATH = <span style="color:#81c995">'C:\\xampp'</span>;
+
+<span style="color:#c58af9">const</span> <span style="color:#78d9ec">runBg</span> = (cmd, msg) =&gt; {
+  exec(<span style="color:#81c995">`cmd /c "${cmd}"`</span>, (err) =&gt; {
+    if (err) console.error(<span style="color:#f28b82">`[ERROR] ${err.message}`</span>);
+    else console.log(<span style="color:#81c995">`[OK] ${msg}`</span>);
+  });
+};
+
+<span style="color:#c58af9">const</span> <span style="color:#78d9ec">execStart</span> = (cmd, msg, res) =&gt; {
+  exec(<span style="color:#81c995">`cmd /c "${cmd}"`</span>, (err) =&gt; {
+    if (err) res.end(JSON.stringify({ success: false, message: err.message }));
+    else res.end(JSON.stringify({ success: true, message: msg }));
+  });
+};
+
+<span style="color:#c58af9">const</span> <span style="color:#78d9ec">execStop</span> = (cmd, msg, res) =&gt; {
+  exec(cmd, () =&gt; res.end(JSON.stringify({ success: true, message: msg })));
+};
+
+<span style="color:#c58af9">const</span> <span style="color:#78d9ec">execStream</span> = (cmd, res) =&gt; {
+  <span style="color:#c58af9">const</span> child = exec(cmd, { maxBuffer: 50*1024*1024 });
+  res.setHeader(<span style="color:#81c995">'Content-Type'</span>, <span style="color:#81c995">'text/plain; charset=utf-8'</span>);
+  res.setHeader(<span style="color:#81c995">'Transfer-Encoding'</span>, <span style="color:#81c995">'chunked'</span>);
+  child.stdout.on(<span style="color:#81c995">'data'</span>, (d) =&gt; res.write(d));
+  child.stderr.on(<span style="color:#81c995">'data'</span>, (d) =&gt; res.write(d));
+  child.on(<span style="color:#81c995">'close'</span>, () =&gt; res.end());
+  child.on(<span style="color:#81c995">'error'</span>, (e) =&gt; { res.write(<span style="color:#81c995">'Error: '</span>+e.message); res.end(); });
+  <span style="color:#c58af9">return</span> child;
+};
+
+<span style="color:#c58af9">const</span> server = http.<span style="color:#78d9ec">createServer</span>((req, res) =&gt; {
+  res.setHeader(<span style="color:#81c995">'Access-Control-Allow-Origin'</span>, <span style="color:#81c995">'*'</span>);
+  res.setHeader(<span style="color:#81c995">'Access-Control-Allow-Headers'</span>, <span style="color:#81c995">'*'</span>);
+  <span style="color:#c58af9">if</span> (req.method === <span style="color:#81c995">'OPTIONS'</span>) { res.writeHead(200); res.end(); <span style="color:#c58af9">return</span>; }
+  <span style="color:#c58af9">const</span> url = req.url;
+
+  <span style="color:#c58af9">if</span> (url === <span style="color:#81c995">'/api/start-apache'</span>)  execStart(<span style="color:#81c995">`${XAMPP_PATH}\\apache_start.bat`</span>, <span style="color:#81c995">'Apache Started'</span>, res);
+  <span style="color:#c58af9">else if</span> (url === <span style="color:#81c995">'/api/stop-apache'</span>)   execStop(<span style="color:#81c995">'taskkill /F /IM httpd.exe /T'</span>, <span style="color:#81c995">'Apache Force Stopped'</span>, res);
+  <span style="color:#c58af9">else if</span> (url === <span style="color:#81c995">'/api/start-mysql'</span>)    execStart(<span style="color:#81c995">`${XAMPP_PATH}\\mysql_start.bat`</span>, <span style="color:#81c995">'MySQL Started'</span>, res);
+  <span style="color:#c58af9">else if</span> (url === <span style="color:#81c995">'/api/stop-mysql'</span>)     execStop(<span style="color:#81c995">'taskkill /F /IM mysqld.exe /T'</span>, <span style="color:#81c995">'MySQL Force Stopped'</span>, res);
+
+  <span style="color:#c58af9">else if</span> (url.startsWith(<span style="color:#81c995">'/api/mysql-query?'</span>)) {
+    <span style="color:#c58af9">let</span> q = decodeURIComponent(url.split(<span style="color:#81c995">'query='</span>)[1]);
+    <span style="color:#c58af9">const</span> blocked = <span style="color:#81c995">'GRANT,REVOKE,SHUTDOWN,LOAD_FILE,INTO OUTFILE'</span>.split(<span style="color:#81c995">','</span>);
+    <span style="color:#c58af9">if</span> (blocked.some(b =&gt; q.toUpperCase().includes(b.trim()))) {
+      res.end(JSON.stringify({success:false,message:<span style="color:#81c995">'Command blocked.'</span>})); <span style="color:#c58af9">return</span>;
+    }
+    exec(<span style="color:#81c995">`"${XAMPP_PATH}\\mysql\\bin\\mysql.exe" -u root -e "${q.replace(/"/g, '\\"')}"`</span>,
+      {maxBuffer:10*1024*1024}, (err,stdout,stderr) =&gt; {
+        if (err &amp;&amp; !stdout) res.end(JSON.stringify({success:false,message:stderr||err.message}));
+        else res.end(JSON.stringify({success:true,result:(stdout||<span style="color:#81c995">''</span>).trim()}));
+      });
+  }
+
+  <span style="color:#c58af9">else if</span> (url.startsWith(<span style="color:#81c995">'/api/run-stream?'</span>)) {
+    <span style="color:#c58af9">let</span> params = <span style="color:#c58af9">new</span> URL(<span style="color:#81c995">`http://localhost${url}`</span>).searchParams;
+    <span style="color:#c58af9">let</span> cmd = params.get(<span style="color:#81c995">'cmd'</span>);
+    <span style="color:#c58af9">if</span> (cmd) execStream(cmd, res);
+    <span style="color:#c58af9">else</span> res.end(JSON.stringify({error:<span style="color:#81c995">'Missing cmd'</span>}));
+  }
+
+  <span style="color:#c58af9">else if</span> (url.startsWith(<span style="color:#81c995">'/api/run?'</span>)) {
+    <span style="color:#c58af9">let</span> params = <span style="color:#c58af9">new</span> URL(<span style="color:#81c995">`http://localhost${url}`</span>).searchParams;
+    <span style="color:#c58af9">let</span> cmd = params.get(<span style="color:#81c995">'cmd'</span>);
+    <span style="color:#c58af9">if</span> (cmd) exec(cmd,{maxBuffer:50*1024*1024,timeout:30000},(err,stdout,stderr)=&gt;{
+      res.end(JSON.stringify({success:!err,result:(stdout||<span style="color:#81c995">''</span>).trim(),error:stderr||<span style="color:#81c995">''</span>}));
+    });
+    <span style="color:#c58af9">else</span> res.end(JSON.stringify({error:<span style="color:#81c995">'Missing cmd'</span>}));
+  }
+
+  <span style="color:#c58af9">else if</span> (url.startsWith(<span style="color:#81c995">'/api/kill-stream?'</span>)) {
+    <span style="color:#c58af9">let</span> params = <span style="color:#c58af9">new</span> URL(<span style="color:#81c995">`http://localhost${url}`</span>).searchParams;
+    <span style="color:#c58af9">let</span> pid = params.get(<span style="color:#81c995">'pid'</span>);
+    <span style="color:#c58af9">if</span> (pid) exec(<span style="color:#81c995">`taskkill /F /PID ${pid} /T`</span>,()=&gt;res.end(JSON.stringify({success:true})));
+    <span style="color:#c58af9">else</span> res.end(JSON.stringify({error:<span style="color:#81c995">'Missing pid'</span>}));
+  }
+
+  <span style="color:#c58af9">else</span> res.end(JSON.stringify({error:<span style="color:#81c995">'Endpoint not found'</span>}));
+});
+
+server.listen(<span style="color:#fdd663">8080</span>, () =&gt; {
+  console.log(<span style="color:#8ab4f8">`Meta Panel API on http://localhost:8080`</span>);
+  runBg(<span style="color:#81c995">`${XAMPP_PATH}\\apache_start.bat`</span>, <span style="color:#81c995">'Apache started'</span>);
+  runBg(<span style="color:#81c995">`${XAMPP_PATH}\\mysql_start.bat`</span>, <span style="color:#81c995">'MariaDB started'</span>);
+});
+
+process.on(<span style="color:#81c995">'SIGINT'</span>, () =&gt; {
+  exec(<span style="color:#81c995">'taskkill /F /IM httpd.exe /T'</span>, () =&gt;
+    exec(<span style="color:#81c995">'taskkill /F /IM mysqld.exe /T'</span>, () =&gt; process.exit(0)));
+});</pre>
+          </div>
+        </div>
+        <div id="section-doc-run" class="section-panel">
+          <h2 class="text-xl font-bold mb-1">How to Run the Server</h2>
+          <p class="text-[var(--text-secondary)] text-[13px] mb-7">Operational guide for Meta Panel API.</p>
+          <div class="space-y-5">
+            <div class="card p-5">
+              <div class="flex items-center gap-3 mb-3">
+                <div
+                  class="w-8 h-8 rounded-lg bg-[var(--accent-green-bg)] flex items-center justify-center text-[var(--accent-green)] font-bold text-xs">
+                  A</div>
+                <h3 class="font-semibold text-[15px]">Starting the Server</h3>
+              </div>
+              <p class="text-[var(--text-secondary)] text-[13px] mb-3">Open CMD/PowerShell, navigate to your
+                <code>web.js</code> folder:
+              </p>
+              <div class="code-block"><button class="code-copy-btn" onclick="copyCode(this)"><i
+                    class="far fa-copy mr-1"></i>Copy</button>
+                <pre>cd C:\meta-panel
+node web.js</pre>
+              </div>
+              <div class="info-box info-box-green mt-3 text-[12px]"><strong>Auto-Start:</strong> Apache & MariaDB will
+                automatically start when the script is run.</div>
+            </div>
+            <div class="card p-5">
+              <div class="flex items-center gap-3 mb-3">
+                <div
+                  class="w-8 h-8 rounded-lg bg-[var(--accent-red-bg)] flex items-center justify-center text-[var(--accent-red)]">
+                  <i class="fas fa-power-off text-xs"></i>
+                </div>
+                <h3 class="font-semibold text-[15px]">Stopping the Server</h3>
+              </div>
+              <p class="text-[var(--text-secondary)] text-[13px]">Press <kbd
+                  class="px-1.5 py-0.5 bg-[var(--bg-tertiary)] border border-[var(--border-light)] rounded text-[12px]">Ctrl</kbd>+<kbd
+                  class="px-1.5 py-0.5 bg-[var(--bg-tertiary)] border border-[var(--border-light)] rounded text-[12px]">C</kbd>
+                in the terminal. Do not close using the X button.</p>
+            </div>
+          </div>
+        </div>
+        <div id="section-doc-endpoints" class="section-panel">
+          <h2 class="text-xl font-bold mb-1">API Endpoints Reference</h2>
+          <p class="text-[var(--text-secondary)] text-[13px] mb-7">All available endpoints.</p>
+          <div class="overflow-x-auto card">
+            <table class="w-full text-[13px] text-left">
+              <thead>
+                <tr class="bg-[var(--bg-tertiary)] border-b border-[var(--border-color)]">
+                  <th class="px-4 py-3 font-semibold">Method</th>
+                  <th class="px-4 py-3 font-semibold">Endpoint</th>
+                  <th class="px-4 py-3 font-semibold">Description</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-gray-800 bg-gray-900">
-                <tr class="hover:bg-gray-800/50 transition-colors">
-                  <td class="px-5 py-4"><span class="bg-blue-500/20 text-blue-400 border border-blue-500/30 px-2.5 py-1 rounded font-bold text-xs">GET</span></td>
-                  <td class="px-5 py-4"><code class="text-green-400 font-mono">/api/start-apache</code></td>
-                  <td class="px-5 py-4"><code class="bg-gray-800 px-2 py-1 rounded text-gray-300">apache_start.bat</code></td>
+              <tbody class="divide-y divide-[var(--border-color)]">
+                <tr class="hover:bg-[var(--bg-hover)]">
+                  <td class="px-4 py-3"><span
+                      class="px-2 py-0.5 rounded bg-[var(--accent-blue-bg)] text-[var(--accent-blue)] border border-[rgba(138,180,248,0.2)] text-[11px] font-bold">GET</span>
+                  </td>
+                  <td class="px-4 py-3 font-mono text-[var(--accent-green)] text-[12px]">/api/start-apache</td>
+                  <td class="px-4 py-3 text-[var(--text-secondary)]">Start Apache</td>
                 </tr>
-                <tr class="hover:bg-gray-800/50 transition-colors">
-                  <td class="px-5 py-4"><span class="bg-blue-500/20 text-blue-400 border border-blue-500/30 px-2.5 py-1 rounded font-bold text-xs">GET</span></td>
-                  <td class="px-5 py-4"><code class="text-red-400 font-mono">/api/stop-apache</code></td>
-                  <td class="px-5 py-4"><code class="bg-gray-800 px-2 py-1 rounded text-gray-300">taskkill /F /IM httpd.exe</code></td>
+                <tr class="hover:bg-[var(--bg-hover)]">
+                  <td class="px-4 py-3"><span
+                      class="px-2 py-0.5 rounded bg-[var(--accent-blue-bg)] text-[var(--accent-blue)] border border-[rgba(138,180,248,0.2)] text-[11px] font-bold">GET</span>
+                  </td>
+                  <td class="px-4 py-3 font-mono text-[var(--accent-red)] text-[12px]">/api/stop-apache</td>
+                  <td class="px-4 py-3 text-[var(--text-secondary)]">Stop Apache</td>
                 </tr>
-                <tr class="hover:bg-gray-800/50 transition-colors">
-                  <td class="px-5 py-4"><span class="bg-blue-500/20 text-blue-400 border border-blue-500/30 px-2.5 py-1 rounded font-bold text-xs">GET</span></td>
-                  <td class="px-5 py-4"><code class="text-green-400 font-mono">/api/start-mysql</code></td>
-                  <td class="px-5 py-4"><code class="bg-gray-800 px-2 py-1 rounded text-gray-300">mysql_start.bat</code></td>
+                <tr class="hover:bg-[var(--bg-hover)]">
+                  <td class="px-4 py-3"><span
+                      class="px-2 py-0.5 rounded bg-[var(--accent-blue-bg)] text-[var(--accent-blue)] border border-[rgba(138,180,248,0.2)] text-[11px] font-bold">GET</span>
+                  </td>
+                  <td class="px-4 py-3 font-mono text-[var(--accent-green)] text-[12px]">/api/start-mysql</td>
+                  <td class="px-4 py-3 text-[var(--text-secondary)]">Start MariaDB</td>
                 </tr>
-                <tr class="hover:bg-gray-800/50 transition-colors">
-                  <td class="px-5 py-4"><span class="bg-blue-500/20 text-blue-400 border border-blue-500/30 px-2.5 py-1 rounded font-bold text-xs">GET</span></td>
-                  <td class="px-5 py-4"><code class="text-red-400 font-mono">/api/stop-mysql</code></td>
-                  <td class="px-5 py-4"><code class="bg-gray-800 px-2 py-1 rounded text-gray-300">taskkill /F /IM mysqld.exe</code></td>
+                <tr class="hover:bg-[var(--bg-hover)]">
+                  <td class="px-4 py-3"><span
+                      class="px-2 py-0.5 rounded bg-[var(--accent-blue-bg)] text-[var(--accent-blue)] border border-[rgba(138,180,248,0.2)] text-[11px] font-bold">GET</span>
+                  </td>
+                  <td class="px-4 py-3 font-mono text-[var(--accent-red)] text-[12px]">/api/stop-mysql</td>
+                  <td class="px-4 py-3 text-[var(--text-secondary)]">Stop MariaDB</td>
+                </tr>
+                <tr class="hover:bg-[var(--bg-hover)]">
+                  <td class="px-4 py-3"><span
+                      class="px-2 py-0.5 rounded bg-[var(--accent-blue-bg)] text-[var(--accent-blue)] border border-[rgba(138,180,248,0.2)] text-[11px] font-bold">GET</span>
+                  </td>
+                  <td class="px-4 py-3 font-mono text-[var(--accent-cyan)] text-[12px]">/api/mysql-query?query=...</td>
+                  <td class="px-4 py-3 text-[var(--text-secondary)]">Execute SQL query</td>
+                </tr>
+                <tr class="hover:bg-[var(--bg-hover)]" style="background:rgba(244,162,97,0.04)">
+                  <td class="px-4 py-3"><span
+                      class="px-2 py-0.5 rounded bg-[var(--accent-orange-bg)] text-[var(--accent-orange)] border border-[rgba(244,162,97,0.2)] text-[11px] font-bold">GET</span>
+                  </td>
+                  <td class="px-4 py-3 font-mono text-[var(--accent-orange)] text-[12px]">/api/run-stream?cmd=...</td>
+                  <td class="px-4 py-3 text-[var(--text-secondary)]">Streaming command execution</td>
+                </tr>
+                <tr class="hover:bg-[var(--bg-hover)]" style="background:rgba(244,162,97,0.04)">
+                  <td class="px-4 py-3"><span
+                      class="px-2 py-0.5 rounded bg-[var(--accent-orange-bg)] text-[var(--accent-orange)] border border-[rgba(244,162,97,0.2)] text-[11px] font-bold">GET</span>
+                  </td>
+                  <td class="px-4 py-3 font-mono text-[var(--accent-orange)] text-[12px]">/api/run?cmd=...</td>
+                  <td class="px-4 py-3 text-[var(--text-secondary)]">Execute command (JSON)</td>
+                </tr>
+                <tr class="hover:bg-[var(--bg-hover)]" style="background:rgba(244,162,97,0.04)">
+                  <td class="px-4 py-3"><span
+                      class="px-2 py-0.5 rounded bg-[var(--accent-orange-bg)] text-[var(--accent-orange)] border border-[rgba(244,162,97,0.2)] text-[11px] font-bold">GET</span>
+                  </td>
+                  <td class="px-4 py-3 font-mono text-[var(--accent-red)] text-[12px]">/api/kill-stream?pid=...</td>
+                  <td class="px-4 py-3 text-[var(--text-secondary)]">Kill streaming process</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class="doc-info-box">
-            <p><strong><i class="fas fa-exchange-alt mr-1"></i> Spesifikasi Respon JSON:</strong> Setiap endpoint mengembalikan format data yang konsisten. Jika berhasil, server merespons dengan: <code>{ "success": true, "message": "Apache Started" }</code>. Jika gagal (misal file .bat tidak ditemukan karena path salah), server merespons: <code>{ "success": false, "message": "[pesan error sistem]" }</code>. Header <code>Access-Control-Allow-Origin: *</code> ditambahkan untuk mengizinkan akses dari domain mana pun (termasuk <code>file://</code>).</p>
-          </div>
         </div>
-      </section>
-      <section id="implementasi" class="doc-section">
-        <h2 class="section-title product-sans"><span class="section-number">5</span> Contoh Implementasi Fetch</h2>
-        <div class="mt-4 text-gray-400">
-          <div class="code-block">
-            <button class="copy-btn" onclick="copyCode(this)"><i class="far fa-copy mr-1"></i> Salin</button>
-<pre><code><span class="text-blue-400">function</span> <span class="text-yellow-200">stopApache</span>() {
-  <span class="text-blue-400">fetch</span>(<span class="text-green-300">'http://localhost:8080/api/stop-apache'</span>)
-    .<span class="text-blue-400">then</span>(res => res.json())
-    .<span class="text-blue-400">then</span>(data => {
-      console.log(data.message); <span class="text-gray-500">// Mengembalikan: Apache Force Stopped</span>
-    });
-}</code></pre>
-          </div>
-          <div class="doc-info-box">
-            <p><strong><i class="fas fa-puzzle-piece mr-1"></i> Cara Integrasikan:</strong> Salin fungsi di atas ke dalam file JavaScript milik UI Panel Anda (misalnya <code>script.js</code> atau langsung di dalam tag <code>&lt;script&gt;</code> pada HTML). Pasangkan fungsi tersebut ke event <code>onclick</code> pada tombol Start/Stop di UI Anda. Karena menggunakan <code>fetch</code>, eksekusi bersifat <strong>asinkron</strong> sehingga tidak akan membekukan (freeze) antarmuka web saat menunggu server XAMPP merespons.</p>
-          </div>
-        </div>
-      </section>
-      <section id="troubleshooting" class="doc-section">
-        <h2 class="section-title product-sans"><span class="section-number">6</span> Troubleshooting</h2>
-        <div class="mt-4 space-y-4">
-          <div class="bg-[#1e1a0f] border-l-4 border-yellow-500 p-4 rounded-r-lg">
-            <h4 class="font-bold text-yellow-500 flex items-center gap-2"><i class="fas fa-exclamation-triangle"></i> XAMPP Tidak Berjalan Saat Script Dinyalakan?</h4>
-            <p class="text-sm text-gray-300 mt-1"><strong>Penyebab:</strong> Direktori instalasi XAMPP Anda bukan berada di disk C.<br>
-            <strong>Solusi:</strong> Pada skrip <code>web.js</code>, ubah <code>const XAMPP_PATH = 'C:\\xampp';</code> menjadi lokasi instalasi Anda.</p>
-          </div>
-          
-          <div class="bg-[#1e1a0f] border-l-4 border-yellow-500 p-4 rounded-r-lg">
-            <h4 class="font-bold text-yellow-500 flex items-center gap-2"><i class="fas fa-exclamation-triangle"></i> Error "Port 8080 sudah digunakan"?</h4>
-            <p class="text-sm text-gray-300 mt-1"><strong>Penyebab:</strong> Aplikasi lain sudah menggunakan port 8080.<br>
-            <strong>Solusi:</strong> Ubah nilai <code>const PORT = 8080;</code> menjadi port lain yang kosong (misalnya <code>3000</code> atau <code>9000</code>). Jangan lupa ubah juga URL pada fungsi <code>fetch</code> di UI Anda.</p>
-          </div>
-          <div class="doc-info-box">
-            <p><strong><i class="fas fa-life-ring mr-1"></i> Tips Debugging:</strong> Jika Anda mendapat error "ERR_CONNECTION_REFUSED" di browser, itu berarti skrip <code>web.js</code> tidak sedang berjalan. Buka terminal dan pastikan tidak ada pesan error merah saat menjalankan <code>node web.js</code>. Jika muncul error modul tidak ditemukan, pastikan Anda sudah menginstal Node.js dengan benar dari website resminya.</p>
-          </div>
-        </div>
-      </section>
-      <section id="live-demo" class="doc-section mt-16 bg-gray-900 p-6 md:p-8 rounded-3xl border border-gray-800 shadow-2xl relative overflow-hidden">
-        <h2 class="text-2xl font-bold product-sans text-white mb-3 flex items-center gap-3 relative z-10">
-          <i class="fas fa-satellite-dish text-blue-500"></i> 7. Live Demo & Deteksi Status
-        </h2>
-        <p class="text-gray-400 mb-8 max-w-2xl relative z-10 text-sm">Tekan tombol di bawah untuk mengontrol XAMPP Anda. Kartu akan mendeteksi respons API dan <strong>berubah status secara visual</strong> saat berhasil dijalankan atau dimatikan.</p>
+        <div id="section-doc-fetch" class="section-panel">
+          <h2 class="text-xl font-bold mb-1">Fetch Implementation Examples</h2>
+          <p class="text-[var(--text-secondary)] text-[13px] mb-7">Examples of API integration into your web UI.</p>
+          <div class="code-block mb-5"><button class="code-copy-btn" onclick="copyCode(this)"><i
+                class="far fa-copy mr-1"></i>Copy</button>
+            <pre><span style="color:var(--text-muted)">// Service control</span>
+<span style="color:#c58af9">async function</span> <span style="color:#78d9ec">control</span>(endpoint) {
+  <span style="color:#c58af9">const</span> r = <span style="color:#c58af9">await</span> <span style="color:#78d9ec">fetch</span>(<span style="color:#81c995">`http://localhost:8080${endpoint}`</span>);
+  <span style="color:#c58af9">const</span> d = <span style="color:#c58af9">await</span> r.json();
+  console.log(d.success ? d.message : <span style="color:#f28b82">'Error: '</span>+d.message);
+}
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
-          <div id="card-apache" class="bg-gray-800/50 border border-gray-700 p-6 rounded-2xl transition-all duration-300 ease-in-out relative overflow-hidden group">
-            <div class="flex items-center justify-between mb-6">
-              <div class="flex items-center gap-4">
-                <div id="icon-apache" class="w-12 h-12 rounded-xl bg-gray-700 text-gray-400 flex items-center justify-center text-xl transition-all duration-300 shadow-inner">
-                  <i class="fas fa-feather-alt"></i>
-                </div>
-                <div>
-                  <h3 class="font-bold text-lg text-white">Apache</h3>
-                  <p class="text-xs text-gray-500">Web Server</p>
-                </div>
-              </div>
-              <div id="status-apache" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-400 text-xs font-bold transition-all duration-300">
-                <span class="w-2.5 h-2.5 rounded-full bg-gray-500"></span> <span class="tracking-widest uppercase">Idle</span>
-              </div>
-            </div>
-            
-            <div class="flex gap-3">
-              <button onclick="testBridgeAPI('/api/start-apache', 'apache', 'start')" class="flex-1 bg-green-600/20 hover:bg-green-600/40 text-green-400 border border-green-500/30 py-2.5 rounded-xl font-medium transition-all shadow-sm flex justify-center items-center gap-2">
-                <i class="fas fa-play text-xs"></i> Start
-              </button>
-              <button onclick="testBridgeAPI('/api/stop-apache', 'apache', 'stop')" class="flex-1 bg-red-600/20 hover:bg-red-600/40 text-red-400 border border-red-500/30 py-2.5 rounded-xl font-medium transition-all shadow-sm flex justify-center items-center gap-2">
-                <i class="fas fa-stop text-xs"></i> Stop
-              </button>
-            </div>
+<span style="color:var(--text-muted)">// MySQL query (auto-prefixed with USE db if database selected)</span>
+<span style="color:#c58af9">async function</span> <span style="color:#78d9ec">query</span>(sql, dbName) {
+  <span style="color:#c58af9">let</span> fullSql = dbName ? <span style="color:#81c995">`USE \`${dbName}\`; ${sql}`</span> : sql;
+  <span style="color:#c58af9">const</span> r = <span style="color:#c58af9">await</span> <span style="color:#78d9ec">fetch</span>(<span style="color:#81c995">`http://localhost:8080/api/mysql-query?query=${encodeURIComponent(fullSql)}`</span>);
+  <span style="color:#c58af9">const</span> d = <span style="color:#c58af9">await</span> r.json();
+  if (d.success) console.log(d.result);
+  else console.error(d.message);
+}
+
+<span style="color:var(--text-muted)">// Streaming (Laravel/PHP)</span>
+<span style="color:#c58af9">async function</span> <span style="color:#78d9ec">runStream</span>(cmd) {
+  <span style="color:#c58af9">const</span> r = <span style="color:#c58af9">await</span> <span style="color:#78d9ec">fetch</span>(<span style="color:#81c995">`http://localhost:8080/api/run-stream?cmd=${encodeURIComponent(cmd)}`</span>);
+  <span style="color:#c58af9">const</span> reader = r.body.getReader();
+  <span style="color:#c58af9">const</span> decoder = <span style="color:#c58af9">new</span> TextDecoder();
+  <span style="color:#c58af9">while</span> (<span style="color:#c58af9">true</span>) {
+    <span style="color:#c58af9">const</span> {done, value} = <span style="color:#c58af9">await</span> reader.read();
+    <span style="color:#c58af9">if</span> (done) <span style="color:#c58af9">break</span>;
+    process.stdout.write(decoder.decode(value));
+  }
+}</pre>
           </div>
-          <div id="card-mysql" class="bg-gray-800/50 border border-gray-700 p-6 rounded-2xl transition-all duration-300 ease-in-out relative overflow-hidden group">
-            <div class="flex items-center justify-between mb-6">
-              <div class="flex items-center gap-4">
-                <div id="icon-mysql" class="w-12 h-12 rounded-xl bg-gray-700 text-gray-400 flex items-center justify-center text-xl transition-all duration-300 shadow-inner">
-                  <i class="fas fa-database"></i>
-                </div>
-                <div>
-                  <h3 class="font-bold text-lg text-white">MariaDB</h3>
-                  <p class="text-xs text-gray-500">Database Engine</p>
-                </div>
-              </div>
-              <div id="status-mysql" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-400 text-xs font-bold transition-all duration-300">
-                <span class="w-2.5 h-2.5 rounded-full bg-gray-500"></span> <span class="tracking-widest uppercase">Idle</span>
-              </div>
+        </div>
+        <div id="section-doc-troubleshoot" class="section-panel">
+          <h2 class="text-xl font-bold mb-1">Troubleshooting</h2>
+          <p class="text-[var(--text-secondary)] text-[13px] mb-7">Common issues and their solutions.</p>
+          <div class="space-y-4">
+            <div class="card p-5 border-l-4 border-l-[var(--accent-yellow)]">
+              <h3 class="font-semibold text-[14px] mb-1.5 flex items-center gap-2"><i
+                  class="fas fa-exclamation-triangle text-[var(--accent-yellow)]"></i>ERR_CONNECTION_REFUSED</h3>
+              <p class="text-[var(--text-secondary)] text-[13px]"><strong>Solution:</strong> Make sure
+                <code>node web.js</code> is running in a terminal.
+              </p>
             </div>
-            
-            <div class="flex gap-3">
-              <button onclick="testBridgeAPI('/api/start-mysql', 'mysql', 'start')" class="flex-1 bg-green-600/20 hover:bg-green-600/40 text-green-400 border border-green-500/30 py-2.5 rounded-xl font-medium transition-all shadow-sm flex justify-center items-center gap-2">
-                <i class="fas fa-play text-xs"></i> Start
-              </button>
-              <button onclick="testBridgeAPI('/api/stop-mysql', 'mysql', 'stop')" class="flex-1 bg-red-600/20 hover:bg-red-600/40 text-red-400 border border-red-500/30 py-2.5 rounded-xl font-medium transition-all shadow-sm flex justify-center items-center gap-2">
-                <i class="fas fa-stop text-xs"></i> Stop
-              </button>
+            <div class="card p-5 border-l-4 border-l-[var(--accent-yellow)]">
+              <h3 class="font-semibold text-[14px] mb-1.5 flex items-center gap-2"><i
+                  class="fas fa-exclamation-triangle text-[var(--accent-yellow)]"></i>"No database selected"</h3>
+              <p class="text-[var(--text-secondary)] text-[13px]"><strong>Solution:</strong> Type
+                <code>use database_name</code> in the MySQL terminal. The latest version auto-prefixes USE.
+              </p>
+            </div>
+            <div class="card p-5 border-l-4 border-l-[var(--accent-yellow)]">
+              <h3 class="font-semibold text-[14px] mb-1.5 flex items-center gap-2"><i
+                  class="fas fa-exclamation-triangle text-[var(--accent-yellow)]"></i>Port 8080 Already in Use</h3>
+              <p class="text-[var(--text-secondary)] text-[13px]"><strong>Solution:</strong> Change
+                <code>const PORT = 8080</code> to another port.
+              </p>
+            </div>
+            <div class="card p-5 border-l-4 border-l-[var(--accent-yellow)]">
+              <h3 class="font-semibold text-[14px] mb-1.5 flex items-center gap-2"><i
+                  class="fas fa-exclamation-triangle text-[var(--accent-yellow)]"></i>Database Login Failed</h3>
+              <p class="text-[var(--text-secondary)] text-[13px]"><strong>Solution:</strong> Make sure popups are not
+                blocked by your browser. Try incognito mode.</p>
+            </div>
+            <div class="card p-5 border-l-4 border-l-[var(--accent-yellow)]">
+              <h3 class="font-semibold text-[14px] mb-1.5 flex items-center gap-2"><i
+                  class="fas fa-exclamation-triangle text-[var(--accent-yellow)]"></i>API Key 401 Unauthorized</h3>
+              <p class="text-[var(--text-secondary)] text-[13px]"><strong>Solution:</strong> Make sure the API key in
+                web.js matches the one on the API Keys page. Keys are case-sensitive.</p>
             </div>
           </div>
-
         </div>
 
-        <div class="mt-8 bg-blue-900/10 p-5 rounded-2xl border border-blue-800/30 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
-          <div>
-            <h3 class="font-bold text-blue-100 flex items-center gap-2"><i class="fas fa-table text-blue-500"></i> Database Manager</h3>
-            <p class="text-sm text-blue-300/70 mt-1">Akses panel phpMyAdmin (Syarat: Apache & MariaDB wajib <span class="text-green-400">Running</span>).</p>
-          </div>
-          <a href="http://localhost/phpmyadmin" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2.5 rounded-xl font-medium transition-all shadow-lg flex items-center gap-2 whitespace-nowrap">
-            Buka phpMyAdmin <i class="fas fa-external-link-alt text-xs opacity-70"></i>
-          </a>
-        </div>
-
-        <div class="mt-8 relative z-10">
-          <div class="flex items-center justify-between mb-3">
-            <h4 class="font-bold text-gray-400 text-xs uppercase tracking-widest flex items-center gap-2"><i class="fas fa-terminal"></i> Console Output</h4>
-            <button onclick="document.getElementById('demo-console').innerHTML='<span class=\'text-gray-500\'>> System Ready. Menunggu instruksi...</span><br>'" class="text-xs text-gray-500 hover:text-white transition-colors bg-gray-800 px-3 py-1 rounded border border-gray-700">Clear</button>
-          </div>
-          <div id="demo-console" class="bg-[#0d1117] text-green-400 font-mono text-xs sm:text-sm p-5 rounded-2xl h-56 overflow-y-auto border border-gray-700 shadow-inner">
-            <span class="text-gray-500">> System Ready. Menunggu instruksi...</span><br>
-          </div>
-        </div>
-        <div class="doc-info-box mt-8 relative z-10">
-          <p><strong><i class="fas fa-hand-pointer mr-1"></i> Cara Kerja Live Demo:</strong> Tombol Start/Stop di atas akan mengirimkan permintaan HTTP secara langsung dari browser Anda ke <code>http://localhost:8080</code>. Jika koneksi berhasil, server akan mengeksekusi perintah dan kartu akan berubah warna menjadi hijau (Running) atau kembali abu-abu/merah (Stopped). Jika Anda melihat pesan "ERROR TIMEOUT" di console, berarti skrip Node.js belum dinyalakan di terminal Anda.</p>
-        </div>
-
-      </section>
-
-    </main>
-  </div>
-
-  <footer class="bg-gray-900 border-t border-gray-800 py-10 mt-16">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity">
-        <div class="w-10 h-10 rounded-xl bg-blue-600/20 flex items-center justify-center border border-blue-500/30">
-          <i class="fas fa-server text-blue-400"></i>
-        </div>
-        <span class="product-sans font-bold text-white text-xl tracking-tight">META<span class="text-blue-500 font-medium">Panel API</span></span>
       </div>
-      <p class="text-sm text-gray-500 text-center md:text-right max-w-sm">
-        Dokumentasi & Live Demo API berbasis Node.js untuk Sistem XAMPP Lokal. Di Buat Oleh Dwi Bakti N Dev/Roy.
-      </p>
-    </div>
-  </footer>
-  <div class="mobile-bottom-nav lg:hidden">
-    <div class="flex items-center justify-around max-w-md mx-auto px-2">
-      <button onclick="document.getElementById('pengenalan').scrollIntoView({behavior:'smooth'})">
-        <i class="fas fa-book-open"></i>
-        <span>Dokumen</span>
-      </button>
-      <button onclick="document.getElementById('api-reference').scrollIntoView({behavior:'smooth'})">
-        <i class="fas fa-code"></i>
-        <span>Endpoints</span>
-      </button>
-      <button onclick="document.getElementById('live-demo').scrollIntoView({behavior:'smooth'})">
-        <i class="fas fa-satellite-dish"></i>
-        <span>Live Demo</span>
-      </button>
-
-
     </div>
   </div>
-
-
+  <script type="module">
+    import * as THREE from 'three';
+    const canvas = document.getElementById('three-bg');
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.z = 30;
+    const N = 450, pos = new Float32Array(N * 3), vel = [], col = new Float32Array(N * 3);
+    const palette = [new THREE.Color('#8ab4f8'), new THREE.Color('#78d9ec'), new THREE.Color('#c58af9'), new THREE.Color('#81c995')];
+    for (let i = 0; i < N; i++) {
+      pos[i * 3] = (Math.random() - 0.5) * 60; pos[i * 3 + 1] = (Math.random() - 0.5) * 40; pos[i * 3 + 2] = (Math.random() - 0.5) * 30;
+      vel.push({ x: (Math.random() - 0.5) * 0.012, y: (Math.random() - 0.5) * 0.012, z: (Math.random() - 0.5) * 0.008 });
+      const c = palette[Math.floor(Math.random() * palette.length)]; col[i * 3] = c.r; col[i * 3 + 1] = c.g; col[i * 3 + 2] = c.b;
+    }
+    const pg = new THREE.BufferGeometry();
+    pg.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    pg.setAttribute('color', new THREE.BufferAttribute(col, 3));
+    const pm = new THREE.PointsMaterial({ size: 0.11, vertexColors: true, transparent: true, opacity: 0.65, sizeAttenuation: true, blending: THREE.AdditiveBlending, depthWrite: false });
+    scene.add(new THREE.Points(pg, pm));
+    const geos = [new THREE.IcosahedronGeometry(Math.max(0.01, 2.5), 1), new THREE.OctahedronGeometry(Math.max(0.01, 2), 0), new THREE.TorusGeometry(Math.max(0.01, 2), Math.max(0.01, 0.5), 8, 16)];
+    const shapes = [];
+    for (let i = 0; i < 4; i++) {
+      const m = new THREE.Mesh(geos[i % geos.length], new THREE.MeshBasicMaterial({ color: palette[i % palette.length], wireframe: true, transparent: true, opacity: 0.06 }));
+      m.position.set((Math.random() - 0.5) * 40, (Math.random() - 0.5) * 25, (Math.random() - 0.5) * 15 - 5);
+      m.userData = { rx: (Math.random() - 0.5) * 0.003, ry: (Math.random() - 0.5) * 0.003, fs: Math.random() * 0.3 + 0.2, fa: Math.random() * 1.5 + 0.5, by: m.position.y };
+      scene.add(m); shapes.push(m);
+    }
+    const lp = new Float32Array(50 * 6), lg = new THREE.BufferGeometry();
+    lg.setAttribute('position', new THREE.BufferAttribute(lp, 3));
+    scene.add(new THREE.LineSegments(lg, new THREE.LineBasicMaterial({ color: new THREE.Color('#8ab4f8'), transparent: true, opacity: 0.03, blending: THREE.AdditiveBlending, depthWrite: false })));
+    let mx = 0, my = 0;
+    document.addEventListener('mousemove', e => { mx = (e.clientX / window.innerWidth - 0.5) * 2; my = (e.clientY / window.innerHeight - 0.5) * 2; });
+    const clock = new THREE.Clock();
+    (function anim() {
+      requestAnimationFrame(anim); const t = clock.getElapsedTime();
+      const pa = pg.attributes.position.array;
+      for (let i = 0; i < N; i++) { pa[i * 3] += vel[i].x; pa[i * 3 + 1] += vel[i].y; pa[i * 3 + 2] += vel[i].z; if (Math.abs(pa[i * 3]) > 30) vel[i].x *= -1; if (Math.abs(pa[i * 3 + 1]) > 20) vel[i].y *= -1; if (Math.abs(pa[i * 3 + 2]) > 15) vel[i].z *= -1; }
+      pg.attributes.position.needsUpdate = true;
+      const la = lg.attributes.position.array;
+      for (let i = 0; i < 50; i++) { const a = Math.floor(Math.random() * N); let b = Math.floor(Math.random() * N); const dx = pa[a * 3] - pa[b * 3], dy = pa[a * 3 + 1] - pa[b * 3 + 1], dz = pa[a * 3 + 2] - pa[b * 3 + 2]; if (Math.sqrt(dx * dx + dy * dy + dz * dz) > 10) b = a; la[i * 6] = pa[a * 3]; la[i * 6 + 1] = pa[a * 3 + 1]; la[i * 6 + 2] = pa[a * 3 + 2]; la[i * 6 + 3] = pa[b * 3]; la[i * 6 + 4] = pa[b * 3 + 1]; la[i * 6 + 5] = pa[b * 3 + 2]; }
+      lg.attributes.position.needsUpdate = true;
+      shapes.forEach(s => { s.rotation.x += s.userData.rx; s.rotation.y += s.userData.ry; s.position.y = s.userData.by + Math.sin(t * s.userData.fs) * s.userData.fa; });
+      camera.position.x += (mx * 3 - camera.position.x) * 0.02; camera.position.y += (-my * 2 - camera.position.y) * 0.02; camera.lookAt(0, 0, 0);
+      renderer.render(scene, camera);
+    })();
+    window.addEventListener('resize', () => { camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); });
+  </script>
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const sections = document.querySelectorAll("section.doc-section");
-      const navLinks = document.querySelectorAll("#sidebar-nav a.nav-item");
+    const firebaseConfig = {
+      apiKey: "AIzaSyAQ-wPItIElylj5XAz49XmtHAsZ-iNvXl8",
+      authDomain: "finan-f8f87.firebaseapp.com",
+      projectId: "finan-f8f87",
+      storageBucket: "finan-f8f87.firebasestorage.app",
+      messagingSenderId: "201699720660",
+      appId: "1:201699720660:web:4298bd7af96f4db664ea41",
+      measurementId: "G-2W972FM9QJ"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const auth = firebase.auth();
+    let serviceStates = { apache: 'idle', mysql: 'idle' };
+    let totalActions = 0;
+    let mysqlHistory = [];
+    let mysqlHistoryIdx = -1;
+    let currentDb = '';
+    let runners = {};
+    let savedLinks = [];
+    let currentUser = null;
+    let currentLinkFilter = 'all';
+    let chatUnread = false;
+    let chatListener = null;
+    let userApiKeys = [];
+    let activeApiKey = null;
 
-      window.addEventListener("scroll", () => {
-        let current = "";
-        sections.forEach((section) => {
-          const sectionTop = section.offsetTop;
-          if (pageYOffset >= sectionTop - 120) {
-            current = section.getAttribute("id");
-          }
-        });
-
-        navLinks.forEach((link) => {
-          link.classList.remove("sidebar-active");
-          if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("sidebar-active");
-          }
-        });
-      });
+    const sectionMeta = {
+      'dashboard': { title: 'Dashboard', subtitle: 'Monitor & control your XAMPP services' },
+      'mysql-terminal': { title: 'MySQL Terminal', subtitle: 'Execute SQL queries — FIXED: auto USE prefix' },
+      'services': { title: 'Service Control', subtitle: 'Start/Stop Apache & MariaDB' },
+      'runners': { title: 'Project Runner', subtitle: 'Run Laravel & PHP projects — persisted' },
+      'linker': { title: 'Link Notifier', subtitle: 'Save links & paths — synced to Database' },
+      'apikeys': { title: 'API Keys', subtitle: 'Generate & manage API keys for web.js' },
+      'chat': { title: 'Public Chat', subtitle: 'Global chat room via Databases Meta Panel' },
+      'doc-install': { title: 'Installation', subtitle: 'Environment setup steps' },
+      'doc-source': { title: 'Source Code', subtitle: 'Complete web.js code' },
+      'doc-run': { title: 'How to Run', subtitle: 'Server operational guide' },
+      'doc-endpoints': { title: 'API Endpoints', subtitle: 'Complete endpoint reference' },
+      'doc-fetch': { title: 'Fetch Examples', subtitle: 'JavaScript implementation' },
+      'doc-troubleshoot': { title: 'Troubleshooting', subtitle: 'Common issues & solutions' },
+    };
+    function escHtml(s) { if (!s) return ''; const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+    function ts() { return new Date().toLocaleTimeString('en-US', { hour12: false }); }
+    function showToast(msg, type = 'info') {
+      const c = document.getElementById('toast-container'), t = document.createElement('div'); t.className = 'toast';
+      const ic = { success: 'fa-check-circle', error: 'fa-times-circle', info: 'fa-info-circle', warning: 'fa-exclamation-circle' };
+      const cl = { success: 'var(--accent-green)', error: 'var(--accent-red)', info: 'var(--accent-blue)', warning: 'var(--accent-yellow)' };
+      t.innerHTML = `<i class="fas ${ic[type] || ic.info}" style="color:${cl[type] || cl.info}"></i><span>${msg}</span>`;
+      c.appendChild(t); requestAnimationFrame(() => t.classList.add('show'));
+      setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 300); }, 3500);
+    }
+    function copyCode(btn) { navigator.clipboard.writeText(btn.nextElementSibling.innerText).then(() => showToast('Code copied!', 'success')); }
+    function apiFetch(url, options = {}) {
+      const headers = options.headers || {};
+      if (activeApiKey) {
+        headers['X-API-Key'] = activeApiKey;
+      }
+      return fetch(url, { ...options, headers });
+    }
+    function genKey() {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      const seg = () => Array.from({ length: 8 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+      return `${seg()}-${seg()}-${seg()}-${seg()}`;
+    }
+    function switchSection(id) {
+      if (!currentUser) return;
+      document.querySelectorAll('.section-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-item[data-section]').forEach(n => n.classList.remove('active'));
+      const panel = document.getElementById('section-' + id); if (panel) panel.classList.add('active');
+      const nav = document.querySelector(`.nav-item[data-section="${id}"]`); if (nav) nav.classList.add('active');
+      const m = sectionMeta[id]; if (m) { document.getElementById('topbar-title').textContent = m.title; document.getElementById('topbar-subtitle').textContent = m.subtitle; }
+      document.getElementById('sidebar').classList.remove('open'); document.getElementById('sidebarOverlay').classList.remove('active');
+      if (id === 'mysql-terminal') setTimeout(() => document.getElementById('mysql-input').focus(), 100);
+      if (id === 'linker') renderLinks();
+      if (id === 'runners') renderRunners();
+      if (id === 'apikeys') renderApiKeys();
+      if (id === 'chat') { chatUnread = false; document.getElementById('chat-unread-dot').style.display = 'none'; updateChatUI(); }
+    }
+    function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.getElementById('sidebarOverlay').classList.toggle('active'); }
+    auth.onAuthStateChanged(user => {
+      currentUser = user;
+      updateAuthUI();
+      if (user) {
+        document.getElementById('login-wall').style.display = 'none';
+        loadLinksFromFirebase();
+        loadRunnersFromFirebase();
+        loadApiKeysFromFirebase();
+        setupChatListener();
+        document.getElementById('fb-dot').style.background = 'var(--accent-green)';
+        document.getElementById('fb-dot').style.boxShadow = '0 0 6px rgba(129,201,149,0.6)';
+        document.getElementById('fb-text').textContent = 'Database: OK';
+        document.getElementById('fb-text').style.color = 'var(--accent-green)';
+      } else {
+        document.getElementById('login-wall').style.display = '';
+        savedLinks = []; runners = {}; userApiKeys = []; activeApiKey = null;
+        renderLinks(); renderRunners(); renderApiKeys();
+        if (chatListener) { chatListener(); chatListener = null; }
+        document.getElementById('fb-dot').style.background = 'var(--text-muted)';
+        document.getElementById('fb-dot').style.boxShadow = 'none';
+        document.getElementById('fb-text').textContent = 'Database: --';
+        document.getElementById('fb-text').style.color = 'var(--text-muted)';
+      }
     });
-    function copyCode(btn) {
-      const codeBlock = btn.nextElementSibling.innerText;
-      navigator.clipboard.writeText(codeBlock).then(() => {
-        const toast = document.getElementById('toast');
-        toast.style.display = 'block';
-        setTimeout(() => toast.style.display = 'none', 2500);
+
+    function doGoogleLogin() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      auth.signInWithPopup(provider).then(r => { showToast(`Welcome, ${r.user.displayName}!`, 'success'); }).catch(e => {
+        if (e.code !== 'auth/popup-closed-by-user') {
+          const errEl = document.getElementById('login-error');
+          if (errEl) { errEl.textContent = 'Login failed: ' + e.message; errEl.style.display = ''; }
+          showToast('Login failed: ' + e.message, 'error');
+        }
       });
     }
-    function updateServiceState(service, action) {
-      const statusEl = document.getElementById(`status-${service}`);
-      const cardEl = document.getElementById(`card-${service}`);
-      const iconEl = document.getElementById(`icon-${service}`);
+    function doLogout() {
+      auth.signOut().then(() => showToast('Logged out successfully', 'info')).catch(() => showToast('Logout failed', 'error'));
+    }
 
-      if (action === 'start') {
-        statusEl.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-green-500"></span> <span class="tracking-widest uppercase">Running</span>`;
-        statusEl.className = "flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-900/30 text-green-400 border border-green-500/40 text-xs font-bold transition-all duration-300";
-        
-        cardEl.className = "bg-green-900/10 border border-green-500/30 p-6 rounded-2xl transition-all duration-300 relative overflow-hidden group";
-        
-        iconEl.className = "w-12 h-12 rounded-xl bg-green-500/20 text-green-400 flex items-center justify-center text-xl transition-all duration-300 border border-green-400/30";
-      } 
-      else if (action === 'stop') {
-        statusEl.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-red-500"></span> <span class="tracking-widest uppercase">Stopped</span>`;
-        statusEl.className = "flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-900/20 text-red-400 border border-red-500/30 text-xs font-bold transition-all duration-300";
-        
-        cardEl.className = "bg-gray-800/50 border border-gray-700 p-6 rounded-2xl transition-all duration-300 relative overflow-hidden group";
-        
-        iconEl.className = "w-12 h-12 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center text-xl transition-all duration-300 border border-red-500/20";
+    function updateAuthUI() {
+      const avatar = document.getElementById('sidebar-avatar');
+      const uname = document.getElementById('sidebar-username');
+      const btnLogin = document.getElementById('btn-login-sidebar');
+      const btnLogout = document.getElementById('btn-logout-sidebar');
+      if (currentUser) {
+        const initials = currentUser.displayName ? currentUser.displayName.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2) : '?';
+        avatar.innerHTML = initials;
+        avatar.style.background = 'var(--accent-blue-bg)';
+        avatar.style.color = 'var(--accent-blue)';
+        avatar.style.border = '1px solid rgba(138,180,248,0.3)';
+        uname.textContent = currentUser.displayName || currentUser.email;
+        uname.style.color = 'var(--text-primary)';
+        btnLogin.style.display = 'none';
+        btnLogout.style.display = '';
+      } else {
+        avatar.innerHTML = '<i class="fas fa-user"></i>';
+        avatar.style.background = 'var(--bg-tertiary)';
+        avatar.style.color = 'var(--text-muted)';
+        avatar.style.border = 'none';
+        uname.textContent = 'Not signed in';
+        uname.style.color = 'var(--text-muted)';
+        btnLogin.style.display = '';
+        btnLogout.style.display = 'none';
+      }
+      updateChatUI();
+    }
+    function updateStatusUI(svc, state) {
+      serviceStates[svc] = state; totalActions++;
+      document.getElementById('dash-total-actions').textContent = totalActions;
+      const run = state === 'running', bc = run ? 'status-running' : 'status-stopped', bt = run ? 'Running' : 'Stopped', bh = `<span class="status-dot"></span>${bt}`;
+      ['dash', 'svc'].forEach(p => { const el = document.getElementById(`${p}-badge-${svc}`); if (el) { el.className = `status-badge ${bc}`; el.innerHTML = bh; } });
+      const ds = document.getElementById(`dash-${svc}-status`); if (ds) { ds.className = `status-badge ${bc}`; ds.innerHTML = bh; }
+      ['dash-card', 'svc-card'].forEach(p => { const c = document.getElementById(`${p}-${svc}`); if (c) { c.classList.remove('glow-green', 'glow-red'); c.classList.add(run ? 'glow-green' : 'glow-red'); } });
+      ['dash-icon', 'svc-icon'].forEach(p => { const ic = document.getElementById(`${p}-${svc}`); if (ic) { ic.style.background = run ? 'rgba(129,201,149,0.12)' : 'rgba(242,139,130,0.1)'; ic.style.color = run ? 'var(--accent-green)' : 'var(--accent-red)'; } });
+    }
+    function setApiConnected(ok) {
+      const el = document.getElementById('dash-api-status'), dot = document.getElementById('conn-dot'), txt = document.getElementById('conn-text');
+      if (ok) { el.className = 'status-badge status-running'; el.innerHTML = '<span class="status-dot"></span>Connected'; dot.style.background = 'var(--accent-green)'; dot.style.boxShadow = '0 0 6px rgba(129,201,149,0.6)'; txt.textContent = 'Connected'; txt.style.color = 'var(--accent-green)'; }
+      else { el.className = 'status-badge status-stopped'; el.innerHTML = '<span class="status-dot"></span>Offline'; dot.style.background = 'var(--accent-red)'; dot.style.boxShadow = 'none'; txt.textContent = 'Not connected'; txt.style.color = 'var(--accent-red)'; }
+    }
+    function controlService(endpoint, svc, action) {
+      const t = ts(), dl = document.getElementById('dash-log-body'), sl = document.getElementById('svc-log-body');
+      const lm = `<div><span style="color:var(--accent-blue)">[${t}]</span> <span style="color:var(--text-secondary)">${action} ${svc}...</span></div>`;
+      dl.innerHTML += lm; sl.innerHTML += lm; dl.scrollTop = dl.scrollHeight; sl.scrollTop = sl.scrollHeight;
+      apiFetch(`http://localhost:8080${endpoint}`).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(d => {
+        if (d.success) { updateStatusUI(svc, action === 'start' ? 'running' : 'stopped'); const om = `<div><span style="color:var(--accent-blue)">[${t}]</span> <span style="color:var(--accent-green);font-weight:600">OK: ${d.message}</span></div>`; dl.innerHTML += om; sl.innerHTML += om; showToast(`${svc}: ${d.message}`, 'success'); setApiConnected(true); }
+        else { const wm = `<div><span style="color:var(--accent-blue)">[${t}]</span> <span style="color:var(--accent-yellow);font-weight:600">WARN: ${d.message}</span></div>`; dl.innerHTML += wm; sl.innerHTML += wm; showToast(d.message, 'warning'); }
+        dl.scrollTop = dl.scrollHeight; sl.scrollTop = sl.scrollHeight;
+      }).catch(() => { const em = `<div><span style="color:var(--accent-blue)">[${t}]</span> <span style="color:var(--accent-red);font-weight:600">ERROR: Failed to connect to API.</span></div>`; dl.innerHTML += em; sl.innerHTML += em; dl.scrollTop = dl.scrollHeight; sl.scrollTop = sl.scrollHeight; showToast('Failed to connect to API!', 'error'); setApiConnected(false); });
+    }
+    function clearLog(id) { document.getElementById(id).innerHTML = '<div style="color:var(--text-muted)">[ System ] Log cleared.</div>'; }
+    function clearTermBody(id) { document.getElementById(id).innerHTML = '<div style="color:var(--accent-green)">-- Terminal cleared.</div><div style="color:var(--text-muted)">-----------------------------------------------------------</div>'; }
+
+    // ===== MYSQL TERMINAL (FIXED) =====
+    const mysqlInput = document.getElementById('mysql-input'), mysqlBody = document.getElementById('mysql-term-body'), mysqlPrompt = document.getElementById('mysql-prompt');
+
+    function updatePrompt() { mysqlPrompt.textContent = currentDb ? `MariaDB [${currentDb}]>` : 'MariaDB [(none)]>'; }
+
+    function buildMysqlQuery(rawQuery) {
+      const trimmed = rawQuery.trim();
+      const upper = trimmed.toUpperCase();
+      if (upper === 'USE NONE' || upper.startsWith('USE ') || upper.startsWith('USE\t')) return null;
+      if (upper.startsWith('USE ')) return trimmed;
+      if (currentDb) return `USE \`${currentDb}\`; ${trimmed}`;
+      return trimmed;
+    }
+
+    mysqlInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        const q = mysqlInput.value.trim();
+        if (!q) return;
+        const ql = q.toLowerCase();
+        if (ql === 'clear') { clearTermBody('mysql-term-body'); mysqlInput.value = ''; return; }
+        if (ql === 'help') {
+          mysqlBody.innerHTML += `<div style="color:var(--accent-yellow)">Internal commands: clear, help, exit, use &lt;database&gt;, use none</div>`;
+          mysqlBody.innerHTML += `<div style="color:var(--accent-yellow)">FIX: Queries auto-prefixed with "USE db;" if database selected</div>`;
+          mysqlBody.innerHTML += `<div style="color:var(--text-muted)">-----------------------------------------------------------</div>`;
+          mysqlBody.scrollTop = mysqlBody.scrollHeight; mysqlInput.value = ''; return;
+        }
+        if (ql === 'exit') {
+          mysqlBody.innerHTML += '<div style="color:var(--text-muted)">Bye</div>';
+          mysqlBody.scrollTop = mysqlBody.scrollHeight; mysqlInput.value = ''; return;
+        }
+        if (ql.startsWith('use ')) {
+          const dbName = q.substring(4).trim().replace(/;$/, '').replace(/`/g, '');
+          mysqlBody.innerHTML += `<div><span style="color:var(--accent-green)">${escHtml(mysqlPrompt.textContent)}</span> <span style="color:var(--text-primary)">${escHtml(q)}</span></div>`;
+          mysqlInput.value = ''; mysqlInput.disabled = true;
+          if (dbName.toLowerCase() === 'none') {
+            currentDb = ''; updatePrompt();
+            mysqlBody.innerHTML += '<div style="color:var(--accent-green)">Database reset. Now without database.</div>';
+            mysqlBody.innerHTML += '<div style="color:var(--text-muted)">-----------------------------------------------------------</div>';
+            mysqlBody.scrollTop = mysqlBody.scrollHeight; mysqlInput.disabled = false; mysqlInput.focus();
+            mysqlHistory.push(q); mysqlHistoryIdx = mysqlHistory.length; updateMysqlHistoryUI();
+            return;
+          }
+          apiFetch(`http://localhost:8080/api/mysql-query?query=${encodeURIComponent('USE `' + dbName + '`')}`).then(r => r.json()).then(d => {
+            if (d.success) { currentDb = dbName; updatePrompt(); mysqlBody.innerHTML += `<div style="color:var(--accent-green)">Database changed to \`${escHtml(dbName)}\`</div>`; }
+            else { mysqlBody.innerHTML += `<div style="color:var(--accent-red)">${escHtml(d.message)}</div>`; }
+            mysqlBody.innerHTML += '<div style="color:var(--text-muted)">-----------------------------------------------------------</div>';
+            mysqlBody.scrollTop = mysqlBody.scrollHeight; mysqlInput.disabled = false; mysqlInput.focus();
+          }).catch(() => { mysqlBody.innerHTML += '<div style="color:var(--accent-red)">ERROR: Not connected to API.</div><div style="color:var(--text-muted)">-----------------------------------------------------------</div>'; mysqlBody.scrollTop = mysqlBody.scrollHeight; mysqlInput.disabled = false; mysqlInput.focus(); });
+          mysqlHistory.push(q); mysqlHistoryIdx = mysqlHistory.length; updateMysqlHistoryUI();
+          return;
+        }
+        const finalQuery = buildMysqlQuery(q);
+        mysqlHistory.push(q); mysqlHistoryIdx = mysqlHistory.length; updateMysqlHistoryUI();
+        mysqlBody.innerHTML += `<div><span style="color:var(--accent-green)">${escHtml(mysqlPrompt.textContent)}</span> <span style="color:var(--text-primary)">${escHtml(q)}</span></div>`;
+        if (currentDb && finalQuery !== q.trim()) { mysqlBody.innerHTML += `<div style="color:var(--text-muted);font-size:11px">[auto-prefix: USE \`${escHtml(currentDb)}\`]</div>`; }
+        mysqlInput.value = ''; mysqlInput.disabled = true;
+        apiFetch(`http://localhost:8080/api/mysql-query?query=${encodeURIComponent(finalQuery)}`).then(r => r.json()).then(d => {
+          if (d.success) { if (d.result) { d.result.split('\n').forEach(l => { mysqlBody.innerHTML += `<div style="color:#c9d1d9">${escHtml(l)}</div>`; }); } else { mysqlBody.innerHTML += '<div style="color:var(--text-muted)">Query OK, 0 rows affected</div>'; } }
+          else { mysqlBody.innerHTML += `<div style="color:var(--accent-red)">${escHtml(d.message)}</div>`; }
+          mysqlBody.innerHTML += '<div style="color:var(--text-muted)">-----------------------------------------------------------</div>';
+          mysqlBody.scrollTop = mysqlBody.scrollHeight; mysqlInput.disabled = false; mysqlInput.focus();
+        }).catch(() => { mysqlBody.innerHTML += '<div style="color:var(--accent-red)">ERROR: Not connected to API.</div><div style="color:var(--text-muted)">-----------------------------------------------------------</div>'; mysqlBody.scrollTop = mysqlBody.scrollHeight; mysqlInput.disabled = false; mysqlInput.focus(); });
+        mysqlBody.scrollTop = mysqlBody.scrollHeight;
+      }
+      if (e.key === 'ArrowUp') { e.preventDefault(); if (mysqlHistoryIdx > 0) { mysqlHistoryIdx--; mysqlInput.value = mysqlHistory[mysqlHistoryIdx]; } }
+      if (e.key === 'ArrowDown') { e.preventDefault(); if (mysqlHistoryIdx < mysqlHistory.length - 1) { mysqlHistoryIdx++; mysqlInput.value = mysqlHistory[mysqlHistoryIdx]; } else { mysqlHistoryIdx = mysqlHistory.length; mysqlInput.value = ''; } }
+    });
+
+    function execQuick(q) { mysqlInput.value = q; mysqlInput.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' })); }
+    function updateMysqlHistoryUI() {
+      const el = document.getElementById('mysql-history');
+      if (!mysqlHistory.length) { el.innerHTML = '<div class="opacity-50">No queries yet...</div>'; return; }
+      el.innerHTML = mysqlHistory.slice(-20).reverse().map(q => `<div class="py-0.5 px-1.5 rounded hover:bg-[var(--bg-hover)] cursor-pointer truncate" onclick="execQuick('${q.replace(/'/g, "\\'")}')" title="${escHtml(q)}"><span class="text-[var(--accent-blue)] mr-0.5">&gt;</span>${escHtml(q)}</div>`).join('');
+    }
+
+    // ===== PROJECT RUNNER (FIREBASE PERSISTED — Laravel & PHP only) =====
+    const runnerTypes = {
+      laravel: { label: 'Laravel', icon: 'fa-brands fa-laravel', color: 'var(--accent-red)', defaultCmd: 'php artisan serve', placeholder: 'C:\\project\\my-laravel-app', killCmd: 'taskkill /F /IM php.exe /T' },
+      php: { label: 'PHP Public', icon: 'fa-brands fa-php', color: 'var(--accent-purple)', defaultCmd: 'php -S localhost:8081', placeholder: 'C:\\project\\my-php-app\\public', killCmd: 'taskkill /F /IM php.exe /T' },
+    };
+
+    function getKillCommands(type) {
+      const info = runnerTypes[type];
+      return info ? info.killCmd : '';
+    }
+
+    function loadRunnersFromFirebase() {
+      if (!currentUser) return;
+      db.collection('users').doc(currentUser.uid).collection('runners').orderBy('createdAt', 'desc').get().then(snap => {
+        runners = {};
+        snap.docs.forEach(d => {
+          const data = d.data();
+          runners[d.id] = { ...data, id: d.id, controller: null, _output: data.output || '' };
+        });
+        renderRunners();
+        Object.values(runners).forEach(r => {
+          if (r.status === 'running') {
+            runStreamRunner(r.id, true);
+          }
+        });
+      }).catch(e => { console.error('Load runners error:', e); });
+    }
+
+    function saveRunnerToFirebase(id) {
+      if (!currentUser || !runners[id]) return;
+      const r = runners[id];
+      db.collection('users').doc(currentUser.uid).collection('runners').doc(id).set({
+        name: r.name,
+        type: r.type,
+        path: r.path,
+        cmd: r.cmd,
+        port: r.port || '',
+        status: r.status,
+        output: (r._output || '').slice(-5000),
+        createdAt: r.createdAt || firebase.firestore.FieldValue.serverTimestamp()
+      }, { merge: true }).catch(e => console.error('Save runner error:', e));
+    }
+
+    function openRunnerModal() {
+      if (!currentUser) { showToast('Please sign in first!', 'warning'); return; }
+      const root = document.getElementById('modal-root');
+      root.innerHTML = `<div class="modal-overlay" onclick="if(event.target===this)closeModal()">
+        <div class="modal-box p-6">
+          <div class="flex items-center justify-between mb-5"><h3 class="font-bold text-[16px] flex items-center gap-2"><i class="fas fa-rocket text-[var(--accent-orange)]"></i>New Project</h3><button onclick="closeModal()" class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-[var(--bg-hover)] text-[var(--text-muted)]"><i class="fas fa-times"></i></button></div>
+          <div class="space-y-4">
+            <div><label class="form-label">Project Type</label><select id="runner-type" class="input-field select-field" onchange="onRunnerTypeChange()"><option value="laravel">Laravel (php artisan serve)</option><option value="php">PHP Public (php -S)</option></select></div>
+            <div><label class="form-label">Project Name</label><input type="text" id="runner-name" class="input-field" placeholder="My Project"></div>
+            <div><label class="form-label">Project Folder Path</label><input type="text" id="runner-path" class="input-field input-mono" placeholder="C:\\project\\my-laravel-app"></div>
+            <div><label class="form-label">Execution Command</label><input type="text" id="runner-cmd" class="input-field input-mono" placeholder="php artisan serve"></div>
+            <div><label class="form-label">Custom Port (optional)</label><input type="text" id="runner-port" class="input-field input-mono" placeholder="Leave empty for default"></div>
+            <div class="flex gap-3 pt-2"><button onclick="closeModal()" class="btn btn-ghost flex-1 justify-center">Cancel</button><button onclick="startRunner()" class="btn btn-blue flex-1 justify-center"><i class="fas fa-play"></i>Run</button></div>
+          </div>
+        </div>
+      </div>`;
+      onRunnerTypeChange();
+    }
+
+    function onRunnerTypeChange() {
+      const type = document.getElementById('runner-type').value, info = runnerTypes[type];
+      document.getElementById('runner-path').placeholder = info.placeholder;
+      document.getElementById('runner-cmd').value = info.defaultCmd;
+      document.getElementById('runner-name').placeholder = info.label + ' Project';
+    }
+
+    function startRunner() {
+      const type = document.getElementById('runner-type').value;
+      const name = document.getElementById('runner-name').value.trim() || runnerTypes[type].label + ' Project';
+      const path = document.getElementById('runner-path').value.trim();
+      const cmd = document.getElementById('runner-cmd').value.trim();
+      const port = document.getElementById('runner-port').value.trim();
+      if (!path) { showToast('Project path is required!', 'warning'); return; }
+      if (!cmd) { showToast('Command is required!', 'warning'); return; }
+      let finalCmd = `cmd /c "cd /d "${path}" && ${cmd}"`;
+      if (port && type === 'laravel') finalCmd = `cmd /c "cd /d "${path}" && php artisan serve --port=${port}"`;
+      else if (port && type === 'php') finalCmd = `cmd /c "cd /d "${path}" && php -S localhost:${port}"`;
+
+      const newRef = db.collection('users').doc(currentUser.uid).collection('runners').doc();
+      const id = newRef.id;
+      runners[id] = {
+        id, name, type, path, cmd: finalCmd, port,
+        status: 'starting', controller: null, _output: '',
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      };
+      closeModal(); switchSection('runners');
+      runStreamRunner(id, false);
+    }
+
+    async function runStreamRunner(id, isRestart) {
+      const runner = runners[id]; if (!runner) return;
+      runner.status = 'running';
+      runner._output = isRestart ? (runner._output || '') + `\n[${ts()}] [Auto-restart after refresh]\n` : runner._output || '';
+      renderRunners();
+      saveRunnerToFirebase(id);
+      try {
+        const resp = await apiFetch(`http://localhost:8080/api/run-stream?cmd=${encodeURIComponent(runner.cmd)}`);
+        if (!resp.ok) throw new Error('Status: ' + resp.status);
+        const reader = resp.body.getReader(), decoder = new TextDecoder();
+        runner.controller = { abort: () => reader.cancel() };
+        runner.status = 'running';
+        let saveTimer = null;
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) {
+            runner.status = 'stopped'; runner.controller = null;
+            renderRunners(); saveRunnerToFirebase(id); break;
+          }
+          const text = decoder.decode(value, { stream: true });
+          runner._output += text;
+          const termEl = document.getElementById(`runner-term-${id}`);
+          if (termEl) { termEl.innerHTML += escHtml(text); termEl.scrollTop = termEl.scrollHeight; }
+          if (!saveTimer) {
+            saveTimer = setInterval(() => { if (runners[id]) saveRunnerToFirebase(id); }, 3000);
+          }
+        }
+        if (saveTimer) clearInterval(saveTimer);
+      } catch (err) {
+        if (err.name !== 'AbortError') { runner.status = 'error'; runner._output += '\n[Error] ' + err.message; }
+        else runner.status = 'stopped';
+        runner.controller = null; renderRunners(); saveRunnerToFirebase(id);
+        showToast(`${runner.name}: ${runner.status === 'error' ? 'Error' : 'Stopped'}`, runner.status === 'error' ? 'error' : 'info');
+      }
+      updateRunnerCount();
+    }
+
+    async function stopRunner(id) {
+      const r = runners[id]; if (!r) return;
+      if (r.controller) r.controller.abort();
+      const killCmd = getKillCommands(r.type);
+      if (killCmd) {
+        r._output += `\n[${ts()}] Stopping process: ${killCmd}\n`;
+        try {
+          await apiFetch(`http://localhost:8080/api/run?cmd=${encodeURIComponent(killCmd)}`).then(r => r.json());
+        } catch (e) { }
+        await new Promise(resolve => setTimeout(resolve, 800));
+      }
+      r.status = 'stopped';
+      renderRunners(); updateRunnerCount();
+      saveRunnerToFirebase(id);
+      showToast(`${r.name}: Stopped & process killed`, 'info');
+    }
+
+    function removeRunner(id) {
+      const r = runners[id]; if (!r) return;
+      if (r.controller) r.controller.abort();
+      const killCmd = getKillCommands(r.type);
+      if (killCmd) {
+        apiFetch(`http://localhost:8080/api/run?cmd=${encodeURIComponent(killCmd)}`).catch(() => { });
+      }
+      delete runners[id];
+      db.collection('users').doc(currentUser.uid).collection('runners').doc(id).delete().catch(() => { });
+      renderRunners(); updateRunnerCount();
+      showToast('Project removed', 'info');
+    }
+
+    function updateRunnerCount() { document.getElementById('dash-runners-count').textContent = Object.values(runners).filter(r => r.status === 'running').length; }
+
+    function renderRunners() {
+      const list = document.getElementById('runners-list'), entries = Object.values(runners);
+      if (!entries.length) { list.innerHTML = '<div class="card p-8 text-center"><i class="fas fa-rocket text-3xl text-[var(--text-muted)] mb-3"></i><p class="text-[var(--text-muted)] text-[14px]">No projects running yet</p></div>'; return; }
+      list.innerHTML = entries.map(r => {
+        const info = runnerTypes[r.type];
+        const sb = r.status === 'running' ? '<span class="status-badge status-running"><span class="status-dot"></span>Running</span>' : r.status === 'starting' ? '<span class="status-badge status-idle"><span class="status-dot"></span>Starting...</span>' : r.status === 'error' ? '<span class="status-badge status-stopped"><span class="status-dot"></span>Error</span>' : '<span class="status-badge status-stopped"><span class="status-dot"></span>Stopped</span>';
+        const gc = r.status === 'running' ? 'glow-orange' : r.status === 'error' ? 'glow-red' : '';
+        return `<div class="card ${gc} overflow-hidden">
+          <div class="p-4 flex items-center justify-between border-b border-[var(--border-color)]">
+            <div class="flex items-center gap-3"><div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:${info.color}15;color:${info.color}"><i class="${info.icon}"></i></div><div><div class="font-semibold text-[14px]">${escHtml(r.name)}</div><div class="text-[11px] text-[var(--text-muted)] font-mono">${escHtml(r.path)}</div></div></div>
+            <div class="flex items-center gap-2">${sb}<button onclick="stopRunner('${r.id}')" class="btn btn-red btn-sm" title="Stop & Kill"><i class="fas fa-skull-crossbones text-[9px]"></i></button><button onclick="removeRunner('${r.id}')" class="btn btn-ghost btn-sm"><i class="fas fa-trash-alt text-[9px]"></i></button></div>
+          </div>
+          <div class="terminal" style="border:none;border-radius:0"><div class="terminal-body" id="runner-term-${r.id}" style="min-height:150px;max-height:300px;font-size:11.5px">${escHtml(r._output || '')}</div></div>
+          <div class="px-4 py-2 border-t border-[var(--border-color)] flex items-center justify-between"><code class="text-[10px] text-[var(--text-muted)]">${escHtml(r.cmd)}</code><div class="flex gap-2"><button onclick="restartRunner('${r.id}')" class="btn btn-green btn-sm text-[10px]"><i class="fas fa-redo text-[8px]"></i>Restart</button><button onclick="clearTermBody('runner-term-${r.id}');runners['${r.id}']._output='';saveRunnerToFirebase('${r.id}');" class="btn btn-ghost btn-sm text-[10px]"><i class="fas fa-eraser"></i>Clear</button></div></div>
+        </div>`;
+      }).join('');
+      entries.forEach(r => { const el = document.getElementById(`runner-term-${r.id}`); if (el) el.scrollTop = el.scrollHeight; });
+      updateRunnerCount();
+    }
+
+    function restartRunner(id) {
+      const r = runners[id]; if (!r) return;
+      if (r.controller) r.controller.abort();
+      const killCmd = getKillCommands(r.type);
+      if (killCmd) {
+        apiFetch(`http://localhost:8080/api/run?cmd=${encodeURIComponent(killCmd)}`).catch(() => { });
+      }
+      r.status = 'stopped'; r._output += `\n[${ts()}] Restarting...\n`;
+      setTimeout(() => { runStreamRunner(id, false); }, 1000);
+      showToast(`${r.name}: Restarting...`, 'info');
+    }
+
+    // ===== LINK NOTIFIER (FIREBASE SYNC) =====
+    const linkCategories = {
+      project: { label: 'Project', icon: 'fa-folder', color: 'var(--accent-blue)' },
+      api: { label: 'API', icon: 'fa-plug', color: 'var(--accent-green)' },
+      docs: { label: 'Docs', icon: 'fa-book', color: 'var(--accent-yellow)' },
+      tool: { label: 'Tools', icon: 'fa-wrench', color: 'var(--accent-orange)' },
+      other: { label: 'Other', icon: 'fa-ellipsis-h', color: 'var(--accent-purple)' },
+    };
+
+    function loadLinksFromFirebase() {
+      if (!currentUser) return;
+      db.collection('users').doc(currentUser.uid).collection('links').orderBy('createdAt', 'desc').get().then(snap => {
+        savedLinks = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        renderLinks();
+      }).catch(e => { console.error('Load links error:', e); });
+    }
+
+    function openLinkerModal() {
+      if (!currentUser) { showToast('Please sign in with Google first!', 'warning'); return; }
+      const root = document.getElementById('modal-root');
+      const catOpts = Object.entries(linkCategories).map(([k, v]) => `<option value="${k}">${v.label}</option>`).join('');
+      root.innerHTML = `<div class="modal-overlay" onclick="if(event.target===this)closeModal()">
+        <div class="modal-box p-6">
+          <div class="flex items-center justify-between mb-5"><h3 class="font-bold text-[16px] flex items-center gap-2"><i class="fas fa-link text-[var(--accent-blue)]"></i>Add Link</h3><button onclick="closeModal()" class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-[var(--bg-hover)] text-[var(--text-muted)]"><i class="fas fa-times"></i></button></div>
+          <div class="space-y-4">
+            <div><label class="form-label">Name</label><input type="text" id="link-name" class="input-field" placeholder="phpMyAdmin"></div>
+            <div><label class="form-label">Link / URL</label><input type="text" id="link-url" class="input-field input-mono" placeholder="http://localhost/phpmyadmin"><p class="text-[10px] text-[var(--text-muted)] mt-1">URL or local path (C:\\folder\\file)</p></div>
+            <div><label class="form-label">Category</label><select id="link-cat" class="input-field select-field">${catOpts}</select></div>
+            <div><label class="form-label">Click Action</label><select id="link-action" class="input-field select-field"><option value="open">Open in new tab</option><option value="copy">Copy to clipboard</option><option value="navigate">Open in this tab</option></select></div>
+            <div class="flex gap-3 pt-2"><button onclick="closeModal()" class="btn btn-ghost flex-1 justify-center">Cancel</button><button onclick="saveLink()" class="btn btn-blue flex-1 justify-center"><i class="fas fa-save"></i>Save</button></div>
+          </div>
+        </div>
+      </div>`;
+    }
+
+    function saveLink() {
+      const name = document.getElementById('link-name').value.trim();
+      const url = document.getElementById('link-url').value.trim();
+      const cat = document.getElementById('link-cat').value;
+      const action = document.getElementById('link-action').value;
+      if (!name) { showToast('Name is required!', 'warning'); return; }
+      if (!url) { showToast('Link/Path is required!', 'warning'); return; }
+      db.collection('users').doc(currentUser.uid).collection('links').add({
+        name, url, cat, action, createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      }).then(() => { closeModal(); showToast('Link saved to Database!', 'success'); loadLinksFromFirebase(); }).catch(e => { showToast('Failed to save: ' + e.message, 'error'); });
+    }
+
+    function deleteLink(id) {
+      db.collection('users').doc(currentUser.uid).collection('links').doc(id).delete().then(() => { savedLinks = savedLinks.filter(l => l.id !== id); renderLinks(); showToast('Link deleted', 'info'); }).catch(e => showToast('Failed to delete', 'error'));
+    }
+
+    function handleLinkClick(link) {
+      if (link.action === 'copy') { navigator.clipboard.writeText(link.url).then(() => showToast(`"${link.name}" copied!`, 'success')); }
+      else if (link.action === 'navigate') { if (link.url.match(/^[A-Za-z]:\\/)) showToast('Local path cannot be opened in browser. Use "Copy".', 'warning'); else window.location.href = link.url; }
+      else { if (link.url.match(/^[A-Za-z]:\\/)) navigator.clipboard.writeText(link.url).then(() => showToast(`Path copied (local paths cannot be opened in browser)`, 'info')); else window.open(link.url, '_blank'); }
+    }
+
+    function filterLinks(cat, btn) { currentLinkFilter = cat; document.querySelectorAll('#section-linker .tab-btn').forEach(b => b.classList.remove('active')); if (btn) btn.classList.add('active'); renderLinks(); }
+
+    function renderLinks() {
+      const grid = document.getElementById('links-grid');
+      const filtered = currentLinkFilter === 'all' ? savedLinks : savedLinks.filter(l => l.cat === currentLinkFilter);
+      if (!filtered.length) { grid.innerHTML = `<div class="card p-6 text-center col-span-full"><i class="fas fa-link text-3xl text-[var(--text-muted)] mb-3"></i><p class="text-[var(--text-muted)] text-[14px]">${currentLinkFilter === 'all' ? 'No links saved yet' : 'No links in this category'}</p></div>`; return; }
+      grid.innerHTML = filtered.map(l => {
+        const ci = linkCategories[l.cat] || linkCategories.other;
+        const isPath = l.url.match(/^[A-Za-z]:\\/);
+        const ai = l.action === 'copy' ? 'fa-copy' : l.action === 'navigate' ? 'fa-arrow-right' : 'fa-external-link-alt';
+        const al = l.action === 'copy' ? 'Copy' : l.action === 'navigate' ? 'Open' : 'New Tab';
+        return `<div class="card p-4 group cursor-pointer" onclick='handleLinkClick(JSON.parse(this.dataset.link))' data-link='${JSON.stringify(l).replace(/'/g, "&#39;")}'>
+          <div class="flex items-start justify-between mb-2">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:${ci.color}15;color:${ci.color}"><i class="fas ${ci.icon} text-xs"></i></div>
+              <div><div class="font-semibold text-[13px] group-hover:text-[var(--accent-blue)] transition-colors">${escHtml(l.name)}</div><div class="text-[10px] font-medium px-1.5 py-0.5 rounded mt-0.5 rounded inline-block" style="background:${ci.color}12;color:${ci.color}">${ci.label}</div></div></div>
+            <button onclick="event.stopPropagation();deleteLink('${l.id}')" class="w-7 h-7 rounded flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-[var(--accent-red-bg)] text-[var(--text-muted)] hover:text-[var(--accent-red)] transition-all"><i class="fas fa-trash-alt text-[10px]"></i></button>
+          </div>
+          <div class="text-[11px] text-[var(--text-muted)] font-mono truncate mb-2.5" title="${escHtml(l.url)}"><i class="fas ${isPath ? 'fa-folder-open' : 'fa-globe'} mr-1 text-[9px]"></i>${escHtml(l.url)}</div>
+          <div class="flex items-center justify-between"><span class="text-[10px] text-[var(--text-muted)] flex items-center gap-1"><i class="fas ${ai} text-[8px]"></i>${al}</span>${isPath ? '<span class="text-[9px] text-[var(--accent-yellow)] bg-[var(--accent-yellow-bg)] px-1.5 py-0.5 rounded">PATH</span>' : '<span class="text-[9px] text-[var(--accent-green)] bg-[var(--accent-green-bg)] px-1.5 py-0.5 rounded">URL</span>'}</div>
+        </div>`;
+      }).join('');
+    }
+
+    // ===== API KEY MANAGEMENT =====
+    function loadApiKeysFromFirebase() {
+      if (!currentUser) return;
+      db.collection('users').doc(currentUser.uid).collection('api_keys').orderBy('createdAt', 'desc').get().then(snap => {
+        userApiKeys = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        if (!activeApiKey) {
+          const active = userApiKeys.find(k => k.isActive);
+          if (active) activeApiKey = active.key;
+        }
+        renderApiKeys();
+        updateWebjsCodeKeys();
+      }).catch(e => console.error('Load API keys error:', e));
+    }
+
+    function generateApiKey() {
+      if (!currentUser) return;
+      const key = genKey();
+      const label = prompt('Label for this API key (e.g. Office Laptop, Home PC):');
+      if (label === null) return;
+
+      const batch = db.batch();
+      userApiKeys.forEach(k => {
+        if (k.isActive) {
+          batch.update(db.collection('users').doc(currentUser.uid).collection('api_keys').doc(k.id), { isActive: false });
+          k.isActive = false;
+        }
+      });
+
+      const newRef = db.collection('users').doc(currentUser.uid).collection('api_keys').doc();
+      batch.set(newRef, {
+        key: key,
+        label: label.trim() || 'Unnamed',
+        isActive: true,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+
+      batch.commit().then(() => {
+        activeApiKey = key;
+        showToast('New API key generated!', 'success');
+        loadApiKeysFromFirebase();
+      }).catch(e => showToast('Failed to generate key: ' + e.message, 'error'));
+    }
+
+    function setActiveApiKey(id) {
+      if (!currentUser) return;
+      const keyDoc = userApiKeys.find(k => k.id === id);
+      if (!keyDoc) return;
+
+      const batch = db.batch();
+      userApiKeys.forEach(k => {
+        batch.update(db.collection('users').doc(currentUser.uid).collection('api_keys').doc(k.id), { isActive: false });
+        k.isActive = false;
+      });
+      batch.update(db.collection('users').doc(currentUser.uid).collection('api_keys').doc(id), { isActive: true });
+      keyDoc.isActive = true;
+      activeApiKey = keyDoc.key;
+
+      batch.commit().then(() => {
+        showToast('API key activated!', 'success');
+        renderApiKeys();
+        updateWebjsCodeKeys();
+      }).catch(e => showToast('Failed to activate key', 'error'));
+    }
+
+    function deleteApiKey(id) {
+      if (!currentUser) return;
+      const keyDoc = userApiKeys.find(k => k.id === id);
+      db.collection('users').doc(currentUser.uid).collection('api_keys').doc(id).delete().then(() => {
+        if (keyDoc && keyDoc.key === activeApiKey) {
+          activeApiKey = null;
+          const other = userApiKeys.find(k => k.id !== id);
+          if (other) { setActiveApiKey(other.id); }
+        }
+        userApiKeys = userApiKeys.filter(k => k.id !== id);
+        renderApiKeys();
+        updateWebjsCodeKeys();
+        showToast('API key deleted', 'info');
+      }).catch(e => showToast('Failed to delete', 'error'));
+    }
+
+    function copyApiKey(key) {
+      navigator.clipboard.writeText(key).then(() => showToast('API key copied to clipboard!', 'success'));
+    }
+
+    function updateWebjsCodeKeys() {
+      const el = document.getElementById('webjs-code-keys');
+      if (!el) return;
+      if (userApiKeys.length > 0) {
+        const keysStr = userApiKeys.map(k => `  '${k.key}'${k.isActive ? ' // <-- ACTIVE' : ''}`).join(',\n');
+        el.innerHTML = escHtml(keysStr);
+      } else {
+        el.innerHTML = escHtml('/* generate API key from the API Keys page */');
       }
     }
-    function testBridgeAPI(endpoint, serviceName, actionType) {
-      const consoleEl = document.getElementById('demo-console');
-      const time = new Date().toLocaleTimeString('id-ID', { hour12: false });
-      
-      consoleEl.innerHTML += `<span class="text-blue-400">[${time}] > Mengirim request <span class="text-white">${endpoint}</span>...</span><br>`;
-      consoleEl.scrollTop = consoleEl.scrollHeight;
 
-      fetch(`http://localhost:8080${endpoint}`)
-        .then(response => {
-          if(!response.ok) throw new Error("Server status: " + response.status);
-          return response.json();
-        })
-        .then(data => {
-          if(data.success) {
-            consoleEl.innerHTML += `<span class="text-green-400 font-bold">[${time}] > ✔️ SUKSES: ${data.message}</span><br><br>`;
-            updateServiceState(serviceName, actionType);
-
-          } else {
-            consoleEl.innerHTML += `<span class="text-yellow-500 font-bold">[${time}] > ⚠️ PERINGATAN: ${data.message}</span><br><br>`;
-          }
-          consoleEl.scrollTop = consoleEl.scrollHeight;
-        })
-        .catch(err => {
-          consoleEl.innerHTML += `<span class="text-red-500 font-bold">[${time}] > ❌ ERROR TIMEOUT: Gagal memanggil API. Pastikan skrip 'node web.js' sedang berjalan di terminal Anda!</span><br><br>`;
-          consoleEl.scrollTop = consoleEl.scrollHeight;
-        });
+    function renderApiKeys() {
+      const list = document.getElementById('apikeys-list');
+      if (!userApiKeys.length) {
+        list.innerHTML = '<div class="card p-8 text-center"><i class="fas fa-key text-3xl text-[var(--text-muted)] mb-3"></i><p class="text-[var(--text-muted)] text-[14px]">No API keys yet</p><p class="text-[var(--text-muted)] text-[12px] mt-1">Click "Generate New Key" to create one</p></div>';
+        return;
+      }
+      list.innerHTML = userApiKeys.map(k => {
+        const isActive = k.isActive;
+        const created = k.createdAt ? new Date(k.createdAt.seconds * 1000).toLocaleString('en-US', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '-';
+        return `<div class="card p-4 ${isActive ? 'glow-green' : ''}">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:${isActive ? 'rgba(129,201,149,0.12)' : 'rgba(95,99,104,0.1)'};color:${isActive ? 'var(--accent-green)' : 'var(--text-muted)'}"><i class="fas fa-key text-xs"></i></div>
+              <div>
+                <div class="font-semibold text-[13px] flex items-center gap-2">${escHtml(k.label)} ${isActive ? '<span class="key-badge bg-[var(--accent-green-bg)] text-[var(--accent-green)] border border-[rgba(129,201,149,0.2)]">ACTIVE</span>' : '<span class="key-badge" style="background:rgba(95,99,104,0.1);color:var(--text-muted);border:1px solid rgba(95,99,104,0.15)">INACTIVE</span>'}</div>
+                <div class="text-[10px] text-[var(--text-muted)]">${created}</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5">
+              ${!isActive ? `<button onclick="setActiveApiKey('${k.id}')" class="btn btn-green btn-xs"><i class="fas fa-check text-[8px]"></i>Activate</button>` : ''}
+              <button onclick="copyApiKey('${k.key}')" class="btn btn-ghost btn-xs"><i class="far fa-copy text-[9px]"></i></button>
+              <button onclick="deleteApiKey('${k.id}')" class="btn btn-ghost btn-xs hover:!text-[var(--accent-red)]"><i class="fas fa-trash-alt text-[9px]"></i></button>
+            </div>
+          </div>
+          <div class="api-key-display text-[12px]">${escHtml(k.key)}</div>
+        </div>`;
+      }).join('');
+      updateWebjsCodeKeys();
     }
+
+    // ===== PUBLIC CHAT (FIREBASE) =====
+    function updateChatUI() {
+      const main = document.getElementById('chat-main');
+      if (currentUser) { main.style.display = ''; }
+      else { main.style.display = 'none'; }
+    }
+
+    function setupChatListener() {
+      if (chatListener) chatListener();
+      chatListener = db.collection('public_messages').orderBy('timestamp', 'desc').limit(100).onSnapshot(snap => {
+        const msgs = snap.docs.map(d => ({ id: d.id, ...d.data() })).reverse();
+        renderChatMessages(msgs);
+        const chatPanel = document.getElementById('section-chat');
+        if (!chatPanel.classList.contains('active') && msgs.length > 0) {
+          chatUnread = true;
+          document.getElementById('chat-unread-dot').style.display = '';
+        }
+      }, err => { console.error('Chat listener error:', err); });
+    }
+
+    function renderChatMessages(msgs) {
+      const el = document.getElementById('chat-messages');
+      if (!msgs.length) { el.innerHTML = '<div class="text-center text-[12px] text-[var(--text-muted)] py-8">No messages yet. Be the first!</div>'; return; }
+      el.innerHTML = msgs.map(m => {
+        const isSelf = currentUser && m.uid === currentUser.uid;
+        const initial = (m.displayName || '?')[0].toUpperCase();
+        const colors = ['#8ab4f8', '#81c995', '#f28b82', '#fdd663', '#c58af9', '#78d9ec', '#f4a261'];
+        const color = colors[(m.uid || '').charCodeAt(0) % colors.length] || colors[0];
+        const time = m.timestamp ? new Date(m.timestamp.seconds * 1000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false }) : '';
+        return `<div class="flex gap-2.5 ${isSelf ? 'flex-row-reverse' : ''}">
+          <div class="user-avatar" style="background:${color}20;color:${color};border:1px solid ${color}40">${initial}</div>
+          <div class="${isSelf ? 'text-right' : ''}" style="flex:1;min-width:0">
+            <div class="flex items-center gap-2 mb-1 ${isSelf ? 'justify-end' : ''}">
+              <span class="text-[12px] font-semibold" style="color:${color}">${escHtml(m.displayName || 'Anonymous')}</span>
+              <span class="text-[10px] text-[var(--text-muted)]">${time}</span>
+            </div>
+            <div class="msg-bubble ${isSelf ? 'msg-self' : 'msg-other'}">${escHtml(m.text)}</div>
+          </div>
+        </div>`;
+      }).join('');
+      el.scrollTop = el.scrollHeight;
+    }
+
+    function sendChat() {
+      if (!currentUser) { showToast('Please sign in first!', 'warning'); return; }
+      const input = document.getElementById('chat-input');
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      db.collection('public_messages').add({
+        uid: currentUser.uid,
+        displayName: currentUser.displayName || currentUser.email,
+        text: text,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      }).catch(e => showToast('Failed to send: ' + e.message, 'error'));
+    }
+    function closeModal() { document.getElementById('modal-root').innerHTML = ''; }
+    setTimeout(() => {
+      apiFetch('http://localhost:8080/api/start-apache', { method: 'HEAD', mode: 'cors' }).then(() => setApiConnected(true)).catch(() => setApiConnected(false));
+    }, 1200);
   </script>
 </body>
+<link rel="stylesheet" href="api/css/main.css">
 </html>

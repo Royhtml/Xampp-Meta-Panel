@@ -48,7 +48,7 @@
       <div class="m-srv-inf">
         <div class="m-srv-nm">License</div>
       </div>
-      <button class="m-srv-tb go">Open</button>
+      <button class="m-srv-tb go" onclick="openModal2('licenseModal2')">Open</button>
     </div>
     <div class="m-srv">
       <div class="m-srv-ic" style="background:#eff6ff;color:#3bcef6"><i class="fas fa-database"></i></div>
@@ -64,15 +64,17 @@
       </div>
       <button class="m-srv-tb go">Open</button>
     </div>
-    <a href = "api.html"><div class="m-srv">
-      <div class="m-srv-ic" style="background:#eff6ff;color:#f6ea3b"><i class="fas fa-key"></i></div>
-      <div class="m-srv-inf">
-        <div class="m-srv-nm">API Key</div>
+    <a href="api.html">
+      <div class="m-srv">
+        <div class="m-srv-ic" style="background:#eff6ff;color:#f6ea3b"><i class="fas fa-key"></i></div>
+        <div class="m-srv-inf">
+          <div class="m-srv-nm">API Key</div>
+        </div>
+        <button class="m-srv-tb go">Open</button>
       </div>
-      <button class="m-srv-tb go">Open</button>
-    </div></a>
-    </div>
+    </a>
   </div>
+</div>
 </div>
 <div class="m-sheet" id="m-sheet-account">
   <div class="m-handle"></div>
@@ -167,43 +169,177 @@
           class="text-gray-600 hover:text-gray-900 transition"><i class="fas fa-book mr-1"></i>Docs</a>
         <a href="https://github.com/Royhtml/Xampp-Meta-Panel" target="_blank"
           class="text-gray-600 hover:text-gray-900 transition"><i class="fab fa-github mr-1"></i> GitHub</a>
-        <a href="api.html"
-          class="btn-primary text-sm py-2 px-4 rounded-full">
+        <a href="api.html" class="btn-primary text-sm py-2 px-4 rounded-full">
           <i class="fas fa-download"></i> API Key
         </a>
         <div class="flex items-center gap-2 border-l border-gray-300 pl-4">
           <div class="flex items-center rounded-full bg-gray-100 p-1 mr-2 border border-gray-200">
-            <button 
+            <button onclick="openModal('licenseModal')"
               class="text-xs font-bold px-3 py-1.5 rounded-full bg-white text-gray-700 shadow-sm hover:bg-gray-50 transition border border-transparent flex items-center gap-1">
               <i class="fas fa-certificate text-red-500"></i> License
             </button>
-            <button 
+            <button onclick="openModal('versionModal')"
               class="text-xs font-bold px-3 py-1.5 rounded-full text-gray-700 hover:bg-white hover:shadow-sm transition border border-transparent mx-1 flex items-center gap-1">
               <i class="fas fa-apple-alt text-red-500"></i> Version
             </button>
-            <button 
+            <button onclick="openModal('installModal')"
               class="text-xs font-bold px-3 py-1.5 rounded-full text-blue-600 hover:bg-white hover:shadow-sm transition border border-transparent flex items-center gap-1"
-              title="Buka phpMyAdmin Local">
+              title="Buka Opsi Install">
               <i class="fas fa-database"></i> Install OS
             </button>
           </div>
-          <button id="btn-open-drawer"
-            class="bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm py-2 px-4 rounded-full flex items-center gap-2 transition font-bold shadow-sm">
-            <i class="fas fa-bug text-red-500"></i> Isu & Bug
-          </button>
-          <button id="btn-login" class="btn-outline text-sm py-2 px-4 rounded-full flex items-center gap-2">
-            <i class="fab fa-google"></i> Login
-          </button>
-          <div id="user-profile"
-            class="hidden flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full border border-gray-200">
-            <img id="user-avatar" src="" alt="Avatar" class="w-7 h-7 rounded-full">
-            <div class="flex flex-col leading-tight">
-              <span id="user-name" class="text-[11px] font-bold text-gray-800 max-w-[80px] truncate">Nama</span>
-              <button id="btn-logout" class="text-[10px] text-red-500 hover:underline text-left">Logout</button>
+        </div>
+        <div id="licenseModal"
+          class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity">
+          <div class="bg-white rounded-xl p-6 w-80 shadow-2xl relative">
+            <button onclick="closeModal('licenseModal')"
+              class="absolute top-3 right-3 text-gray-400 hover:text-gray-700">
+              <i class="fas fa-times text-lg"></i>
+            </button>
+            <h3 class="text-lg font-bold text-gray-800 mb-4 text-center">Software License</h3>
+            <p class="text-sm text-gray-600 mb-6 text-center">Silakan unduh atau lihat dokumen lisensi resmi kami dalam
+              format PDF.</p>
+            <a href="link-ke-file-lisensi.pdf" target="_blank"
+              class="flex items-center justify-center gap-2 w-full bg-red-500 text-white font-semibold py-2.5 rounded-lg hover:bg-red-600 transition">
+              <i class="fas fa-file-pdf"></i> Buka License (PDF)
+            </a>
+          </div>
+        </div>
+        <div id="versionModal"
+          class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div class="bg-white rounded-xl p-6 w-96 shadow-2xl relative">
+            <button onclick="closeModal('versionModal')"
+              class="absolute top-3 right-3 text-gray-400 hover:text-gray-700">
+              <i class="fas fa-times text-lg"></i>
+            </button>
+            <h3 class="text-lg font-bold text-gray-800 mb-4">Pilih Versi</h3>
+            <div class="relative mb-4">
+              <i class="fas fa-search absolute left-3 top-3 text-gray-400 text-sm"></i>
+              <input type="text" id="versionSearch" onkeyup="filterVersions()" placeholder="Cari versi..."
+                class="w-full border border-gray-300 rounded-lg pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+            </div>
+            <ul id="versionList" class="max-h-48 overflow-y-auto pr-1 space-y-1">
+              <li
+                class="version-item cursor-pointer text-sm font-medium text-gray-700 p-2.5 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">
+                <i class="fas fa-code-branch mr-2 text-gray-400"></i> v4.4.4 (Latest)</li>
+              <li
+                class="version-item cursor-pointer text-sm font-medium text-gray-700 p-2.5 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">
+                <i class="fas fa-code-branch mr-2 text-gray-400"></i> v4.4.2</li>
+              <li
+                class="version-item cursor-pointer text-sm font-medium text-gray-700 p-2.5 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">
+                <i class="fas fa-code-branch mr-2 text-gray-400"></i> v4.3.2</li>
+              <li
+                class="version-item cursor-pointer text-sm font-medium text-gray-700 p-2.5 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">
+                <i class="fas fa-code-branch mr-2 text-gray-400"></i> v4.2.2</li>
+              <li
+                class="version-item cursor-pointer text-sm font-medium text-gray-700 p-2.5 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">
+                <i class="fas fa-code-branch mr-2 text-gray-400"></i> v4.1.0</li>
+              <li
+                class="version-item cursor-pointer text-sm font-medium text-gray-700 p-2.5 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">
+                <i class="fas fa-code-branch mr-2 text-gray-400"></i> v4.0.0</li>
+            </ul>
+          </div>
+        </div>
+        <div id="installModal"
+          class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div class="bg-white rounded-2xl p-8 w-[450px] shadow-2xl relative">
+            <button onclick="closeModal('installModal')"
+              class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 bg-gray-100 hover:bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center transition">
+              <i class="fas fa-times"></i>
+            </button>
+
+            <div class="text-center mb-6">
+              <h3 class="text-2xl font-semibold text-gray-800">Install Platform</h3>
+              <p class="text-gray-500 text-sm mt-1">Pilih sistem operasi atau environment Anda</p>
+            </div>
+            <div class="grid grid-cols-3 gap-4">
+              <button
+                class="flex flex-col items-center justify-center p-4 border border-gray-200 rounded-xl hover:bg-blue-50 hover:border-blue-300 hover:shadow-sm transition group">
+                <i class="fab fa-windows text-3xl text-blue-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="text-sm font-medium text-gray-700">Windows</span>
+              </button>
+              <button
+                class="flex flex-col items-center justify-center p-4 border border-gray-200 rounded-xl hover:bg-gray-50 hover:border-gray-400 hover:shadow-sm transition group">
+                <i class="fab fa-apple text-3xl text-gray-800 mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="text-sm font-medium text-gray-700">macOS</span>
+              </button>
+              <button
+                class="flex flex-col items-center justify-center p-4 border border-gray-200 rounded-xl hover:bg-yellow-50 hover:border-yellow-400 hover:shadow-sm transition group">
+                <i class="fab fa-linux text-3xl text-yellow-600 mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="text-sm font-medium text-gray-700">Linux</span>
+              </button>
+              <button
+                class="flex flex-col items-center justify-center p-4 border border-gray-200 rounded-xl hover:bg-green-50 hover:border-green-400 hover:shadow-sm transition group">
+                <i class="fab fa-android text-3xl text-green-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="text-sm font-medium text-gray-700">Android</span>
+              </button>
+              <button
+                class="flex flex-col items-center justify-center p-4 border border-gray-200 rounded-xl hover:bg-gray-50 hover:border-gray-400 hover:shadow-sm transition group">
+                <i
+                  class="fab fa-app-store-ios text-3xl text-blue-600 mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="text-sm font-medium text-gray-700">iOS</span>
+              </button>
+              <button
+                class="flex flex-col items-center justify-center p-4 border border-gray-200 rounded-xl hover:bg-blue-50 hover:border-blue-300 hover:shadow-sm transition group">
+                <i class="fab fa-python text-3xl text-blue-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                <span class="text-sm font-medium text-gray-700">PyPI</span>
+              </button>
             </div>
           </div>
         </div>
+        <script>
+          function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+          }
+          function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+            if (modalId === 'versionModal') {
+              document.getElementById('versionSearch').value = '';
+              filterVersions();
+            }
+          }
+          window.onclick = function (event) {
+            const modals = ['licenseModal', 'versionModal', 'installModal'];
+            modals.forEach(id => {
+              const modal = document.getElementById(id);
+              if (event.target == modal) {
+                closeModal(id);
+              }
+            });
+          }
+          function filterVersions() {
+            let input = document.getElementById('versionSearch');
+            let filter = input.value.toLowerCase();
+            let ul = document.getElementById("versionList");
+            let li = ul.getElementsByClassName("version-item");
+
+            for (let i = 0; i < li.length; i++) {
+              let txtValue = li[i].textContent || li[i].innerText;
+              if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+              } else {
+                li[i].style.display = "none";
+              }
+            }
+          }
+        </script>
+        <button id="btn-open-drawer"
+          class="bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm py-2 px-4 rounded-full flex items-center gap-2 transition font-bold shadow-sm">
+          <i class="fas fa-bug text-red-500"></i> Isu & Bug
+        </button>
+        <button id="btn-login" class="btn-outline text-sm py-2 px-4 rounded-full flex items-center gap-2">
+          <i class="fab fa-google"></i> Login
+        </button>
+        <div id="user-profile"
+          class="hidden flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full border border-gray-200">
+          <img id="user-avatar" src="" alt="Avatar" class="w-7 h-7 rounded-full">
+          <div class="flex flex-col leading-tight">
+            <span id="user-name" class="text-[11px] font-bold text-gray-800 max-w-[80px] truncate">Nama</span>
+            <button id="btn-logout" class="text-[10px] text-red-500 hover:underline text-left">Logout</button>
+          </div>
+        </div>
       </div>
+    </div>
     </div>
   </nav>
   <div id="drawer-overlay" class="fixed inset-0 bg-black/50 z-[50] hidden backdrop-blur-sm transition-opacity"></div>
@@ -601,7 +737,8 @@
             <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
               <div
                 class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mx-auto mb-3 text-lg">
-                <i class="fas fa-search"></i></div>
+                <i class="fas fa-search"></i>
+              </div>
               <h4 class="text-gray-900 font-medium text-base mb-1">Auto-Detect</h4>
               <p class="text-sm text-gray-600">Panel memindai folder workspace untuk file <code
                   class="inline-code">artisan</code></p>
@@ -609,14 +746,16 @@
             <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
               <div
                 class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center mx-auto mb-3 text-lg">
-                <i class="fas fa-play"></i></div>
+                <i class="fas fa-play"></i>
+              </div>
               <h4 class="text-gray-900 font-medium text-base mb-1">One-Click Serve</h4>
               <p class="text-sm text-gray-600">Tombol Artisan Serve muncul otomatis di panel</p>
             </div>
             <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
               <div
                 class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto mb-3 text-lg">
-                <i class="fas fa-code"></i></div>
+                <i class="fas fa-code"></i>
+              </div>
               <h4 class="text-gray-900 font-medium text-base mb-1">Hot Reload</h4>
               <p class="text-sm text-gray-600">Perubahan kode langsung ter-refresh di browser</p>
             </div>
@@ -845,7 +984,8 @@
           </div>
           <h3>Apa yang Dilakukan "Fix Mobile 403"?</h3>
           <p>Secara teknis, fitur ini memodifikasi file <code class="inline-code">httpd-xampp.conf</code> yang berada di
-            <code class="inline-code">C:\xampp\apache\conf\extra\</code>. Perubahan yang dilakukan:</p>
+            <code class="inline-code">C:\xampp\apache\conf\extra\</code>. Perubahan yang dilakukan:
+          </p>
           <div class="code-block font-mono">
             <button class="copy-btn" onclick="copyCode(this)">Salin</button>
             <span class="text-gray-500"># SEBELUM (Blokir IP luar):</span><br>
@@ -860,7 +1000,8 @@
         <h2 class="section-title product-sans"><span class="section-number">7</span> Konfigurasi Lanjutan</h2>
         <div class="mt-4">
           <p>XAMPP Meta Panel menyediakan akses cepat ke semua file konfigurasi penting. Klik tombol
-            <strong>Config</strong> di samping masing-masing service untuk membuka file di tab editor VSCode.</p>
+            <strong>Config</strong> di samping masing-masing service untuk membuka file di tab editor VSCode.
+          </p>
           <h3>File Konfigurasi yang Tersedia</h3>
           <div class="table-container">
             <table>
@@ -935,7 +1076,8 @@
               <p class="text-sm text-gray-600 mt-1">Cari <code class="inline-code">Listen 80</code> dan ubah menjadi
                 <code class="inline-code">Listen 8080</code>. Cari juga <code
                   class="inline-code">ServerName localhost:80</code> dan ubah menjadi <code
-                  class="inline-code">ServerName localhost:8080</code>.</p>
+                  class="inline-code">ServerName localhost:8080</code>.
+              </p>
             </div>
           </div>
           <div class="step-card"><span class="step-num">3</span>
@@ -1054,7 +1196,8 @@
               aplikasi lain.</p>
             <p class="mt-2"><strong class="text-gray-900">Solusi via Meta Panel:</strong> Klik Config → httpd.conf. Ubah
               <code class="inline-code">Listen 80</code> menjadi <code class="inline-code">Listen 8080</code>. Simpan
-              dan restart Apache.</p>
+              dan restart Apache.
+            </p>
           </div>
           <div class="warning-card mb-4">
             <h4><i class="fas fa-exclamation-triangle mr-2"></i>Error: "MySQL tidak bisa start"</h4>
@@ -1115,7 +1258,7 @@
   </footer>
 
   <script src="js/main.js"></script>
-  <script type="module" src = "js/module.js"></script>
+  <script type="module" src="js/module.js"></script>
 </body>
 
 </html>

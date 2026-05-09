@@ -18,9 +18,6 @@
     let currentUser = null;
     let allPostsData = [];
     let currentDetailId = null;
-    /* =========================================
-       DRAWER & AUTH LOGIC (EKSISTING)
-       ========================================= */
     const btnOpenDrawer = document.getElementById('btn-open-drawer');
     const btnCloseDrawer = document.getElementById('btn-close-drawer');
     const drawerOverlay = document.getElementById('drawer-overlay');

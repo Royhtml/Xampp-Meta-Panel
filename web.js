@@ -2,61 +2,92 @@ const { exec } = require('child_process');
 const http = require('http');
 const XAMPP_PATH = 'C:\\xampp';
 
-// Fungsi eksekusi background (Auto-Start)
-const runCommand = (command, msg) => {
-    exec(`cmd /c "${command}"`, (err) => {
-        if (err) console.error(`\x1b[31m[ERROR]\x1b[0m ${err.message}`);
-        else console.log(`\x1b[32m[OK]\x1b[0m ${msg}`);
-    });
+const runBg = (cmd, msg) => {
+  exec(`cmd /c "${cmd}"`, (err) => {
+    if (err) console.error(`[ERROR] ${err.message}`);
+    else console.log(`[OK] ${msg}`);
+  });
+};
+
+const execStart = (cmd, msg, res) => {
+  exec(`cmd /c "${cmd}"`, (err) => {
+    if (err) res.end(JSON.stringify({ success: false, message: err.message }));
+    else res.end(JSON.stringify({ success: true, message: msg }));
+  });
+};
+
+const execStop = (cmd, msg, res) => {
+  exec(cmd, () => res.end(JSON.stringify({ success: true, message: msg })));
+};
+
+const execStream = (cmd, res) => {
+  const child = exec(cmd, { maxBuffer: 50*1024*1024 });
+  res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+  res.setHeader('Transfer-Encoding', 'chunked');
+  child.stdout.on('data', (d) => res.write(d));
+  child.stderr.on('data', (d) => res.write(d));
+  child.on('close', () => res.end());
+  child.on('error', (e) => { res.write('Error: '+e.message); res.end(); });
+  return child;
 };
 
 const server = http.createServer((req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+  if (req.method === 'OPTIONS') { res.writeHead(200); res.end(); return; }
+  const url = req.url;
 
-    const executeStart = (command, msg) => {
-        exec(`cmd /c "${command}"`, (err) => {
-            if (err) res.end(JSON.stringify({ success: false, message: err.message }));
-            else res.end(JSON.stringify({ success: true, message: msg }));
-        });
-    };
+  if (url === '/api/start-apache')  execStart(`${XAMPP_PATH}\\apache_start.bat`, 'Apache Started', res);
+  else if (url === '/api/stop-apache')   execStop('taskkill /F /IM httpd.exe /T', 'Apache Force Stopped', res);
+  else if (url === '/api/start-mysql')    execStart(`${XAMPP_PATH}\\mysql_start.bat`, 'MySQL Started', res);
+  else if (url === '/api/stop-mysql')     execStop('taskkill /F /IM mysqld.exe /T', 'MySQL Force Stopped', res);
 
-    const executeStop = (command, msg) => {
-        exec(command, () => {
-            res.end(JSON.stringify({ success: true, message: msg }));
-        });
-    };
+  else if (url.startsWith('/api/mysql-query?')) {
+    let q = decodeURIComponent(url.split('query=')[1]);
+    const blocked = 'GRANT,REVOKE,SHUTDOWN,LOAD_FILE,INTO OUTFILE'.split(',');
+    if (blocked.some(b => q.toUpperCase().includes(b.trim()))) {
+      res.end(JSON.stringify({success:false,message:'Command blocked.'})); return;
+    }
+    exec(`"${XAMPP_PATH}\\mysql\\bin\\mysql.exe" -u root -e "${q.replace(/"/g, '\\"')}"`,
+      {maxBuffer:10*1024*1024}, (err,stdout,stderr) => {
+        if (err && !stdout) res.end(JSON.stringify({success:false,message:stderr||err.message}));
+        else res.end(JSON.stringify({success:true,result:(stdout||'').trim()}));
+      });
+  }
 
-    if (req.url === '/api/start-apache') executeStart(`${XAMPP_PATH}\\apache_start.bat`, "Apache Started");
-    else if (req.url === '/api/stop-apache') executeStop(`taskkill /F /IM httpd.exe /T`, "Apache Force Stopped");
-    else if (req.url === '/api/start-mysql') executeStart(`${XAMPP_PATH}\\mysql_start.bat`, "MySQL Started");
-    else if (req.url === '/api/stop-mysql') executeStop(`taskkill /F /IM mysqld.exe /T`, "MySQL Force Stopped");
-    else res.end(JSON.stringify({ error: "Not Found" }));
-});
+  else if (url.startsWith('/api/run-stream?')) {
+    let params = new URL(`http://localhost${url}`).searchParams;
+    let cmd = params.get('cmd');
+    if (cmd) execStream(cmd, res);
+    else res.end(JSON.stringify({error:'Missing cmd'}));
+  }
 
-const PORT = 8080;
-
-server.listen(PORT, () => {
-    console.log(`\x1b[36m%s\x1b[0m`, `=================================================`);
-    console.log(`\x1b[36m%s\x1b[0m`, `Meta Panel API running on http://localhost:${PORT}`);
-    console.log(`\x1b[36m%s\x1b[0m`, `To FORCE STOP XAMPP and quit, press Ctrl+C`);
-    console.log(`\x1b[36m%s\x1b[0m`, `=================================================`);
-
-    console.log(`\n\x1b[33m[INFO]\x1b[0m Memulai Apache & MariaDB secara otomatis...`);
-    runCommand(`${XAMPP_PATH}\\apache_start.bat`, "Apache berhasil dihidupkan");
-    runCommand(`${XAMPP_PATH}\\mysql_start.bat`, "MariaDB berhasil dihidupkan");
-});
-
-const shutdown = () => {
-    console.log(`\n\n\x1b[33m[INFO]\x1b[0m Mematikan Apache & MariaDB (Force Kill)...`);
-    exec(`taskkill /F /IM httpd.exe /T`, () => {
-        console.log(`\x1b[31m[STOP]\x1b[0m Proses Apache (httpd.exe) dibunuh.`);
-        exec(`taskkill /F /IM mysqld.exe /T`, () => {
-            console.log(`\x1b[31m[STOP]\x1b[0m Proses MariaDB (mysqld.exe) dibunuh.`);
-            process.exit(0);
-        });
+  else if (url.startsWith('/api/run?')) {
+    let params = new URL(`http://localhost${url}`).searchParams;
+    let cmd = params.get('cmd');
+    if (cmd) exec(cmd,{maxBuffer:50*1024*1024,timeout:30000},(err,stdout,stderr)=>{
+      res.end(JSON.stringify({success:!err,result:(stdout||'').trim(),error:stderr||''}));
     });
-};
+    else res.end(JSON.stringify({error:'Missing cmd'}));
+  }
 
-process.on('SIGINT', shutdown);  
-process.on('SIGTERM', shutdown);
+  else if (url.startsWith('/api/kill-stream?')) {
+    let params = new URL(`http://localhost${url}`).searchParams;
+    let pid = params.get('pid');
+    if (pid) exec(`taskkill /F /PID ${pid} /T`,()=>res.end(JSON.stringify({success:true})));
+    else res.end(JSON.stringify({error:'Missing pid'}));
+  }
+
+  else res.end(JSON.stringify({error:'Endpoint not found'}));
+});
+
+server.listen(8080, () => {
+  console.log(`Meta Panel API on http://localhost:8080`);
+  runBg(`${XAMPP_PATH}\\apache_start.bat`, 'Apache started');
+  runBg(`${XAMPP_PATH}\\mysql_start.bat`, 'MariaDB started');
+});
+
+process.on('SIGINT', () => {
+  exec('taskkill /F /IM httpd.exe /T', () =>
+    exec('taskkill /F /IM mysqld.exe /T', () => process.exit(0)));
+});
