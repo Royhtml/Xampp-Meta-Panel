@@ -2,23 +2,19 @@
   "version": 2,
   "cleanUrls": true,
   "builds": [
-    {
-      "src": "api/**/*.py",
-      "use": "@vercel/python"
-    },
-    {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
+    { "src": "api/*.js", "use": "@vercel/node" },
+    { "src": "api/*.py", "use": "@vercel/python" },
+    { "src": "public/**/*", "use": "@vercel/static" },
+    { "src": "*.html", "use": "@vercel/static" }
   ],
   "rewrites": [
     {
-      "source": "/jalankan-python",
+      "source": "/runapi",
       "destination": "/api/python_script.py"
+    },
+    {
+      "source": "/api-node",
+      "destination": "/api/node_script.js"
     }
   ]
 }
