@@ -1,3 +1,24 @@
 {
-  "cleanUrls": true
+  "version": 2,
+  "cleanUrls": true,
+  "builds": [
+    {
+      "src": "api/**/*.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/jalankan-python",
+      "destination": "/api/python_script.py"
+    }
+  ]
 }
