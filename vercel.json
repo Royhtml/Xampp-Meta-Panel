@@ -1,20 +1,3 @@
 {
-  "version": 2,
-  "cleanUrls": true,
-  "builds": [
-    { "src": "api/*.js", "use": "@vercel/node" },
-    { "src": "api/*.py", "use": "@vercel/python" },
-    { "src": "public/**/*", "use": "@vercel/static" },
-    { "src": "*.html", "use": "@vercel/static" }
-  ],
-  "rewrites": [
-    {
-      "source": "/runapi",
-      "destination": "/api/python_script.py"
-    },
-    {
-      "source": "/api-node",
-      "destination": "/api/node_script.js"
-    }
-  ]
+  "cleanUrls": true
 }
