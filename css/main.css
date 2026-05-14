@@ -1,5 +1,4 @@
     :root {
-        /* Google Material Colors */
         --bg: #ffffff;
         --bg-secondary: #f8f9fa;
         --card: #ffffff;
@@ -8,19 +7,13 @@
         --heading: #202124;
         --muted: #5f6368;
         --accent: #1a73e8;
-        /* Google Blue */
         --accent-hover: #174ea6;
         --accent-glow: rgba(26, 115, 232, 0.15);
-
-        /* Status Colors */
         --danger: #ea4335;
-        /* Google Red */
         --danger-bg: #fce8e6;
         --success: #188038;
-        /* Google Green Text */
         --success-bg: #e6f4ea;
         --warning: #f29900;
-        /* Google Yellow */
         --warning-bg: #fef7e0;
         --info: #1a73e8;
         --info-bg: #e8f0fe;

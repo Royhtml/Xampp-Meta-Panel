@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
-
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,18 +16,18 @@
 <div class="mobile-bottom-nav">
   <div class="mobile-nav-bar">
     <button class="m-nav-btn active" data-mtab="home" onclick="mobileNav('home')">
-      <i class="fas fa-home"></i><span>Beranda</span>
+      <i class="fas fa-home"></i><span>Home</span>
     </button>
     <button class="m-nav-btn" data-mtab="server" onclick="mobileNav('server')">
       <i class="fas fa-server"></i><span>Server</span>
       <span class="m-dot" id="m-dot-srv"></span>
     </button>
     <button class="m-nav-btn" data-mtab="issues" onclick="mobileNav('issues')">
-      <i class="fas fa-bug"></i><span>Isu</span>
+      <i class="fas fa-bug"></i><span>Issues</span>
       <span class="m-badge" id="m-badge-issue">0</span>
     </button>
     <button class="m-nav-btn" data-mtab="account" onclick="mobileNav('account')">
-      <i class="fas fa-user"></i><span>Akun</span>
+      <i class="fas fa-user"></i><span>Account</span>
     </button>
     <button class="m-nav-btn" data-mtab="menu" onclick="mobileNav('menu')">
       <i class="fas fa-bars"></i><span>Menu</span>
@@ -39,7 +38,7 @@
 <div class="m-sheet" id="m-sheet-server">
   <div class="m-handle"></div>
   <div class="m-head">
-    <h3><i class="fas fa-server text-blue-500"></i> Kontrol Server</h3>
+    <h3><i class="fas fa-server text-blue-500"></i> Server Control</h3>
     <button class="m-x" onclick="closeMSheet()"><i class="fas fa-times"></i></button>
   </div>
   <div class="m-body">
@@ -79,21 +78,20 @@
 <div class="m-sheet" id="m-sheet-account">
   <div class="m-handle"></div>
   <div class="m-head">
-    <h3><i class="fas fa-user-circle text-blue-500"></i> Akun</h3>
+    <h3><i class="fas fa-user-circle text-blue-500"></i> Account</h3>
     <button class="m-x" onclick="closeMSheet()"><i class="fas fa-times"></i></button>
   </div>
   <div class="m-body">
     <div id="m-acc-guest" class="m-acc">
       <div style="font-size:52px;color:#d1d5db;margin-bottom:14px"><i class="fas fa-user-lock"></i></div>
-      <p style="color:#6b7280;font-size:14px;margin-bottom:18px">Login untuk melaporkan isu, berkomentar, dan
-        berkolaborasi.</p>
+      <p style="color:#6b7280;font-size:14px;margin-bottom:18px">Login to report issues, comment, and collaborate.</p>
       <button class="m-btn-in" onclick="document.getElementById('btn-login').click()">
-        <i class="fab fa-google" style="font-size:18px"></i> Login dengan Google
+        <i class="fab fa-google" style="font-size:18px"></i> Login with Google
       </button>
     </div>
     <div id="m-acc-user" class="m-acc" style="display:none">
       <img class="m-av" id="m-av" src="" alt="Avatar">
-      <div class="m-nm" id="m-nm">Nama</div>
+      <div class="m-nm" id="m-nm">Name</div>
       <div class="m-em" id="m-em"></div>
       <button class="m-btn-out" onclick="document.getElementById('btn-logout').click()">
         <i class="fas fa-sign-out-alt"></i> Logout
@@ -108,48 +106,48 @@
     <button class="m-x" onclick="closeMSheet()"><i class="fas fa-times"></i></button>
   </div>
   <div class="m-body">
-    <div class="m-sec">Navigasi Dokumen</div>
-    <a href="#pengenalan" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">1</span> Pengenalan & Fitur</a>
-    <a href="#instalasi" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">2</span> Panduan Instalasi</a>
-    <a href="#penggunaan" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">3</span> Penggunaan Dasar</a>
-    <a href="#laravel" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">4</span> Integrasi Laravel</a>
+    <div class="m-sec">Document Navigation</div>
+    <a href="#pengenalan" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">1</span> Introduction & Features</a>
+    <a href="#instalasi" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">2</span> Installation Guide</a>
+    <a href="#penggunaan" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">3</span> Basic Usage</a>
+    <a href="#laravel" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">4</span> Laravel Integration</a>
     <a href="#whatsapp-bot" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">5</span> WhatsApp Chat Bot</a>
-    <a href="#cross-device" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">6</span> Testing HP & Laptop</a>
-    <a href="#konfigurasi" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">7</span> Konfigurasi Lanjutan</a>
-    <a href="#komparasi" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">8</span> Komparasi & Statistik</a>
-    <a href="#performa" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">9</span> Analisis Performa</a>
+    <a href="#cross-device" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">6</span> Mobile & Laptop Testing</a>
+    <a href="#konfigurasi" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">7</span> Advanced Configuration</a>
+    <a href="#komparasi" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">8</span> Comparison & Statistics</a>
+    <a href="#performa" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">9</span> Performance Analysis</a>
     <a href="#troubleshooting" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">10</span> Troubleshooting</a>
 
     <div class="m-div"></div>
 
-    <div class="m-sec">Tautan Eksternal</div>
-    <a href="https://github.com/Royhtml/Xampp-Meta-Panel/releases/tag/1.0.0" target="_blank" class="m-mn">
+    <div class="m-sec">External Links</div>
+    <a href="https://github.com/Royhtml/Xampp-Meta-Panel/releases/tag/1.0.0" class="m-mn">
       <div class="m-mn-ic" style="background:#f3e8ff;color:#9333ea"><i class="fas fa-box"></i></div> Patch Release
     </a>
-    <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager" target="_blank" class="m-mn">
+    <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager" class="m-mn">
       <div class="m-mn-ic" style="background:#eff6ff;color:#2563eb"><i class="fas fa-puzzle-piece"></i></div> VSCode
       Marketplace
     </a>
-    <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager" target="_blank" class="m-mn">
-      <div class="m-mn-ic" style="background:#f0fdf4;color:#16a34a"><i class="fas fa-book"></i></div> Dokumentasi
+    <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager" class="m-mn">
+      <div class="m-mn-ic" style="background:#f0fdf4;color:#16a34a"><i class="fas fa-book"></i></div> Documentation
     </a>
-    <a href="https://github.com/Royhtml/Xampp-Meta-Panel" target="_blank" class="m-mn">
+    <a href="https://github.com/Royhtml/Xampp-Meta-Panel" class="m-mn">
       <div class="m-mn-ic" style="background:#f3f4f6;color:#111827"><i class="fab fa-github"></i></div> GitHub
       Repository
     </a>
 
     <div class="m-div"></div>
 
-    <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager" target="_blank"
+    <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager"
       class="m-install-row">
-      <i class="fas fa-download"></i> Install Ekstensi
+      <i class="fas fa-download"></i> Install Extension
     </a>
   </div>
 </div>
 <script src="js/mobile.js"></script>
 
 <body class="overflow-x-hidden">
-  <div id="toast" class="toast"><span id="toast-msg">Tersalin!</span></div>
+  <div id="toast" class="toast"><span id="toast-msg">Copied!</span></div>
 
   <nav id="navbar" class="nav-glass fixed top-0 left-0 w-full z-40">
     <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
@@ -161,15 +159,15 @@
             class="text-blue-600 font-normal">Panel</span></span>
       </div>
       <div class="hidden lg:flex items-center gap-4 text-sm font-medium">
-        <a href="https://github.com/Royhtml/Xampp-Meta-Panel/releases/tag/1.0.0" target="_blank"
+        <a href="https://github.com/Royhtml/Xampp-Meta-Panel/releases/tag/1.0.0" 
           class="text-gray-600 hover:text-gray-900 transition"><i class="fas fa-box mr-1"></i>Patch</a>
-        <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager" target="_blank"
+        <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager" 
           class="text-gray-600 hover:text-gray-900 transition"><i class="fas fa-puzzle-piece mr-1"></i> VSCode</a>
-        <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager" target="_blank"
-          class="text-gray-600 hover:text-gray-900 transition"><i class="fas fa-book mr-1"></i>Docs</a>
-        <a href="https://github.com/Royhtml/Xampp-Meta-Panel" target="_blank"
+        <a href="https://github.com/Royhtml/Xampp-Meta-Panel" 
           class="text-gray-600 hover:text-gray-900 transition"><i class="fab fa-github mr-1"></i> GitHub</a>
-        <a href="api.html" class="btn-primary text-sm py-2 px-4 rounded-full">
+        <a href="blog.html" 
+          class="text-gray-600 hover:text-gray-900 transition"><i class="fa-solid fa-newspaper mr-1"></i></i> Hub</a>
+        <a href="https://xampp-meta-panel-api-key.vercel.app/"  class="btn-primary text-sm py-2 px-4 rounded-full">
           <i class="fas fa-download"></i> API Key
         </a>
         <div class="flex items-center gap-2 border-l border-gray-300 pl-4">
@@ -182,10 +180,14 @@
               class="text-xs font-bold px-3 py-1.5 rounded-full text-gray-700 hover:bg-white hover:shadow-sm transition border border-transparent mx-1 flex items-center gap-1">
               <i class="fas fa-apple-alt text-red-500"></i> Version
             </button>
+            <a href = "comingson.html"><button
+              class="text-xs font-bold px-3 py-1.5 rounded-full text-gray-700 hover:bg-white hover:shadow-sm transition border border-transparent mx-1 flex items-center gap-1">
+              <i class="fas fa-server text-red-500"></i> Panel
+            </button></a>
             <button onclick="openModal('installModal')"
               class="text-xs font-bold px-3 py-1.5 rounded-full text-blue-600 hover:bg-white hover:shadow-sm transition border border-transparent flex items-center gap-1"
-              title="Buka Opsi Install">
-              <i class="fas fa-database"></i> Install OS
+              title="Open Install Options">
+              <i class="fas fa-database"></i> OS
             </button>
           </div>
         </div>
@@ -197,11 +199,10 @@
               <i class="fas fa-times text-lg"></i>
             </button>
             <h3 class="text-lg font-bold text-gray-800 mb-4 text-center">Software License</h3>
-            <p class="text-sm text-gray-600 mb-6 text-center">Silakan unduh atau lihat dokumen lisensi resmi kami dalam
-              format PDF.</p>
-            <a href="link-ke-file-lisensi.pdf" target="_blank"
+            <p class="text-sm text-gray-600 mb-6 text-center">Please download or view our official license document in PDF format.</p>
+            <a href="link-ke-file-lisensi.pdf" 
               class="flex items-center justify-center gap-2 w-full bg-red-500 text-white font-semibold py-2.5 rounded-lg hover:bg-red-600 transition">
-              <i class="fas fa-file-pdf"></i> Buka License (PDF)
+              <i class="fas fa-file-pdf"></i> Open License (PDF)
             </a>
           </div>
         </div>
@@ -212,10 +213,10 @@
               class="absolute top-3 right-3 text-gray-400 hover:text-gray-700">
               <i class="fas fa-times text-lg"></i>
             </button>
-            <h3 class="text-lg font-bold text-gray-800 mb-4">Pilih Versi</h3>
+            <h3 class="text-lg font-bold text-gray-800 mb-4">Select Version</h3>
             <div class="relative mb-4">
               <i class="fas fa-search absolute left-3 top-3 text-gray-400 text-sm"></i>
-              <input type="text" id="versionSearch" onkeyup="filterVersions()" placeholder="Cari versi..."
+              <input type="text" id="versionSearch" onkeyup="filterVersions()" placeholder="Search version..."
                 class="w-full border border-gray-300 rounded-lg pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
             </div>
             <ul id="versionList" class="max-h-48 overflow-y-auto pr-1 space-y-1">
@@ -259,7 +260,7 @@
 
             <div class="text-center mb-6">
               <h3 class="text-2xl font-semibold text-gray-800">Install Platform</h3>
-              <p class="text-gray-500 text-sm mt-1">Pilih sistem operasi atau environment Anda</p>
+              <p class="text-gray-500 text-sm mt-1">Select your operating system or environment</p>
             </div>
             <div class="grid grid-cols-3 gap-4">
               <button
@@ -334,7 +335,7 @@
         </script>
         <button id="btn-open-drawer"
           class="bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm py-2 px-4 rounded-full flex items-center gap-2 transition font-bold shadow-sm">
-          <i class="fas fa-bug text-red-500"></i> Isu & Bug
+          <i class="fas fa-bug text-red-500"></i> Issues & Bugs
         </button>
         <button id="btn-login" class="btn-outline text-sm py-2 px-4 rounded-full flex items-center gap-2">
           <i class="fab fa-google"></i> Login
@@ -343,7 +344,7 @@
           class="hidden flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full border border-gray-200">
           <img id="user-avatar" src="" alt="Avatar" class="w-7 h-7 rounded-full">
           <div class="flex flex-col leading-tight">
-            <span id="user-name" class="text-[11px] font-bold text-gray-800 max-w-[80px] truncate">Nama</span>
+            <span id="user-name" class="text-[11px] font-bold text-gray-800 max-w-[80px] truncate">Name</span>
             <button id="btn-logout" class="text-[10px] text-red-500 hover:underline text-left">Logout</button>
           </div>
         </div>
@@ -360,8 +361,8 @@
           <i class="fas fa-comments text-lg"></i>
         </div>
         <div>
-          <h2 class="font-bold text-gray-800 text-lg leading-tight">Komunitas Panel</h2>
-          <p class="text-xs text-gray-500">Laporkan Bug, Isu, atau Diskusi</p>
+          <h2 class="font-bold text-gray-800 text-lg leading-tight">Community Panel</h2>
+          <p class="text-xs text-gray-500">Report Bugs, Issues, or Discussions</p>
         </div>
       </div>
       <button id="btn-close-drawer"
@@ -370,70 +371,69 @@
     </div>
     <div class="bg-white px-6 py-3 border-b border-gray-200 flex items-center justify-between shrink-0 text-sm">
       <div class="flex gap-4">
-        <button id="tab-all" class="font-bold text-blue-600 border-b-2 border-blue-600 pb-1">Semua Isu</button>
-        <button id="tab-mine" class="text-gray-500 hover:text-gray-800 transition pb-1">Postingan Saya</button>
+        <button id="tab-all" class="font-bold text-blue-600 border-b-2 border-blue-600 pb-1">All Issues</button>
+        <button id="tab-mine" class="text-gray-500 hover:text-gray-800 transition pb-1">My Posts</button>
       </div>
       <button id="btn-new-post"
         class="bg-blue-600 hover:bg-blue-700 text-white py-1.5 px-4 rounded-md shadow transition flex items-center gap-2">
-        <i class="fas fa-plus"></i> Buat Isu
+        <i class="fas fa-plus"></i> Create Issue
       </button>
     </div>
     <div class="flex-1 overflow-y-auto drawer-scroll p-6 relative">
       <div id="drawer-login-overlay"
         class="absolute inset-0 bg-white/90 z-10 flex flex-col items-center justify-center p-6 text-center hidden">
         <i class="fas fa-lock text-5xl text-gray-300 mb-4"></i>
-        <h3 class="text-xl font-bold text-gray-800 mb-2">Akses Terkunci</h3>
-        <p class="text-gray-600 mb-6 max-w-sm">Anda harus login menggunakan akun Google untuk melihat diskusi,
-          melaporkan bug, dan berkomentar.</p>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Access Locked</h3>
+        <p class="text-gray-600 mb-6 max-w-sm">You must log in using a Google account to view discussions, report bugs, and comment.</p>
         <button id="btn-login-drawer"
           class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-full flex items-center gap-3 shadow-lg transition">
-          <i class="fab fa-google text-lg"></i> Login untuk Melanjutkan
+          <i class="fab fa-google text-lg"></i> Login to Continue
         </button>
       </div>
       <div id="view-grid" class="block">
         <div id="posts-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div class="col-span-full text-center py-10 text-gray-500"><i
-              class="fas fa-spinner fa-spin text-2xl mb-2"></i><br>Memuat...</div>
+              class="fas fa-spinner fa-spin text-2xl mb-2"></i><br>Loading...</div>
         </div>
       </div>
       <div id="view-form" class="hidden bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-        <h3 id="form-title" class="font-bold text-gray-800 mb-4 text-lg border-b pb-2">Buat Laporan / Diskusi Baru</h3>
+        <h3 id="form-title" class="font-bold text-gray-800 mb-4 text-lg border-b pb-2">Create New Report / Discussion</h3>
         <input type="hidden" id="form-post-id">
-        <label class="block text-xs font-bold text-gray-600 mb-1 uppercase tracking-wide">Judul Isu</label>
-        <input type="text" id="input-title" placeholder="Contoh: Bug saat start Apache..."
+        <label class="block text-xs font-bold text-gray-600 mb-1 uppercase tracking-wide">Issue Title</label>
+        <input type="text" id="input-title" placeholder="Example: Bug when starting Apache..."
           class="w-full mb-4 p-3 border border-gray-300 rounded focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
 
-        <label class="block text-xs font-bold text-gray-600 mb-1 uppercase tracking-wide">Link Media (Opsional)</label>
-        <input type="text" id="input-media" placeholder="Link YouTube, TikTok, IG, FB, atau Gambar (.png/.jpg)"
+        <label class="block text-xs font-bold text-gray-600 mb-1 uppercase tracking-wide">Media Link (Optional)</label>
+        <input type="text" id="input-media" placeholder="YouTube, TikTok, IG, FB link, or Image (.png/.jpg)"
           class="w-full mb-4 p-3 border border-gray-300 rounded focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
 
-        <label class="block text-xs font-bold text-gray-600 mb-1 uppercase tracking-wide">Deskripsi Detail</label>
+        <label class="block text-xs font-bold text-gray-600 mb-1 uppercase tracking-wide">Detailed Description</label>
         <textarea id="input-body"
-          placeholder="Deskripsikan masalah, error log, atau ide Anda. Link website akan otomatis terdeteksi."
+          placeholder="Describe the issue, error log, or your idea. Website links will be automatically detected."
           class="w-full mb-4 p-3 border border-gray-300 rounded h-40 drawer-scroll focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition"></textarea>
 
         <div class="flex gap-3 justify-end">
-          <button id="btn-cancel-form" class="btn-outline px-6 py-2 rounded">Batal</button>
-          <button id="btn-submit-form" class="btn-primary px-6 py-2 rounded shadow-md">Upload Postingan</button>
+          <button id="btn-cancel-form" class="btn-outline px-6 py-2 rounded">Cancel</button>
+          <button id="btn-submit-form" class="btn-primary px-6 py-2 rounded shadow-md">Upload Post</button>
         </div>
       </div>
       <div id="view-detail" class="hidden">
         <button id="btn-back-detail"
           class="mb-4 text-sm font-medium text-gray-500 hover:text-gray-800 flex items-center gap-2 transition">
-          <i class="fas fa-arrow-left"></i> Kembali ke Grid
+          <i class="fas fa-arrow-left"></i> Back to Grid
         </button>
         <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm mb-6" id="detail-content-area">
         </div>
         <h4 class="font-bold text-gray-800 mb-3 text-sm uppercase tracking-wide flex items-center gap-2"><i
-            class="fas fa-comments text-blue-500"></i> Komentar</h4>
+            class="fas fa-comments text-blue-500"></i> Comments</h4>
         <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm mb-6 flex flex-col gap-3">
           <div id="comments-container" class="flex flex-col gap-3"></div>
           <div class="flex gap-2 mt-2 pt-3 border-t border-gray-100">
-            <input type="text" id="input-comment" placeholder="Tulis komentar balasan..."
+            <input type="text" id="input-comment" placeholder="Write a reply..."
               class="flex-1 p-2.5 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500">
             <button id="btn-send-comment"
               class="bg-blue-600 text-white px-5 rounded hover:bg-blue-700 transition shadow">
-              Kirim
+              Send
             </button>
           </div>
         </div>
@@ -447,21 +447,21 @@
       <div class="w-full md:w-2/3">
         <div
           class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-200 bg-blue-50 text-xs text-blue-700 mb-4 font-medium">
-          Dokumentasi Resmi v2.0 &mdash; Panduan Ekstensi Lengkap
+          Official Documentation v2.0 &mdash; Complete Extension Guide
         </div>
         <h1 class="main-title mb-4">
-          Kelola Stack Server<br>
-          <span class="text-blue-600">Secara Nativ</span> dari VSCode
+          Manage Server Stack<br>
+          <span class="text-blue-600">Natively</span> from VSCode
         </h1>
         <p class="text-lg text-gray-600 mb-8 max-w-xl leading-relaxed">
-          XAMPP Meta Panel membawa seluruh kontrol XAMPP (Apache, MariaDB, PHP) langsung ke dalam editor Anda. Dengan
-          dukungan instan untuk Laravel, WhatsApp Bot, dan Fix 403 Mobile Testing.
+          XAMPP Meta Panel brings full control of XAMPP (Apache, MariaDB, PHP) directly into your editor. With
+          instant support for Laravel, WhatsApp Bot, and Mobile 403 Fix Testing.
         </p>
         <div class="flex flex-wrap gap-3">
           <a href="#instalasi" class="btn-primary rounded-full">
-            Mulai Sekarang
+            Get Started
           </a>
-          <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager" target="_blank"
+          <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager" 
             class="btn-outline rounded-full">
             <i class="fas fa-external-link-alt"></i> VSCode Marketplace
           </a>
@@ -476,106 +476,102 @@
 
   <div class="max-w-7xl mx-auto px-6 flex items-start gap-10">
     <aside class="sidebar-desktop w-1/4 shrink-0 py-8">
-      <h4 class="text-gray-900 font-medium mb-3 text-sm px-4 product-sans">Daftar Isi</h4>
+      <h4 class="text-gray-900 font-medium mb-3 text-sm px-4 product-sans">Table of Contents</h4>
       <nav id="sidebar-nav" class="flex flex-col gap-1">
-        <a href="#pengenalan" class="sidebar-link" data-section="pengenalan">1. Pengenalan & Fitur</a>
-        <a href="#instalasi" class="sidebar-link" data-section="instalasi">2. Panduan Instalasi</a>
-        <a href="#penggunaan" class="sidebar-link" data-section="penggunaan">3. Penggunaan Dasar</a>
-        <a href="#laravel" class="sidebar-link" data-section="laravel">4. Integrasi Laravel</a>
+        <a href="#pengenalan" class="sidebar-link" data-section="pengenalan">1. Introduction & Features</a>
+        <a href="#instalasi" class="sidebar-link" data-section="instalasi">2. Installation Guide</a>
+        <a href="#penggunaan" class="sidebar-link" data-section="penggunaan">3. Basic Usage</a>
+        <a href="#laravel" class="sidebar-link" data-section="laravel">4. Laravel Integration</a>
         <a href="#whatsapp-bot" class="sidebar-link" data-section="whatsapp-bot">5. WhatsApp Chat Bot</a>
-        <a href="#cross-device" class="sidebar-link" data-section="cross-device">6. Testing HP & Laptop</a>
-        <a href="#konfigurasi" class="sidebar-link" data-section="konfigurasi">7. Konfigurasi Lanjutan</a>
-        <a href="#komparasi" class="sidebar-link" data-section="komparasi">8. Komparasi & Statistik</a>
-        <a href="#performa" class="sidebar-link" data-section="performa">9. Analisis Performa</a>
+        <a href="#cross-device" class="sidebar-link" data-section="cross-device">6. Mobile & Laptop Testing</a>
+        <a href="#konfigurasi" class="sidebar-link" data-section="konfigurasi">7. Advanced Configuration</a>
+        <a href="#komparasi" class="sidebar-link" data-section="komparasi">8. Comparison & Statistics</a>
+        <a href="#performa" class="sidebar-link" data-section="performa">9. Performance Analysis</a>
         <a href="#troubleshooting" class="sidebar-link" data-section="troubleshooting">10. Troubleshooting</a>
       </nav>
     </aside>
 
     <main class="main-docs w-full lg:w-3/4 docs-content pb-20 pt-4">
       <section id="pengenalan" class="doc-section">
-        <h2 class="section-title product-sans"><span class="section-number">1</span> Pengenalan & Fitur Unggulan</h2>
+        <h2 class="section-title product-sans"><span class="section-number">1</span> Introduction & Key Features</h2>
         <div class="mt-4">
-          <p><strong>XAMPP Meta Panel</strong> adalah ekstensi Visual Studio Code yang dikembangkan oleh <strong>Dwi
-              Bakti N Dev/Roy</strong> untuk menyatukan seluruh kontrol XAMPP ke dalam editor. Developer tidak perlu
-            lagi berpindah jendela hanya untuk menghidupkan Apache, memeriksa log error, atau menjalankan perintah
-            artisan.</p>
-          <p>Ekstensi ini tidak hanya meniru fungsi Control Panel bawaan XAMPP, tetapi menambahkan fitur-fitur canggih
-            yang secara khusus dirancang untuk workflow modern: dukungan framework Laravel, integrasi terminal untuk
-            WhatsApp Bot, serta kemampuan testing lintas perangkat dengan satu klik.</p>
+          <p><strong>XAMPP Meta Panel</strong> is a Visual Studio Code extension developed by <strong>Dwi
+              Bakti N Dev/Roy</strong> to unify all XAMPP controls within the editor. Developers no longer
+            need to switch windows just to start Apache, check error logs, or run
+            artisan commands.</p>
+          <p>This extension doesn't just mimic the native XAMPP Control Panel features; it adds powerful features
+            specifically designed for modern workflows: Laravel framework support, integrated terminal for
+            WhatsApp Bot, and cross-device testing capabilities with one click.</p>
         </div>
         <iframe src="https://drive.google.com/file/d/1eLMIazoDioccAmORp1LIN2S_CzrlnV0_/preview"
           class="w-full aspect-video rounded-md border-0 mt-4" allow="autoplay" allowfullscreen></iframe>
         <div class="info-card mt-6">
           <h4 class="font-bold text-white mb-2 flex items-center gap-2"><i class="fas fa-lightbulb text-yellow-400"></i>
-            Konsep Neural Network Server</h4>
-          <p class="text-sm text-gray-300">Seperti neural network yang terhubung, XAMPP Meta Panel menghubungkan semua
-            komponen server (Apache, MySQL, PHP, Node.js) dalam satu panel terintegrasi. Setiap node (service) dapat
-            diaktifkan, dimonitor, dan dikonfigurasi secara independen namun tetap terhubung dalam satu ekosistem.</p>
+            Neural Network Server Concept</h4>
+          <p class="text-sm text-gray-300">Like an interconnected neural network, XAMPP Meta Panel connects all
+            server components (Apache, MySQL, PHP, Node.js) in one integrated panel. Each node (service) can
+            be activated, monitored, and configured independently while remaining connected in a single ecosystem.</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
           <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-bolt text-yellow-600"></i></div>
-            <h4 class="text-gray-900 font-medium mb-1 text-base">Start/Stop Instan</h4>
-            <p class="text-sm text-gray-600">Kontrol Apache, MySQL, FileZilla, dan Tomcat dengan satu tombol tanpa
-              meninggalkan VSCode.</p>
+            <h4 class="text-gray-900 font-medium mb-1 text-base">Instant Start/Stop</h4>
+            <p class="text-sm text-gray-600">Control Apache, MySQL, FileZilla, and Tomcat with one button without
+              leaving VSCode.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon"><i class="fab fa-laravel text-red-600"></i></div>
             <h4 class="text-gray-900 font-medium mb-1 text-base">Auto-Detect Laravel</h4>
-            <p class="text-sm text-gray-600">Mendeteksi proyek Laravel secara otomatis dan menyediakan tombol <code
-                class="inline-code">artisan serve</code> instan.</p>
+            <p class="text-sm text-gray-600">Automatically detects Laravel projects and provides an instant <code
+                class="inline-code">artisan serve</code> button.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-mobile-alt text-blue-600"></i></div>
             <h4 class="text-gray-900 font-medium mb-1 text-base">Fix Mobile 403</h4>
-            <p class="text-sm text-gray-600">Atasi error "Access Forbidden" saat mengakses localhost dari HP dengan satu
-              klik fix.</p>
+            <p class="text-sm text-gray-600">Fix the "Access Forbidden" error when accessing localhost from a phone with a one-click fix.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-file-code text-green-600"></i></div>
             <h4 class="text-gray-900 font-medium mb-1 text-base">Config & Logs Native</h4>
-            <p class="text-sm text-gray-600">Buka <code class="inline-code">php.ini</code>, <code
-                class="inline-code">my.ini</code>, dan error log langsung di tab editor VSCode.</p>
+            <p class="text-sm text-gray-600">Open <code class="inline-code">php.ini</code>, <code
+                class="inline-code">my.ini</code>, and error logs directly in the VSCode editor tab.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon"><i class="fab fa-whatsapp text-green-500"></i></div>
             <h4 class="text-gray-900 font-medium mb-1 text-base">WhatsApp Bot Ready</h4>
-            <p class="text-sm text-gray-600">Terminal terintegrasi untuk menjalankan Node.js/Python bot WhatsApp tanpa
-              aplikasi tambahan.</p>
+            <p class="text-sm text-gray-600">Integrated terminal to run Node.js/Python WhatsApp bots without additional applications.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-terminal text-purple-600"></i></div>
             <h4 class="text-gray-900 font-medium mb-1 text-base">Embedded Terminal</h4>
-            <p class="text-sm text-gray-600">Jalankan perintah PHP, Composer, NPM, dan lainnya langsung dari panel tanpa
-              cmd terpisah.</p>
+            <p class="text-sm text-gray-600">Run PHP, Composer, NPM, and other commands directly from the panel without a separate cmd.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-database text-orange-600"></i></div>
             <h4 class="text-gray-900 font-medium mb-1 text-base">Database Manager</h4>
-            <p class="text-sm text-gray-600">Akses phpMyAdmin dan MySQL CLI dengan sekali klik dari sidebar panel.</p>
+            <p class="text-sm text-gray-600">Access phpMyAdmin and MySQL CLI with one click from the sidebar panel.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-shield-alt text-blue-500"></i></div>
             <h4 class="text-gray-900 font-medium mb-1 text-base">Security Quick Fix</h4>
-            <p class="text-sm text-gray-600">Perbaiki konfigurasi keamanan XAMPP secara otomatis termasuk firewall dan
-              akses root.</p>
+            <p class="text-sm text-gray-600">Automatically fix XAMPP security configurations including firewall and root access.</p>
           </div>
         </div>
       </section>
       <section id="instalasi" class="doc-section">
-        <h2 class="section-title product-sans"><span class="section-number">2</span> Panduan Instalasi & Konfigurasi
+        <h2 class="section-title product-sans"><span class="section-number">2</span> Installation & Configuration Guide
         </h2>
         <div class="mt-4">
-          <p>Ekstensi ini ringan (kurang dari 500KB) dan dapat diinstal melalui VSCode Marketplace dalam hitungan detik.
+          <p>This extension is lightweight (less than 500KB) and can be installed via the VSCode Marketplace in seconds.
           </p>
-          <h3>Persyaratan Sistem</h3>
+          <h3>System Requirements</h3>
           <div class="table-container">
             <table>
               <thead>
                 <tr>
-                  <th>Komponen</th>
+                  <th>Component</th>
                   <th>Minimum</th>
-                  <th>Rekomendasi</th>
+                  <th>Recommended</th>
                 </tr>
               </thead>
               <tbody>
@@ -595,153 +591,146 @@
                   <td>v8.2+</td>
                 </tr>
                 <tr>
-                  <td>Node.js (untuk Bot)</td>
+                  <td>Node.js (for Bot)</td>
                   <td>v16+</td>
                   <td>v20 LTS</td>
                 </tr>
                 <tr>
-                  <td>Sistem Operasi</td>
+                  <td>Operating System</td>
                   <td>Windows 7</td>
                   <td>Windows 11</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <h3>Langkah Instalasi</h3>
+          <h3>Installation Steps</h3>
           <div class="step-card"><span class="step-num">1</span>
-            <div><strong class="text-gray-900 text-base">Buka Visual Studio Code</strong>
-              <p class="text-sm text-gray-600 mt-1">Pastikan VSCode versi terbaru sudah terinstal di sistem Anda.</p>
+            <div><strong class="text-gray-900 text-base">Open Visual Studio Code</strong>
+              <p class="text-sm text-gray-600 mt-1">Make sure the latest version of VSCode is installed on your system.</p>
             </div>
           </div>
           <div class="step-card"><span class="step-num">2</span>
-            <div><strong class="text-gray-900 text-base">Buka Panel Extensions</strong>
-              <p class="text-sm text-gray-600 mt-1">Tekan <span class="inline-code">Ctrl + Shift + X</span> atau klik
-                ikon Extensions di sidebar kiri.</p>
+            <div><strong class="text-gray-900 text-base">Open the Extensions Panel</strong>
+              <p class="text-sm text-gray-600 mt-1">Press <span class="inline-code">Ctrl + Shift + X</span> or click the Extensions icon in the left sidebar.</p>
             </div>
           </div>
           <div class="step-card"><span class="step-num">3</span>
-            <div><strong class="text-gray-900 text-base">Cari Ekstensi</strong>
-              <p class="text-sm text-gray-600 mt-1">Ketik <strong>"XAMPP Meta Panel"</strong> di kolom pencarian.
-                Pastikan publisher adalah <strong>RoyHtml</strong>.</p>
+            <div><strong class="text-gray-900 text-base">Search for the Extension</strong>
+              <p class="text-sm text-gray-600 mt-1">Type <strong>"XAMPP Meta Panel"</strong> in the search bar.
+                Make sure the publisher is <strong>RoyHtml</strong>.</p>
             </div>
           </div>
           <div class="step-card"><span class="step-num">4</span>
-            <div><strong class="text-gray-900 text-base">Klik Install</strong>
-              <p class="text-sm text-gray-600 mt-1">Tunggu hingga proses instalasi selesai. Ikon XAMPP akan muncul di
-                Activity Bar.</p>
+            <div><strong class="text-gray-900 text-base">Click Install</strong>
+              <p class="text-sm text-gray-600 mt-1">Wait until the installation process is complete. The XAMPP icon will appear in the Activity Bar.</p>
             </div>
           </div>
           <div class="step-card"><span class="step-num">5</span>
-            <div><strong class="text-gray-900 text-base">Set Path XAMPP</strong>
-              <p class="text-sm text-gray-600 mt-1">Pengaturan path XAMPP akan otomatis terdeteksi. Jika tidak, buka
-                Settings dan set <span class="inline-code">xampp.metaPanel.xamppPath</span>.</p>
+            <div><strong class="text-gray-900 text-base">Set XAMPP Path</strong>
+              <p class="text-sm text-gray-600 mt-1">The XAMPP path setting will be automatically detected. If not, open Settings and set <span class="inline-code">xampp.metaPanel.xamppPath</span>.</p>
             </div>
           </div>
           <div class="code-block font-mono">
-            <button class="copy-btn" onclick="copyCode(this)">Salin</button>
-            <span class="text-gray-500">// Alternatif: install via terminal VSCode</span><br>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <span class="text-gray-500">// Alternative: install via VSCode terminal</span><br>
             <span class="text-blue-600">ext install</span> <span
               class="text-gray-800">RoyHtml.xampp-manager</span><br><br>
-            <span class="text-gray-500">// Atau menggunakan CLI</span><br>
+            <span class="text-gray-500">// Or using CLI</span><br>
             <span class="text-blue-600">code</span> <span class="text-gray-800">--install-extension
               RoyHtml.xampp-manager</span>
           </div>
           <div class="info-card mt-4">
             <h4><i class="fas fa-info-circle mr-2"></i>Auto-Detect Path</h4>
-            <p>XAMPP Meta Panel secara otomatis mendeteksi lokasi instalasi XAMPP di path umum: <code
-                class="inline-code">C:\xampp</code>, <code class="inline-code">D:\xampp</code>, atau <code
-                class="inline-code">C:\Program Files\xampp</code>. Jika XAMPP terinstal di lokasi custom, Anda perlu
-              mengatur path secara manual.</p>
+            <p>XAMPP Meta Panel automatically detects the XAMPP installation location at common paths: <code
+                class="inline-code">C:\xampp</code>, <code class="inline-code">D:\xampp</code>, or <code
+                class="inline-code">C:\Program Files\xampp</code>. If XAMPP is installed in a custom location, you need to set the path manually.</p>
           </div>
         </div>
       </section>
 
-      <!-- Section 3: Penggunaan Dasar -->
+      <!-- Section 3: Basic Usage -->
       <section id="penggunaan" class="doc-section">
-        <h2 class="section-title product-sans"><span class="section-number">3</span> Penggunaan Dasar</h2>
+        <h2 class="section-title product-sans"><span class="section-number">3</span> Basic Usage</h2>
         <div class="mt-4">
-          <p>Setelah instalasi, ikon XAMPP Meta Panel akan muncul di Activity Bar (sidebar kiri) VSCode. Berikut cara
-            mengakses dan menggunakan panel:</p>
-          <h3>Membuka Meta Panel</h3>
+          <p>After installation, the XAMPP Meta Panel icon will appear in the VSCode Activity Bar (left sidebar). Here is how to access and use the panel:</p>
+          <h3>Opening the Meta Panel</h3>
           <div class="code-block font-mono">
-            <button class="copy-btn" onclick="copyCode(this)">Salin</button>
-            <span class="text-gray-500">// Cara 1: Command Palette</span><br>
-            <span class="text-blue-600">Ctrl+Shift+P</span> <span class="text-gray-800">→ Ketik "XAMPP: Open Meta Panel"
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <span class="text-gray-500">// Method 1: Command Palette</span><br>
+            <span class="text-blue-600">Ctrl+Shift+P</span> <span class="text-gray-800">→ Type "XAMPP: Open Meta Panel"
               → Enter</span><br><br>
-            <span class="text-gray-500">// Cara 2: Activity Bar</span><br>
-            <span class="text-gray-800">Klik ikon XAMPP di sidebar kiri VSCode</span><br><br>
-            <span class="text-gray-500">// Cara 3: Keyboard Shortcut</span><br>
-            <span class="text-blue-600">Ctrl+Alt+X</span> <span class="text-gray-800">(default, dapat di-custom)</span>
+            <span class="text-gray-500">// Method 2: Activity Bar</span><br>
+            <span class="text-gray-800">Click the XAMPP icon in the VSCode left sidebar</span><br><br>
+            <span class="text-gray-500">// Method 3: Keyboard Shortcut</span><br>
+            <span class="text-blue-600">Ctrl+Alt+X</span> <span class="text-gray-800">(default, can be customized)</span>
           </div>
-          <h3>Fitur Panel Utama</h3>
+          <h3>Main Panel Features</h3>
           <div class="table-container">
             <table>
               <thead>
                 <tr>
-                  <th>Fitur</th>
-                  <th>Deskripsi</th>
+                  <th>Feature</th>
+                  <th>Description</th>
                   <th>Shortcut</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td><strong class="text-gray-900">Start Apache</strong></td>
-                  <td>Menjalankan web server Apache</td>
+                  <td>Start the Apache web server</td>
                   <td><span class="inline-code">Ctrl+Alt+A</span></td>
                 </tr>
                 <tr>
                   <td><strong class="text-gray-900">Start MySQL</strong></td>
-                  <td>Menjalankan database MariaDB</td>
+                  <td>Start the MariaDB database</td>
                   <td><span class="inline-code">Ctrl+Alt+M</span></td>
                 </tr>
                 <tr>
                   <td><strong class="text-gray-900">Start All</strong></td>
-                  <td>Menjalankan semua service sekaligus</td>
+                  <td>Start all services at once</td>
                   <td><span class="inline-code">Ctrl+Alt+S</span></td>
                 </tr>
                 <tr>
                   <td><strong class="text-gray-900">Stop All</strong></td>
-                  <td>Menghentikan semua service</td>
+                  <td>Stop all services</td>
                   <td><span class="inline-code">Ctrl+Alt+Q</span></td>
                 </tr>
                 <tr>
                   <td><strong class="text-gray-900">Open phpMyAdmin</strong></td>
-                  <td>Membuka phpMyAdmin di browser</td>
+                  <td>Open phpMyAdmin in the browser</td>
                   <td><span class="inline-code">Ctrl+Alt+D</span></td>
                 </tr>
                 <tr>
                   <td><strong class="text-gray-900">Fix Mobile 403</strong></td>
-                  <td>Memperbaiki akses LAN dari perangkat lain</td>
+                  <td>Fix LAN access from other devices</td>
                   <td>Panel UI</td>
                 </tr>
                 <tr>
                   <td><strong class="text-gray-900">Open Config</strong></td>
-                  <td>Membuka file konfigurasi di editor</td>
+                  <td>Open configuration files in the editor</td>
                   <td>Panel UI</td>
                 </tr>
                 <tr>
                   <td><strong class="text-gray-900">View Logs</strong></td>
-                  <td>Melihat log error dan akses</td>
+                  <td>View error and access logs</td>
                   <td>Panel UI</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div class="success-card mt-4">
-            <h4><i class="fas fa-check-circle mr-2"></i>Tips: Panel yang Dapat Diseret</h4>
-            <p>Tab Meta Panel dapat di-drag ke area manapun di VSCode. Letakkan di sidebar kanan untuk layout yang lebih
-              nyaman, atau di panel bawah untuk monitoring bersamaan dengan terminal.</p>
+            <h4><i class="fas fa-check-circle mr-2"></i>Tip: Draggable Panel</h4>
+            <p>The Meta Panel tab can be dragged to any area in VSCode. Place it on the right sidebar for a more comfortable layout, or in the bottom panel for monitoring alongside the terminal.</p>
           </div>
         </div>
       </section>
       <section id="laravel" class="doc-section">
-        <h2 class="section-title product-sans"><span class="section-number">4</span> Integrasi Laravel & PHP Framework
+        <h2 class="section-title product-sans"><span class="section-number">4</span> Laravel & PHP Framework Integration
         </h2>
         <div class="mt-4">
-          <p>Salah satu fitur paling powerful dari XAMPP Meta Panel adalah kemampuannya mendeteksi dan mengelola proyek
-            Laravel secara otomatis. Tidak perlu lagi buka CMD terpisah hanya untuk menjalankan <code
+          <p>One of the most powerful features of XAMPP Meta Panel is its ability to automatically detect and manage Laravel projects. You no longer need to open a separate CMD just to run <code
               class="inline-code">php artisan serve</code>.</p>
-          <h3>Alur Kerja Laravel dengan Meta Panel</h3>
+          <h3>Laravel Workflow with Meta Panel</h3>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 mb-6">
             <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
               <div
@@ -749,8 +738,8 @@
                 <i class="fas fa-search"></i>
               </div>
               <h4 class="text-gray-900 font-medium text-base mb-1">Auto-Detect</h4>
-              <p class="text-sm text-gray-600">Panel memindai folder workspace untuk file <code
-                  class="inline-code">artisan</code></p>
+              <p class="text-sm text-gray-600">Panel scans the workspace folder for the <code
+                  class="inline-code">artisan</code> file</p>
             </div>
             <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
               <div
@@ -758,7 +747,7 @@
                 <i class="fas fa-play"></i>
               </div>
               <h4 class="text-gray-900 font-medium text-base mb-1">One-Click Serve</h4>
-              <p class="text-sm text-gray-600">Tombol Artisan Serve muncul otomatis di panel</p>
+              <p class="text-sm text-gray-600">Artisan Serve button appears automatically in the panel</p>
             </div>
             <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
               <div
@@ -766,76 +755,73 @@
                 <i class="fas fa-code"></i>
               </div>
               <h4 class="text-gray-900 font-medium text-base mb-1">Hot Reload</h4>
-              <p class="text-sm text-gray-600">Perubahan kode langsung ter-refresh di browser</p>
+              <p class="text-sm text-gray-600">Code changes are instantly refreshed in the browser</p>
             </div>
           </div>
-          <h3>Perbandingan: PHP Biasa vs Laravel</h3>
+          <h3>Comparison: Plain PHP vs Laravel</h3>
           <div class="table-container">
             <table>
               <thead>
                 <tr>
-                  <th>Aspek</th>
+                  <th>Aspect</th>
                   <th>PHP Native</th>
-                  <th>Proyek Laravel</th>
+                  <th>Laravel Project</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Deteksi Otomatis</td>
-                  <td>Deteksi file <code class="inline-code">index.php</code></td>
-                  <td>Deteksi file <code class="inline-code">artisan</code></td>
+                  <td>Auto-Detection</td>
+                  <td>Detects <code class="inline-code">index.php</code> file</td>
+                  <td>Detects <code class="inline-code">artisan</code> file</td>
                 </tr>
                 <tr>
-                  <td>Perintah Run</td>
+                  <td>Run Command</td>
                   <td><code class="inline-code">php -S localhost:8000</code></td>
                   <td><code class="inline-code">php artisan serve</code></td>
                 </tr>
                 <tr>
-                  <td>Menu Panel</td>
-                  <td>Run Serve standar</td>
+                  <td>Panel Menu</td>
+                  <td>Standard Run Serve</td>
                   <td>Artisan Serve + Migration + Seeder</td>
                 </tr>
                 <tr>
                   <td>Database</td>
-                  <td>Setup manual</td>
+                  <td>Manual setup</td>
                   <td>Auto-detect <code class="inline-code">.env</code></td>
                 </tr>
                 <tr>
                   <td>Route List</td>
-                  <td>Tidak tersedia</td>
-                  <td>Tombol <code class="inline-code">artisan route:list</code></td>
+                  <td>Not available</td>
+                  <td><code class="inline-code">artisan route:list</code> button</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <h3>Perintah Artisan Tersedia</h3>
+          <h3>Available Artisan Commands</h3>
           <div class="code-block font-mono">
-            <button class="copy-btn" onclick="copyCode(this)">Salin</button>
-            <span class="text-gray-500"># Menjalankan development server</span><br>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <span class="text-gray-500"># Run development server</span><br>
             <span class="text-blue-600">php</span> <span class="text-gray-800">artisan serve</span><br><br>
-            <span class="text-gray-500"># Menjalankan migration</span><br>
+            <span class="text-gray-500"># Run migration</span><br>
             <span class="text-blue-600">php</span> <span class="text-gray-800">artisan migrate</span><br><br>
-            <span class="text-gray-500"># Menjalankan seeder</span><br>
+            <span class="text-gray-500"># Run seeder</span><br>
             <span class="text-blue-600">php</span> <span class="text-gray-800">artisan db:seed</span><br><br>
-            <span class="text-gray-500"># Melihat daftar route</span><br>
+            <span class="text-gray-500"># View route list</span><br>
             <span class="text-blue-600">php</span> <span class="text-gray-800">artisan route:list</span><br><br>
             <span class="text-gray-500"># Clear cache</span><br>
             <span class="text-blue-600">php</span> <span class="text-gray-800">artisan config:cache</span>
           </div>
           <div class="info-card mt-4">
-            <h4><i class="fas fa-info-circle mr-2"></i>Direktori Bebas</h4>
-            <p>Anda tidak perlu memindahkan proyek ke folder <code class="inline-code">htdocs</code>. XAMPP Meta Panel
-              menjalankan PHP Built-in Server atau Artisan Serve dari direktori mana saja di sistem Anda.</p>
+            <h4><i class="fas fa-info-circle mr-2"></i>Free Directory</h4>
+            <p>You don't need to move your project to the <code class="inline-code">htdocs</code> folder. XAMPP Meta Panel runs the PHP Built-in Server or Artisan Serve from any directory on your system.</p>
           </div>
         </div>
       </section>
       <section id="whatsapp-bot" class="doc-section">
         <h2 class="section-title product-sans"><span class="section-number">5</span> WhatsApp Chat Bot Integration</h2>
         <div class="mt-4">
-          <p>XAMPP Meta Panel menyediakan lingkungan ideal untuk mengembangkan dan menjalankan bot WhatsApp. Dengan
-            terminal terintegrasi dan manajemen service yang mudah, Anda dapat menjalankan stack lengkap (web server +
-            database + bot runtime) dari satu tempat.</p>
-          <h3>Arsitektur WhatsApp Bot dengan XAMPP Meta Panel</h3>
+          <p>XAMPP Meta Panel provides an ideal environment for developing and running WhatsApp bots. With integrated terminals and easy service management, you can run the full stack (web server + database + bot runtime) from one place.</p>
+          <h3>WhatsApp Bot Architecture with XAMPP Meta Panel</h3>
           <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
             <div class="flex flex-col gap-4">
               <div class="flex items-center gap-4">
@@ -843,7 +829,7 @@
                     class="fab fa-whatsapp text-green-600 text-xl"></i></div>
                 <div class="flex-1">
                   <h4 class="text-gray-900 font-medium text-base">WhatsApp Web API</h4>
-                  <p class="text-sm text-gray-600">Baileys / whatsapp-web.js berjalan di Node.js via terminal Meta Panel
+                  <p class="text-sm text-gray-600">Baileys / whatsapp-web.js running on Node.js via Meta Panel terminal
                   </p>
                 </div>
               </div>
@@ -853,7 +839,7 @@
                     class="fas fa-brain text-blue-600 text-xl"></i></div>
                 <div class="flex-1">
                   <h4 class="text-gray-900 font-medium text-base">AI Engine (Python/Node)</h4>
-                  <p class="text-sm text-gray-600">OpenAI API / Local LLM untuk pemrosesan pesan cerdas</p>
+                  <p class="text-sm text-gray-600">OpenAI API / Local LLM for smart message processing</p>
                 </div>
               </div>
               <div class="flex justify-center"><i class="fas fa-arrow-down text-gray-400"></i></div>
@@ -862,7 +848,7 @@
                     class="fas fa-database text-yellow-600 text-xl"></i></div>
                 <div class="flex-1">
                   <h4 class="text-gray-900 font-medium text-base">MariaDB / MySQL</h4>
-                  <p class="text-sm text-gray-600">Penyimpanan riwayat chat, user data, dan session via XAMPP MySQL</p>
+                  <p class="text-sm text-gray-600">Chat history storage, user data, and sessions via XAMPP MySQL</p>
                 </div>
               </div>
               <div class="flex justify-center"><i class="fas fa-arrow-down text-gray-400"></i></div>
@@ -871,7 +857,7 @@
                     class="fab fa-laravel text-red-600 text-xl"></i></div>
                 <div class="flex-1">
                   <h4 class="text-gray-900 font-medium text-base">Laravel Backend</h4>
-                  <p class="text-sm text-gray-600">Dashboard monitoring, webhook, dan API management</p>
+                  <p class="text-sm text-gray-600">Monitoring dashboard, webhooks, and API management</p>
                 </div>
               </div>
               <div class="flex justify-center"><i class="fas fa-arrow-down text-gray-400"></i></div>
@@ -880,146 +866,139 @@
                     class="fab fa-cloudflare text-gray-800 text-xl"></i></div>
                 <div class="flex-1">
                   <h4 class="text-gray-900 font-medium text-base">Vercel Deployment</h4>
-                  <p class="text-sm text-gray-600">Deploy source code (.zip) atau .html Untuk menjalankan skrip PHP
-                    biasa di komputer Anda, juga menjadi dashboard API.</p>
+                  <p class="text-sm text-gray-600">Deploy source code (.zip) or .html To run plain PHP scripts on your computer, also serves as an API dashboard.</p>
                 </div>
               </div>
             </div>
           </div>
           <h3>Quick Start: WhatsApp Bot</h3>
           <div class="step-card"><span class="step-num">1</span>
-            <div><strong class="text-gray-900 text-base">Start MySQL dari Meta Panel</strong>
-              <p class="text-sm text-gray-600 mt-1">Pastikan database sudah berjalan untuk menyimpan session dan log
-                pesan.</p>
+            <div><strong class="text-gray-900 text-base">Start MySQL from Meta Panel</strong>
+              <p class="text-sm text-gray-600 mt-1">Make sure the database is running to store sessions and message logs.</p>
             </div>
           </div>
           <div class="step-card"><span class="step-num">2</span>
-            <div><strong class="text-gray-900 text-base">Buka Terminal VSCode</strong>
-              <p class="text-sm text-gray-600 mt-1">Gunakan terminal terintegrasi (<span
-                  class="inline-code">Ctrl+`</span>) yang sudah terhubung dengan workspace.</p>
+            <div><strong class="text-gray-900 text-base">Open VSCode Terminal</strong>
+              <p class="text-sm text-gray-600 mt-1">Use the integrated terminal (<span
+                  class="inline-code">Ctrl+`</span>) that is already connected to the workspace.</p>
             </div>
           </div>
           <div class="step-card"><span class="step-num">3</span>
-            <div><strong class="text-gray-900 text-base">Inisialisasi Proyek Bot</strong>
-              <p class="text-sm text-gray-600 mt-1">Jalankan perintah berikut untuk setup proyek Node.js:</p>
+            <div><strong class="text-gray-900 text-base">Initialize Bot Project</strong>
+              <p class="text-sm text-gray-600 mt-1">Run the following commands to set up a Node.js project:</p>
             </div>
           </div>
           <div class="code-block font-mono">
-            <button class="copy-btn" onclick="copyCode(this)">Salin</button>
-            <span class="text-gray-500"># Buat folder proyek</span><br>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <span class="text-gray-500"># Create project folder</span><br>
             <span class="text-blue-600">mkdir</span> <span class="text-gray-800">wa-bot && cd wa-bot</span><br><br>
-            <span class="text-gray-500"># Inisialisasi package</span><br>
+            <span class="text-gray-500"># Initialize package</span><br>
             <span class="text-blue-600">npm</span> <span class="text-gray-800">init -y</span><br><br>
-            <span class="text-gray-500"># Install library WhatsApp</span><br>
+            <span class="text-gray-500"># Install WhatsApp library</span><br>
             <span class="text-blue-600">npm</span> <span class="text-gray-800">install @whiskeysockets/baileys
               pino</span><br><br>
-            <span class="text-gray-500"># Install AI helper (opsional)</span><br>
+            <span class="text-gray-500"># Install AI helper (optional)</span><br>
             <span class="text-blue-600">npm</span> <span class="text-gray-800">install openai</span>
           </div>
           <div class="step-card"><span class="step-num">4</span>
-            <div><strong class="text-gray-900 text-base">Jalankan Bot</strong>
-              <p class="text-sm text-gray-600 mt-1">Scan QR Code yang muncul di terminal dengan WhatsApp Anda, dan bot
-                siap berjalan!</p>
+            <div><strong class="text-gray-900 text-base">Run the Bot</strong>
+              <p class="text-sm text-gray-600 mt-1">Scan the QR Code that appears in the terminal with your WhatsApp, and the bot is ready to run!</p>
             </div>
           </div>
           <div class="code-block font-mono">
-            <button class="copy-btn" onclick="copyCode(this)">Salin</button>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
             <span class="text-blue-600">node</span> <span class="text-gray-800">index.js</span>
           </div>
           <div class="success-card mt-4">
-            <h4><i class="fas fa-check-circle mr-2"></i>Keunggulan Meta Panel untuk Bot Development</h4>
+            <h4><i class="fas fa-check-circle mr-2"></i>Meta Panel Advantages for Bot Development</h4>
             <ul class="text-sm mt-2">
-              <li>Monitor status MySQL dan Apache secara real-time saat bot berjalan</li>
-              <li>Restart service database dengan cepat tanpa meninggalkan editor</li>
-              <li>Akses phpMyAdmin untuk inspeksi data bot</li>
-              <li>Terminal terintegrasi mendukung multi-instance (bot + web + worker)</li>
-              <li>Fix Mobile 403 memungkinkan testing webhook dari perangkat mobile</li>
+              <li>Monitor MySQL and Apache status in real-time while the bot is running</li>
+              <li>Quickly restart database services without leaving the editor</li>
+              <li>Access phpMyAdmin for bot data inspection</li>
+              <li>Integrated terminal supports multi-instance (bot + web + worker)</li>
+              <li>Fix Mobile 403 enables webhook testing from mobile devices</li>
             </ul>
           </div>
         </div>
       </section>
       <section id="cross-device" class="doc-section">
-        <h2 class="section-title product-sans"><span class="section-number">6</span> Testing Lintas Perangkat (HP &
-          Laptop)</h2>
+        <h2 class="section-title product-sans"><span class="section-number">6</span> Cross-Device Testing (Mobile & Laptop)</h2>
         <div class="mt-4">
-          <p>XAMPP secara default memblokir akses dari IP luar, menyebabkan error <strong>"Access Forbidden /
-              403"</strong> ketika Anda mencoba membuka localhost dari smartphone. XAMPP Meta Panel mengatasi masalah
-            ini dengan fitur <strong>Fix Mobile 403</strong> yang berfungsi dalam satu klik.</p>
-          <h3>Panduan Lengkap Testing Mobile</h3>
+          <p>XAMPP by default blocks access from external IPs, causing the <strong>"Access Forbidden /
+              403"</strong> error when you try to open localhost from a smartphone. XAMPP Meta Panel solves this problem with the <strong>Fix Mobile 403</strong> feature that works in one click.</p>
+          <h3>Complete Mobile Testing Guide</h3>
           <div class="step-card"><span class="step-num">1</span>
-            <div><strong class="text-gray-900 text-base">Hubungkan ke Jaringan yang Sama</strong>
-              <p class="text-sm text-gray-600 mt-1">Pastikan laptop dan HP terhubung ke WiFi atau hotspot yang identik.
+            <div><strong class="text-gray-900 text-base">Connect to the Same Network</strong>
+              <p class="text-sm text-gray-600 mt-1">Make sure your laptop and phone are connected to the same WiFi or hotspot.
               </p>
             </div>
           </div>
           <div class="step-card"><span class="step-num">2</span>
-            <div><strong class="text-gray-900 text-base">Cari IP Address Laptop</strong>
-              <p class="text-sm text-gray-600 mt-1">Buka Command Prompt, ketik:</p>
+            <div><strong class="text-gray-900 text-base">Find Laptop IP Address</strong>
+              <p class="text-sm text-gray-600 mt-1">Open Command Prompt, type:</p>
             </div>
           </div>
           <div class="code-block font-mono">
-            <button class="copy-btn" onclick="copyCode(this)">Salin</button>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
             <span class="text-blue-600">ipconfig</span><br><br>
-            <span class="text-gray-500"># Cari baris "IPv4 Address" di adapter WiFi</span><br>
-            <span class="text-gray-500"># Contoh: 192.168.1.15</span>
+            <span class="text-gray-500"># Find the "IPv4 Address" line under the WiFi adapter</span><br>
+            <span class="text-gray-500"># Example: 192.168.1.15</span>
           </div>
           <div class="step-card"><span class="step-num">3</span>
-            <div><strong class="text-gray-900 text-base">Start Apache dari Meta Panel</strong>
-              <p class="text-sm text-gray-600 mt-1">Pastikan web server sudah berjalan sebelum melanjutkan.</p>
+            <div><strong class="text-gray-900 text-base">Start Apache from Meta Panel</strong>
+              <p class="text-sm text-gray-600 mt-1">Make sure the web server is running before proceeding.</p>
             </div>
           </div>
           <div class="step-card"><span class="step-num">4</span>
-            <div><strong class="text-gray-900 text-base">Klik "Fix Mobile 403"</strong>
-              <p class="text-sm text-gray-600 mt-1">Tombol ini akan otomatis memodifikasi file <code
-                  class="inline-code">httpd-xampp.conf</code> untuk mengizinkan akses dari IP lokal.</p>
+            <div><strong class="text-gray-900 text-base">Click "Fix Mobile 403"</strong>
+              <p class="text-sm text-gray-600 mt-1">This button will automatically modify the <code
+                  class="inline-code">httpd-xampp.conf</code> file to allow access from local IPs.</p>
             </div>
           </div>
           <div class="step-card"><span class="step-num">5</span>
-            <div><strong class="text-gray-900 text-base">Akses dari HP</strong>
-              <p class="text-sm text-gray-600 mt-1">Buka browser di HP, ketik IP laptop di address bar:</p>
+            <div><strong class="text-gray-900 text-base">Access from Phone</strong>
+              <p class="text-sm text-gray-600 mt-1">Open the browser on your phone, type the laptop IP in the address bar:</p>
             </div>
           </div>
           <div class="code-block font-mono">
-            <span class="text-gray-500"># Format: http://[IP_LAPTOP]/[FOLDER_PROYEK]</span><br>
+            <span class="text-gray-500"># Format: http://[LAPTOP_IP]/[PROJECT_FOLDER]</span><br>
             <span class="text-gray-800">http://192.168.1.15/my-project</span><br><br>
-            <span class="text-gray-500"># Untuk Laravel:</span><br>
+            <span class="text-gray-500"># For Laravel:</span><br>
             <span class="text-gray-800">http://192.168.1.15:8000</span>
           </div>
           <div class="warning-card mt-4">
-            <h4><i class="fas fa-exclamation-triangle mr-2"></i>Keamanan</h4>
-            <p>Fitur Fix Mobile 403 membuka akses LAN untuk keperluan development. Jangan gunakan di jaringan publik.
-              Setelah selesai testing, disarankan untuk mengembalikan konfigurasi ke semula (klik tombol "Restore
-              Security").</p>
+            <h4><i class="fas fa-exclamation-triangle mr-2"></i>Security</h4>
+            <p>The Fix Mobile 403 feature opens LAN access for development purposes. Do not use it on a public network. After testing, it is recommended to restore the configuration to its original state (click the "Restore Security" button).</p>
           </div>
-          <h3>Apa yang Dilakukan "Fix Mobile 403"?</h3>
-          <p>Secara teknis, fitur ini memodifikasi file <code class="inline-code">httpd-xampp.conf</code> yang berada di
-            <code class="inline-code">C:\xampp\apache\conf\extra\</code>. Perubahan yang dilakukan:
+          <h3>What Does "Fix Mobile 403" Do?</h3>
+          <p>Technically, this feature modifies the <code class="inline-code">httpd-xampp.conf</code> file located in
+            <code class="inline-code">C:\xampp\apache\conf\extra\</code>. The changes made:
           </p>
           <div class="code-block font-mono">
-            <button class="copy-btn" onclick="copyCode(this)">Salin</button>
-            <span class="text-gray-500"># SEBELUM (Blokir IP luar):</span><br>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <span class="text-gray-500"># BEFORE (Block external IPs):</span><br>
             <span class="text-red-600">Require local</span><br><br>
-            <span class="text-gray-500"># SESUDAH (Izinkan akses LAN):</span><br>
+            <span class="text-gray-500"># AFTER (Allow LAN access):</span><br>
             <span class="text-green-600">Require all granted</span><br>
             <span class="text-green-600">Allow from 192.168.</span>
           </div>
         </div>
       </section>
       <section id="konfigurasi" class="doc-section">
-        <h2 class="section-title product-sans"><span class="section-number">7</span> Konfigurasi Lanjutan</h2>
+        <h2 class="section-title product-sans"><span class="section-number">7</span> Advanced Configuration</h2>
         <div class="mt-4">
-          <p>XAMPP Meta Panel menyediakan akses cepat ke semua file konfigurasi penting. Klik tombol
-            <strong>Config</strong> di samping masing-masing service untuk membuka file di tab editor VSCode.
+          <p>XAMPP Meta Panel provides quick access to all important configuration files. Click the
+            <strong>Config</strong> button next to each service to open the file in the VSCode editor tab.
           </p>
-          <h3>File Konfigurasi yang Tersedia</h3>
+          <h3>Available Configuration Files</h3>
           <div class="table-container">
             <table>
               <thead>
                 <tr>
                   <th>Service</th>
                   <th>File</th>
-                  <th>Lokasi</th>
-                  <th>Fungsi</th>
+                  <th>Location</th>
+                  <th>Function</th>
                 </tr>
               </thead>
               <tbody>
@@ -1027,13 +1006,13 @@
                   <td><strong class="text-gray-900">Apache</strong></td>
                   <td><code class="inline-code">httpd.conf</code></td>
                   <td>apache/conf/</td>
-                  <td>Konfigurasi utama web server</td>
+                  <td>Main web server configuration</td>
                 </tr>
                 <tr>
                   <td><strong class="text-gray-900">Apache</strong></td>
                   <td><code class="inline-code">httpd-xampp.conf</code></td>
                   <td>apache/conf/extra/</td>
-                  <td>Security & akses kontrol</td>
+                  <td>Security & access control</td>
                 </tr>
                 <tr>
                   <td><strong class="text-gray-900">Apache</strong></td>
@@ -1045,20 +1024,20 @@
                   <td><strong class="text-gray-900">PHP</strong></td>
                   <td><code class="inline-code">php.ini</code></td>
                   <td>php/</td>
-                  <td>Konfigurasi runtime PHP</td>
+                  <td>PHP runtime configuration</td>
                 </tr>
                 <tr>
                   <td><strong class="text-gray-900">MySQL</strong></td>
                   <td><code class="inline-code">my.ini</code></td>
                   <td>mysql/bin/</td>
-                  <td>Konfigurasi database server</td>
+                  <td>Database server configuration</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <h3>Pengaturan VSCode untuk Meta Panel</h3>
+          <h3>VSCode Settings for Meta Panel</h3>
           <div class="code-block font-mono">
-            <button class="copy-btn" onclick="copyCode(this)">Salin</button>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
             <span class="text-gray-500">// settings.json</span><br>
             {<br>
             &nbsp;&nbsp;<span class="text-blue-600">"xampp.metaPanel.xamppPath"</span>: <span
@@ -1073,45 +1052,45 @@
               class="text-green-600">"8.2"</span><br>
             }
           </div>
-          <h3>Mengubah Port Apache</h3>
-          <p>Jika port 80 sudah digunakan oleh aplikasi lain (IIS, Skype, VMware), Anda dapat mengubahnya:</p>
+          <h3>Changing the Apache Port</h3>
+          <p>If port 80 is already used by another application (IIS, Skype, VMware), you can change it:</p>
           <div class="step-card"><span class="step-num">1</span>
-            <div><strong class="text-gray-900 text-base">Buka Config Apache</strong>
-              <p class="text-sm text-gray-600 mt-1">Klik Config → httpd.conf dari panel.</p>
+            <div><strong class="text-gray-900 text-base">Open Apache Config</strong>
+              <p class="text-sm text-gray-600 mt-1">Click Config → httpd.conf from the panel.</p>
             </div>
           </div>
           <div class="step-card"><span class="step-num">2</span>
-            <div><strong class="text-gray-900 text-base">Ubah Listen Port</strong>
-              <p class="text-sm text-gray-600 mt-1">Cari <code class="inline-code">Listen 80</code> dan ubah menjadi
-                <code class="inline-code">Listen 8080</code>. Cari juga <code
-                  class="inline-code">ServerName localhost:80</code> dan ubah menjadi <code
+            <div><strong class="text-gray-900 text-base">Change Listen Port</strong>
+              <p class="text-sm text-gray-600 mt-1">Find <code class="inline-code">Listen 80</code> and change it to
+                <code class="inline-code">Listen 8080</code>. Also find <code
+                  class="inline-code">ServerName localhost:80</code> and change it to <code
                   class="inline-code">ServerName localhost:8080</code>.
               </p>
             </div>
           </div>
           <div class="step-card"><span class="step-num">3</span>
             <div><strong class="text-gray-900 text-base">Restart Apache</strong>
-              <p class="text-sm text-gray-600 mt-1">Stop dan Start kembali Apache dari panel. Akses via <code
+              <p class="text-sm text-gray-600 mt-1">Stop and Start Apache again from the panel. Access via <code
                   class="inline-code">http://localhost:8080</code>.</p>
             </div>
           </div>
         </div>
       </section>
       <section id="komparasi" class="doc-section">
-        <h2 class="section-title product-sans"><span class="section-number">8</span> Komparasi & Statistik</h2>
+        <h2 class="section-title product-sans"><span class="section-number">8</span> Comparison & Statistics</h2>
         <div class="mt-4">
-          <p>Perbandingan menyeluruh antara XAMPP Standar, Laragon, Awan Server V5, dan XAMPP + Meta Panel.</p>
-          <h3>Skor Kemampuan Platform</h3>
+          <p>A comprehensive comparison between Standard XAMPP, Laragon, Awan Server V5, and XAMPP + Meta Panel.</p>
+          <h3>Platform Capability Score</h3>
           <div class="chart-container"><canvas id="radarChart"></canvas></div>
-          <h3>Kecepatan Akses & Kemudahan Penggunaan</h3>
+          <h3>Access Speed & Ease of Use</h3>
           <div class="chart-container tall"><canvas id="barChart"></canvas></div>
-          <h3>Tabel Komparasi Lengkap</h3>
+          <h3>Full Comparison Table</h3>
           <div class="table-container">
             <table>
               <thead>
                 <tr>
-                  <th>Kriteria</th>
-                  <th>XAMPP Standar</th>
+                  <th>Criteria</th>
+                  <th>Standard XAMPP</th>
                   <th>Laragon</th>
                   <th>Awan Server V5</th>
                   <th class="text-blue-600">XAMPP + Meta Panel</th>
@@ -1119,45 +1098,45 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><strong class="text-gray-900">Dukungan Laravel</strong></td>
+                  <td><strong class="text-gray-900">Laravel Support</strong></td>
                   <td>Manual (CMD)</td>
                   <td>Auto Vhost</td>
-                  <td>Panel Web</td>
-                  <td class="text-blue-600 font-medium">1-Klik UI di VSCode</td>
+                  <td>Web Panel</td>
+                  <td class="text-blue-600 font-medium">1-Click UI in VSCode</td>
                 </tr>
                 <tr>
-                  <td><strong class="text-gray-900">Testing Android/LAN</strong></td>
+                  <td><strong class="text-gray-900">Android/LAN Testing</strong></td>
                   <td>Error 403</td>
-                  <td>Baik</td>
-                  <td>Skala Besar</td>
+                  <td>Good</td>
+                  <td>Large Scale</td>
                   <td class="text-blue-600 font-medium">Auto Fix Mobile 403</td>
                 </tr>
                 <tr>
-                  <td><strong class="text-gray-900">Bot WA / AI</strong></td>
-                  <td>Instal terpisah</td>
+                  <td><strong class="text-gray-900">WA Bot / AI</strong></td>
+                  <td>Separate Install</td>
                   <td>Built-in Tools</td>
-                  <td>Optimalisasi Berat</td>
-                  <td class="text-blue-600 font-medium">Terminal VSCode Terintegrasi</td>
+                  <td>Heavy Optimization</td>
+                  <td class="text-blue-600 font-medium">Integrated VSCode Terminal</td>
                 </tr>
                 <tr>
-                  <td><strong class="text-gray-900">Konsumsi RAM (Idle)</strong></td>
+                  <td><strong class="text-gray-900">RAM Consumption (Idle)</strong></td>
                   <td>~50MB</td>
                   <td>~10MB</td>
                   <td>~150MB+</td>
-                  <td class="text-blue-600 font-medium">Mengikuti XAMPP Base</td>
+                  <td class="text-blue-600 font-medium">Follows XAMPP Base</td>
                 </tr>
                 <tr>
-                  <td><strong class="text-gray-900">Waktu Startup</strong></td>
-                  <td>~15 detik</td>
-                  <td>~5 detik</td>
-                  <td>~20 detik</td>
-                  <td class="text-blue-600 font-medium">~8 detik (dari VSCode)</td>
+                  <td><strong class="text-gray-900">Startup Time</strong></td>
+                  <td>~15 seconds</td>
+                  <td>~5 seconds</td>
+                  <td>~20 seconds</td>
+                  <td class="text-blue-600 font-medium">~8 seconds (from VSCode)</td>
                 </tr>
                 <tr>
                   <td><strong class="text-gray-900">Multi-Version PHP</strong></td>
                   <td>Manual</td>
-                  <td>Otomatis</td>
-                  <td>Terbatas</td>
+                  <td>Automatic</td>
+                  <td>Limited</td>
                   <td class="text-blue-600 font-medium">Via Config Panel</td>
                 </tr>
                 <tr>
@@ -1173,75 +1152,73 @@
         </div>
       </section>
       <section id="performa" class="doc-section">
-        <h2 class="section-title product-sans"><span class="section-number">9</span> Analisis Performa WhatsApp Bot</h2>
+        <h2 class="section-title product-sans"><span class="section-number">9</span> WhatsApp Bot Performance Analysis</h2>
         <div class="mt-4">
-          <p>Grafik berikut menunjukkan keunggulan XAMPP Meta Panel dalam memfasilitasi pengembangan dan deployment
-            WhatsApp Chat Bot.</p>
-          <h3>Keunggulan Fitur untuk WhatsApp Bot (Line Chart)</h3>
+          <p>The following charts show the advantages of XAMPP Meta Panel in facilitating the development and deployment of WhatsApp Chat Bots.</p>
+          <h3>Feature Advantages for WhatsApp Bot (Line Chart)</h3>
           <div class="chart-container tall"><canvas id="lineChart"></canvas></div>
-          <h3>Waktu yang Dibutuhkan per Task (Menit)</h3>
+          <h3>Time Required per Task (Minutes)</h3>
           <div class="chart-container tall"><canvas id="taskBarChart"></canvas></div>
           <div class="success-card mt-6">
-            <h4><i class="fas fa-chart-line mr-2"></i>Rangkuman Efisiensi</h4>
+            <h4><i class="fas fa-chart-line mr-2"></i>Efficiency Summary</h4>
             <ul class="text-sm mt-2">
-              <li><strong class="text-gray-900">78% lebih cepat</strong> dalam setup awal bot dibanding metode manual
+              <li><strong class="text-gray-900">78% faster</strong> in initial bot setup compared to manual methods
               </li>
-              <li><strong class="text-gray-900">65% pengurangan waktu</strong> untuk debugging masalah database</li>
-              <li><strong class="text-gray-900">90% lebih mudah</strong> untuk restart service saat development</li>
-              <li><strong class="text-gray-900">3x lebih produktif</strong> berkat integrasi terminal dan panel dalam
-                satu editor</li>
+              <li><strong class="text-gray-900">65% reduction in time</strong> for debugging database issues</li>
+              <li><strong class="text-gray-900">90% easier</strong> to restart services during development</li>
+              <li><strong class="text-gray-900">3x more productive</strong> thanks to terminal and panel integration in one editor
+              </li>
             </ul>
           </div>
-          <h3>Alur Kerja WA Bot dengan Meta Panel</h3>
+          <h3>WA Bot Workflow with Meta Panel</h3>
           <div class="chart-container tall"><canvas id="doughnutChart"></canvas></div>
         </div>
       </section>
       <section id="troubleshooting" class="doc-section">
-        <h2 class="section-title product-sans"><span class="section-number">10</span> Troubleshooting (Tanya Jawab)</h2>
+        <h2 class="section-title product-sans"><span class="section-number">10</span> Troubleshooting (Q&A)</h2>
         <div class="mt-4">
           <div class="danger-card mb-4">
             <h4><i class="fas fa-times-circle mr-2"></i>Error: "Apache Shutdown Unexpectedly"</h4>
-            <p>90% kasus disebabkan oleh <strong>Port 80</strong> atau <strong>Port 443</strong> yang sudah digunakan
-              aplikasi lain.</p>
-            <p class="mt-2"><strong class="text-gray-900">Solusi via Meta Panel:</strong> Klik Config → httpd.conf. Ubah
-              <code class="inline-code">Listen 80</code> menjadi <code class="inline-code">Listen 8080</code>. Simpan
-              dan restart Apache.
+            <p>90% of cases are caused by <strong>Port 80</strong> or <strong>Port 443</strong> already being used by another application.</p>
+            <p class="mt-2"><strong class="text-gray-900">Solution via Meta Panel:</strong> Click Config → httpd.conf. Change
+              <code class="inline-code">Listen 80</code> to <code class="inline-code">Listen 8080</code>. Save
+              and restart Apache.
             </p>
           </div>
           <div class="warning-card mb-4">
-            <h4><i class="fas fa-exclamation-triangle mr-2"></i>Error: "MySQL tidak bisa start"</h4>
-            <p>Biasanya terjadi karena data MySQL corrupt atau port 3306 bentrok.</p>
-            <p class="mt-2"><strong class="text-gray-900">Solusi:</strong> Buka Config → my.ini, ubah <code
-                class="inline-code">port=3306</code> menjadi <code class="inline-code">port=3307</code>. Jika gagal,
-              buka <code class="inline-code">mysql/data</code> hapus file <code class="inline-code">ib_logfile0</code>
-              dan <code class="inline-code">ib_logfile1</code>.</p>
+            <h4><i class="fas fa-exclamation-triangle mr-2"></i>Error: "MySQL cannot start"</h4>
+            <p>Usually occurs because MySQL data is corrupt or port 3306 is conflicting.</p>
+            <p class="mt-2"><strong class="text-gray-900">Solution:</strong> Open Config → my.ini, change <code
+                class="inline-code">port=3306</code> to <code class="inline-code">port=3307</code>. If it fails,
+              open <code class="inline-code">mysql/data</code> and delete the files <code class="inline-code">ib_logfile0</code>
+              and <code class="inline-code">ib_logfile1</code>.</p>
           </div>
           <div class="warning-card mb-4">
-            <h4><i class="fas fa-exclamation-triangle mr-2"></i>Error: "php artisan serve" gagal berjalan</h4>
-            <p>PHP mungkin tidak terdeteksi di PATH sistem Anda.</p>
-            <p class="mt-2"><strong class="text-gray-900">Solusi:</strong> Meta Panel otomatis menggunakan PHP XAMPP.
-              Jika perlu, set <code class="inline-code">xampp.metaPanel.xamppPath</code> secara manual.</p>
+            <h4><i class="fas fa-exclamation-triangle mr-2"></i>Error: "php artisan serve" fails to run</h4>
+            <p>PHP might not be detected in your system's PATH.</p>
+            <p class="mt-2"><strong class="text-gray-900">Solution:</strong> Meta Panel automatically uses XAMPP's PHP.
+              If necessary, set <code class="inline-code">xampp.metaPanel.xamppPath</code> manually.</p>
           </div>
           <div class="info-card mb-4">
-            <h4><i class="fas fa-info-circle mr-2"></i>Extension tidak muncul di sidebar</h4>
-            <p>Klik kanan pada Activity Bar, pastikan "XAMPP Meta Panel" tercentang. Jika tidak ada, coba reload VSCode.
+            <h4><i class="fas fa-info-circle mr-2"></i>Extension does not appear in the sidebar</h4>
+            <p>Right-click on the Activity Bar, make sure "XAMPP Meta Panel" is checked. If it's not there, try reloading VSCode.
             </p>
           </div>
           <div class="info-card mb-4">
-            <h4><i class="fas fa-info-circle mr-2"></i>QR Code WhatsApp tidak muncul di terminal</h4>
-            <p>Pastikan terminal menggunakan <strong>cmd</strong> atau <strong>PowerShell</strong>. Git Bash terkadang
-              tidak merender QR Code dengan benar.</p>
+            <h4><i class="fas fa-info-circle mr-2"></i>WhatsApp QR Code does not appear in the terminal</h4>
+            <p>Make sure the terminal is using <strong>cmd</strong> or <strong>PowerShell</strong>. Git Bash sometimes
+              does not render QR Codes correctly.</p>
           </div>
           <div class="success-card mb-4">
-            <h4><i class="fas fa-check-circle mr-2"></i>Tips: Hapus Cache XAMPP</h4>
-            <p>Jika page tidak update, coba hapus folder <code class="inline-code">xampp/tmp</code> dan restart Apache.
+            <h4><i class="fas fa-check-circle mr-2"></i>Tip: Clear XAMPP Cache</h4>
+            <p>If the page doesn't update, try deleting the <code class="inline-code">xampp/tmp</code> folder and restart Apache.
             </p>
           </div>
           <div class="mt-8 flex flex-wrap gap-4">
-            <a href="https://github.com/Royhtml/Xampp-Meta-Panel/issues" target="_blank" class="btn-outline">
-              <i class="fab fa-github"></i> Laporkan Isu di GitHub
+            <a href="https://github.com/Royhtml/Xampp-Meta-Panel/issues"  class="btn-outline">
+              <i class="fab fa-github"></i> Report Issue on GitHub
             </a>
-            <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager" target="_blank"
+            <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager" 
               class="btn-primary">
               <i class="fas fa-puzzle-piece"></i> VSCode Marketplace
             </a>
@@ -1261,7 +1238,7 @@
             class="text-blue-600 font-normal">Meta</span> Panel</span>
       </div>
       <p class="text-sm text-gray-500 text-center md:text-left">
-        Didesain & Dikembangkan oleh <strong class="text-gray-700">Dwi Bakti N Dev/Roy</strong>.
+        Designed & Developed by <strong class="text-gray-700">Dwi Bakti N Dev/Roy</strong>.
       </p>
     </div>
   </footer>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon - XAMPP Meta Panel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="icon/icon.png">
+  <link rel = "stylesheet" href = "com/com.css">
+  <script src = "com/com.js"></script>
+</head>
+<body class="min-h-screen flex flex-col">
+  <nav class="nav-glass fixed top-0 left-0 w-full z-40">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded flex items-center justify-center bg-blue-50 text-blue-600 border border-blue-100">
+          <img src="icon/icon.png" alt="XAMPP Meta Panel Icon" class="w-6 h-6">
+        </div>
+        <span class="product-sans font-bold text-xl tracking-tight text-gray-800">META<span class="text-blue-600 font-normal">Panel</span></span>
+      </div>
+      <div class="hidden md:flex items-center gap-4 text-sm font-medium">
+        <a href="https://github.com/Royhtml/Xampp-Meta-Panel" class="text-gray-600 hover:text-gray-900 transition"><i class="fab fa-github mr-1"></i> GitHub</a>
+        <a href="index.html" class="btn-outline text-sm py-2 px-4 rounded-full flex items-center gap-2">
+          <i class="fas fa-arrow-left"></i> Back to Docs
+        </a>
+      </div>
+    </div>
+  </nav>
+  <main class="flex-1 flex items-center justify-center pt-20 pb-10 px-4 relative overflow-hidden">
+    <div class="absolute top-20 left-10 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-pulse"></div>
+    <div class="absolute bottom-20 right-10 w-72 h-72 bg-red-50 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-pulse" style="animation-delay: 2s;"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <div class="flex justify-center mb-8">
+        <div class="relative pulse-icon inline-block p-6 bg-white rounded-full shadow-lg border border-blue-100 float-anim">
+          <i class="fas fa-rocket text-5xl text-blue-600"></i>
+        </div>
+      </div>
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-200 bg-blue-50 text-sm text-blue-700 mb-6 font-medium">
+        <i class="fas fa-tools text-xs"></i> Under Development
+      </div>
+      
+      <h1 class="product-sans text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+        Something <span class="text-blue-600">Big</span> is Coming
+      </h1>
+      
+      <p class="text-lg md:text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+        We are working on a massive update for XAMPP Meta Panel. Get ready for advanced cloud deployment, AI integrations, and collaborative tools.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-16" id="countdown">
+        <div class="countdown-box">
+          <div class="countdown-number product-sans" id="days">00</div>
+          <div class="countdown-label">Days</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-number product-sans" id="hours">00</div>
+          <div class="countdown-label">Hours</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-number product-sans" id="minutes">00</div>
+          <div class="countdown-label">Minutes</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-number product-sans" id="seconds">00</div>
+          <div class="countdown-label">Seconds</div>
+        </div>
+      </div>
+      <div class="max-w-xl mx-auto mb-12">
+        <h3 class="text-lg font-bold text-gray-800 mb-4">Get notified when we launch</h3>
+        <form id="subscribeForm" class="flex flex-col sm:flex-row gap-3">
+          <input type="email" id="emailInput" placeholder="Enter your email address" required
+            class="email-input flex-1 px-5 py-3.5 rounded-full border border-gray-300 text-gray-800 bg-white shadow-sm transition">
+          <button type="submit" class="btn-primary py-3.5 px-8 rounded-full flex items-center justify-center gap-2 shadow-md">
+            <i class="fas fa-bell"></i> Notify Me
+          </button>
+        </form>
+        <p class="text-xs text-gray-500 mt-3"><i class="fas fa-lock mr-1"></i> We respect your privacy. No spam, ever.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+        <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-200 hover:shadow-lg transition group">
+          <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition">
+            <i class="fas fa-cloud-upload-alt text-xl text-blue-600"></i>
+          </div>
+          <h4 class="text-gray-900 font-bold text-lg mb-2">Cloud Deploy</h4>
+          <p class="text-sm text-gray-600">One-click deployment from local XAMPP to live production servers.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-red-200 hover:shadow-lg transition group">
+          <div class="w-12 h-12 rounded-lg bg-red-50 flex items-center justify-center mb-4 group-hover:bg-red-100 transition">
+            <i class="fas fa-brain text-xl text-red-600"></i>
+          </div>
+          <h4 class="text-gray-900 font-bold text-lg mb-2">AI Assistant</h4>
+          <p class="text-sm text-gray-600">Built-in AI to debug errors and optimize database queries instantly.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-green-200 hover:shadow-lg transition group">
+          <div class="w-12 h-12 rounded-lg bg-green-50 flex items-center justify-center mb-4 group-hover:bg-green-100 transition">
+            <i class="fas fa-users text-xl text-green-600"></i>
+          </div>
+          <h4 class="text-gray-900 font-bold text-lg mb-2">Live Collab</h4>
+          <p class="text-sm text-gray-600">Code together in real-time directly within your VSCode environment.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="bg-[#f8f9fa] border-t border-[#dadce0] py-6 mt-10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded bg-blue-100 flex items-center justify-center">
+          <i class="fas fa-server text-[10px] text-blue-600"></i>
+        </div>
+        <span class="product-sans font-bold text-gray-800 text-sm">XAMPP<span class="text-blue-600 font-normal">Meta</span> Panel</span>
+      </div>
+      <p class="text-sm text-gray-500 text-center md:text-left">
+        Designed & Developed by <strong class="text-gray-700">Dwi Bakti N Dev/Roy</strong>.
+      </p>
+    </div>
+  </footer>
+  <div id="toast" class="toast"><i class="fas fa-check-circle mr-2 text-green-400"></i> <span id="toast-msg">You're on the list!</span></div>
+</body>
+</html>

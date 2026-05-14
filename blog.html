@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creator Hub</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="icon/icon.png">
+  <script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore-compat.js"></script>
+  <link rel="stylesheet" href="blog/blog.css">
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand" onclick="closeAllOverlays();navigateTo('home')">
+      CreatorHub
+    </div>
+    <nav class="sidebar-nav">
+      <button class="sb-item active" data-page="home" onclick="navigateTo('home')">
+        <i class="fas fa-home"></i> Dasboard Home
+      </button>
+      <button class="sb-item" data-page="news" onclick="navigateTo('news')">
+        <i class="fas fa-newspaper"></i> New News Post
+      </button>
+      <button class="sb-item" data-page="projects" onclick="navigateTo('projects')">
+        <i class="fas fa-code"></i> Projects Inovation
+      </button>
+      <button class="sb-item" data-page="courses" onclick="navigateTo('courses')">
+        <i class="fas fa-graduation-cap"></i> Courses Online
+      </button>
+      <a href = "index.html"><button class="sb-item">
+        <i class="fas fa-home"></i> Back To Home
+      </button></a>
+      <style>
+        a {
+            text-decoration: none;
+        }
+      </style>
+      <div class="sb-divider"></div>
+      <div class="sb-label">Community</div>
+      <button class="sb-item" onclick="openChatPanel()">
+        <i class="fas fa-comments"></i> Chat Comunity
+      </button>
+      <button class="sb-item" onclick="if(currentUser)openProfile(currentUser.uid);else showAuthGate()">
+        <i class="fas fa-user"></i> My Profile
+      </button>
+      <button class="sb-item" onclick="doLogout()">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+      <div class="sb-divider"></div>
+      <div class="sb-label">Creator</div>
+      <button class="sb-item" id="sb-create-news" onclick="openEditor('news')" style="display:none">
+        <i class="fas fa-pen"></i> Publish Write News
+      </button>
+      <button class="sb-item" id="sb-create-proj" onclick="openEditor('project')" style="display:none">
+        <i class="fas fa-rocket"></i> Publish Inovation
+      </button>
+      <button class="sb-item" id="sb-create-course" onclick="openCourseEditor()" style="display:none">
+        <i class="fas fa-plus-circle"></i> Create Course Online
+      </button>
+    </nav>
+  </aside>
+  <header class="topbar" id="topbar">
+    <button class="tb-btn" onclick="document.getElementById('sidebar').classList.toggle('open')" style="display:none"
+      id="menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="search-wrap">
+      <i class="fas fa-search"></i>
+      <input type="text" id="search-input" placeholder="Search news, users, courses..."
+        oninput="handleSearch(this.value)">
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <div class="topbar-right">
+      <button class="tb-btn" id="btn-chat-top" onclick="openChatPanel()" style="display:none">
+        <i class="fas fa-comments"></i>
+      </button>
+      <button class="tb-btn" id="btn-notif" onclick="toggleNotifPanel()">
+        <i class="fas fa-bell"></i>
+        <span class="notif-dot" id="notif-dot" style="display:none"></span>
+      </button>
+      <div id="auth-state"></div>
+    </div>
+  </header>
+  <div class="notif-panel" id="notif-panel">
+    <div class="notif-header">
+      <h3>Notifications</h3>
+      <button class="btn-text" onclick="markAllRead()">Mark as read</button>
+    </div>
+    <div class="notif-list" id="notif-list">
+      <div style="padding:32px;text-align:center;color:var(--text-muted);font-size:13px">No notifications yet</div>
+    </div>
+  </div>
+  <div class="auth-gate" id="auth-gate">
+    <div style="font-size:40px;color:var(--accent);margin-bottom:16px"><i class="fas fa-rocket"></i></div>
+    <h2 style="font-size:24px;margin-bottom:6px">Join Now</h2>
+    <p style="color:var(--text-sec);margin-bottom:24px;max-width:340px;font-size:14px">Sign in to post, take courses, earn certificates & collect XP.</p>
+    <button class="btn btn-primary" onclick="login()" style="padding:10px 24px;font-size:14px">
+      <i class="fab fa-google"></i> Sign in with Google
+    </button>
+    <button class="btn-text" onclick="dismissAuthGate()" style="margin-top:10px;color:var(--text-muted)">Just browsing</button>
+  </div>
+  <div class="main-area" id="main-area">
+    <div class="page-view active" id="page-home">
+      <div class="stat-grid">
+        <div class="g-card stat-card">
+          <div class="stat-icon blue"><i class="fas fa-newspaper"></i></div>
+          <div>
+            <div class="stat-val" id="s-news">0</div>
+            <div class="stat-lbl">Articles</div>
+          </div>
+        </div>
+        <div class="g-card stat-card">
+          <div class="stat-icon green"><i class="fas fa-code"></i></div>
+          <div>
+            <div class="stat-val" id="s-proj">0</div>
+            <div class="stat-lbl">Projects</div>
+          </div>
+        </div>
+        <div class="g-card stat-card">
+          <div class="stat-icon yellow"><i class="fas fa-graduation-cap"></i></div>
+          <div>
+            <div class="stat-val" id="s-course">0</div>
+            <div class="stat-lbl">Courses</div>
+          </div>
+        </div>
+        <div class="g-card stat-card">
+          <div class="stat-icon red"><i class="fas fa-users"></i></div>
+          <div>
+            <div class="stat-val"><span class="online-dot"></span> <span id="online-count">42</span></div>
+            <div class="stat-lbl">Online</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 300px;gap:20px">
+        <div>
+          <h2 class="page-title">Latest News</h2>
+          <div class="news-list" id="home-news"></div>
+        </div>
+        <div>
+          <div class="g-card" style="margin-bottom:16px">
+            <div class="g-card-body">
+              <div style="font-size:13px;font-weight:600;margin-bottom:10px"><i class="fas fa-trophy"
+                  style="color:var(--yellow)"></i> XP Leaderboard</div>
+              <div id="leaderboard"></div>
+            </div>
+          </div>
+          <div class="g-card" style="margin-bottom:16px">
+            <div class="g-card-body">
+              <div style="font-size:13px;font-weight:600;margin-bottom:10px"><i class="fas fa-tags"
+                  style="color:var(--purple)"></i> Categories</div>
+              <div class="tag-cloud">
+                <span class="tag-pill" onclick="navigateTo('news');filterCategory('update')">Update</span>
+                <span class="tag-pill" onclick="navigateTo('news');filterCategory('release')">Release</span>
+                <span class="tag-pill" onclick="navigateTo('news');filterCategory('tutorial')">Tutorial</span>
+              </div>
+            </div>
+          </div>
+          <div class="g-card">
+            <div class="g-card-body">
+              <div style="font-size:13px;font-weight:600;margin-bottom:10px"><i class="fas fa-certificate"
+                  style="color:var(--accent)"></i> Recent Certificates</div>
+              <div id="recent-certs" style="font-size:12px;color:var(--text-muted)">None yet</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-view" id="page-news">
+      <div
+        style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:8px">
+        <h2 class="page-title" style="margin-bottom:0">News</h2>
+        <div id="active-filter" style="display:none"><span class="tag-pill active" onclick="loadNews()"><i
+              class="fas fa-times"></i> Clear</span></div>
+      </div>
+      <div class="news-list" id="news-grid"></div>
+    </div>
+    <div class="page-view" id="page-projects">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <h2 class="page-title" style="margin-bottom:0">Project Showcase</h2>
+        <button id="btn-create-proj" class="btn btn-outlined btn-sm" onclick="openEditor('project')"
+          style="display:none"><i class="fas fa-plus"></i> Upload</button>
+      </div>
+      <div class="project-grid" id="project-grid"></div>
+    </div>
+    <div class="page-view" id="page-courses">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <h2 class="page-title" style="margin-bottom:0">Online Courses</h2>
+        <button id="btn-create-course" class="btn btn-outlined btn-sm" onclick="openCourseEditor()"
+          style="display:none"><i class="fas fa-plus"></i> Create Course</button>
+      </div>
+      <div class="course-grid" id="course-grid"></div>
+    </div>
+  </div>
+  <div id="detail-layer" class="overlay-page">
+    <div class="overlay-topbar">
+      <button class="btn-ghost" onclick="closeDetail()"><i class="fas fa-arrow-left"></i> Back</button>
+      <div id="detail-actions" style="margin-left:auto"></div>
+    </div>
+    <div class="overlay-container">
+      <img id="detail-img" class="detail-hero-img" src="" alt="">
+      <span id="detail-cat" class="g-chip chip-blue"></span>
+      <h1 id="detail-title" class="detail-title"></h1>
+      <div class="detail-meta">
+        <div class="author-row" onclick="closeDetail();openProfile(currentPostAuthorId)">
+          <img id="detail-author-img" src="" style="width:32px;height:32px;border-radius:50%;cursor:pointer">
+          <div>
+            <div id="detail-author-name" style="font-weight:600;font-size:14px;cursor:pointer"></div>
+            <div id="detail-date" style="font-size:12px;color:var(--text-muted)"></div>
+          </div>
+        </div>
+      </div>
+      <div id="detail-body" class="detail-body"></div>
+      <div class="interaction-bar">
+        <button id="btn-like" class="btn-icon" onclick="toggleLike()"><i class="far fa-heart"></i> <span
+            id="like-count">0</span></button>
+        <button id="btn-bookmark" class="btn-icon" onclick="toggleBookmark()"><i class="far fa-bookmark"></i></button>
+        <button class="btn-icon" onclick="sharePost('copy')"><i class="fas fa-link"></i></button>
+        <div class="share-buttons">
+          <button class="share-btn" style="background:#1DA1F2" onclick="sharePost('twitter')"><i
+              class="fab fa-twitter"></i></button>
+          <button class="share-btn" style="background:#25D366" onclick="sharePost('whatsapp')"><i
+              class="fab fa-whatsapp"></i></button>
+        </div>
+      </div>
+      <div class="comment-section">
+        <h3 style="margin-bottom:14px;font-size:15px;font-weight:600">Comments</h3>
+        <div class="comment-form" id="comment-form" style="display:none">
+          <img id="comment-avatar" src="">
+          <div class="comment-input-wrap">
+            <textarea id="comment-input" class="comment-input" rows="2" placeholder="Write a comment..."></textarea>
+            <button class="btn btn-primary btn-sm" style="align-self:flex-end" onclick="postComment()">Send</button>
+          </div>
+        </div>
+        <div id="comments-list"></div>
+      </div>
+    </div>
+  </div>
+  <div id="course-viewer" class="overlay-page">
+    <div class="overlay-topbar">
+      <button class="btn-ghost" onclick="closeCourseViewer()"><i class="fas fa-arrow-left"></i> Back to Courses</button>
+      <div id="cv-top-actions" style="margin-left:auto;font-size:13px;color:var(--text-sec)"></div>
+    </div>
+    <div class="cv-layout">
+      <div class="cv-main">
+        <div id="cv-video-area"></div>
+        <h2 id="cv-lesson-title" style="font-size:18px;font-weight:600;margin-top:16px"></h2>
+        <p id="cv-lesson-desc" style="font-size:13px;color:var(--text-sec);margin-top:4px"></p>
+        <div id="cv-quiz-area"></div>
+        <button class="btn btn-primary" id="cv-complete-btn" onclick="completeCurrentLesson()"
+          style="display:none;margin-top:16px"><i class="fas fa-check-circle"></i> Mark as Complete</button>
+        <div id="cv-cert-area" style="display:none"></div>
+      </div>
+      <div class="cv-sidebar">
+        <div class="cv-sidebar-header">Lessons</div>
+        <div class="cv-lessons" id="cv-lessons-list"></div>
+        <div id="cv-progress-info"
+          style="padding:12px 16px;font-size:12px;color:var(--text-muted);border-top:1px solid var(--border-light)">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="profile-page" class="overlay-page">
+    <div class="overlay-topbar">
+      <button class="btn-ghost" onclick="closeProfile()"><i class="fas fa-arrow-left"></i> Back</button>
+      <button id="btn-edit-profile" class="btn btn-outlined btn-sm" style="display:none;margin-left:auto"
+        onclick="openEditProfile()"><i class="fas fa-edit"></i> Edit Profile</button>
+      <button id="btn-chat-user" class="btn btn-outlined btn-sm" style="display:none" onclick="startPrivateChat()"><i
+          class="fas fa-comment"></i> Send Message</button>
+    </div>
+    <div class="overlay-container">
+      <div class="profile-header">
+        <div class="profile-banner" id="profile-banner-el"></div>
+        <div class="profile-info">
+          <img id="profile-avatar" class="profile-avatar" src="">
+          <div class="profile-details">
+            <h2 id="profile-name"></h2>
+            <p id="profile-bio"></p>
+            <div class="profile-socials" id="profile-socials"></div>
+            <div class="profile-stats-row">
+              <div>
+                <div class="ps-num" id="ps-xp">0</div>
+                <div class="ps-lbl">XP</div>
+              </div>
+              <div>
+                <div class="ps-num" id="ps-posts">0</div>
+                <div class="ps-lbl">Posts</div>
+              </div>
+              <div>
+                <div class="ps-num" id="ps-certs">0</div>
+                <div class="ps-lbl">Certificates</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="profile-tabs">
+        <button class="profile-tab active" onclick="switchProfileTab('posts',this)">Posts</button>
+        <button class="profile-tab" onclick="switchProfileTab('projects',this)">Projects</button>
+        <button class="profile-tab" onclick="switchProfileTab('certs',this)">Certificates</button>
+      </div>
+      <div id="profile-content"></div>
+    </div>
+  </div>
+  <div class="proj-preview-overlay" id="proj-preview">
+    <div class="proj-preview-box">
+      <div class="proj-preview-bar">
+        <i class="fas fa-globe" style="color:var(--green)"></i>
+        <input type="text" id="ppr-url-input" readonly>
+        <span class="ppr-url"><i class="fas fa-lock"></i> Preview</span>
+        <button class="btn-text" onclick="window.open(document.getElementById('ppr-url-input').value,'_blank')"><i
+            class="fas fa-external-link-alt"></i> Open</button>
+        <button class="btn-text" onclick="closeProjPreview()" style="color:var(--red)"><i
+            class="fas fa-times"></i></button>
+      </div>
+      <iframe id="ppr-iframe" src="" sandbox="allow-scripts allow-same-origin"></iframe>
+    </div>
+  </div>
+  <div class="chat-panel" id="chat-panel">
+    <div class="chat-header">
+      <h3><i class="fas fa-comments" style="color:var(--accent);margin-right:6px"></i> Chat</h3>
+      <button class="btn-icon" onclick="closeChatPanel()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chat-tabs">
+      <button class="chat-tab active" onclick="switchChatTab('global',this)">Global</button>
+      <button class="chat-tab" onclick="switchChatTab('private',this)">Private</button>
+    </div>
+    <div class="chat-list" id="chat-contact-list" style="display:none"></div>
+    <div class="chat-view active" id="chat-global">
+      <div class="messages-area" id="global-messages">
+        <div style="text-align:center;padding:40px;color:var(--text-muted);font-size:13px">Start a conversation in global chat</div>
+      </div>
+      <div class="chat-input-bar">
+        <input type="text" id="global-chat-input" placeholder="Type a message..."
+          onkeydown="if(event.key==='Enter')sendGlobalMsg()">
+        <button class="chat-send" onclick="sendGlobalMsg()"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+    <div class="chat-view" id="chat-private">
+      <div class="cv-top" id="private-chat-top" style="display:none">
+        <button class="cv-back" onclick="backToContactList()"><i class="fas fa-arrow-left"></i></button>
+        <img id="pc-avatar" src="">
+        <div>
+          <div id="pc-name" style="font-size:13px;font-weight:600"></div>
+          <div id="pc-status" style="font-size:11px;color:var(--text-muted)"></div>
+        </div>
+      </div>
+      <div class="chat-contact-list" id="private-contacts">
+        <div style="text-align:center;padding:40px;color:var(--text-muted);font-size:13px">No conversations yet</div>
+      </div>
+      <div class="messages-area" id="private-messages" style="display:none"></div>
+      <div class="chat-input-bar" id="private-input-bar" style="display:none">
+        <input type="text" id="private-chat-input" placeholder="Type a message..."
+          onkeydown="if(event.key==='Enter')sendPrivateMsg()">
+        <button class="chat-send" onclick="sendPrivateMsg()"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="editor-modal">
+    <div class="modal-box modal-lg">
+      <div class="modal-header">
+        <h3 id="modal-title">Create Content</h3>
+        <button class="btn-icon" onclick="closeEditor()"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="post-id"><input type="hidden" id="post-type" value="news">
+        <div class="form-group"><label class="form-label">Title</label><input type="text" id="post-title"
+            class="form-input" placeholder="Catchy title..."></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="form-group" id="grp-category"><label class="form-label">Category</label><select id="post-category"
+              class="form-select">
+              <option value="update">Update</option>
+              <option value="release">Release</option>
+              <option value="tutorial">Tutorial</option>
+            </select></div>
+          <div class="form-group"><label class="form-label">Thumbnail URL</label><input type="text" id="post-image"
+              class="form-input" placeholder="https://..."></div>
+        </div>
+        <div id="project-fields" style="display:none">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="form-group"><label class="form-label">Demo Link (Website)</label><input type="text"
+                id="post-demo-link" class="form-input" placeholder="https://..."></div>
+            <div class="form-group"><label class="form-label">GitHub Link</label><input type="text"
+                id="post-github-link" class="form-input" placeholder="https://github.com/..."></div>
+          </div>
+        </div>
+        <div class="form-group" id="grp-content"><label class="form-label">Content</label>
+          <div class="editor-toolbar">
+            <button class="toolbar-btn" onclick="execCmd('bold')"><i class="fas fa-bold"></i></button>
+            <button class="toolbar-btn" onclick="execCmd('italic')"><i class="fas fa-italic"></i></button>
+            <button class="toolbar-btn" onclick="execCmd('underline')"><i class="fas fa-underline"></i></button>
+            <button class="toolbar-btn" onclick="execCmd('formatBlock','H2')"><i class="fas fa-heading"></i></button>
+          </div>
+          <div id="editor-content" contenteditable="true"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="closeEditor()">Cancel</button>
+        <button class="btn btn-primary" onclick="savePost()"><i class="fas fa-paper-plane"></i> Publish</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="course-editor-modal">
+    <div class="modal-box modal-md">
+      <div class="modal-header">
+        <h3>Create New Course</h3>
+        <button class="btn-icon" onclick="closeCourseEditor()"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group"><label class="form-label">Course Title</label><input type="text" id="course-title"
+            class="form-input"></div>
+        <div class="form-group"><label class="form-label">Description</label><input type="text" id="course-desc"
+            class="form-input"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="form-group"><label class="form-label">Thumbnail URL</label><input type="text" id="course-thumb"
+              class="form-input"></div>
+          <div class="form-group"><label class="form-label">Type</label><select id="course-type" class="form-select">
+              <option value="free">Free</option>
+              <option value="pro">Pro</option>
+            </select></div>
+        </div>
+        <div class="form-group"><label class="form-label">Lessons (Title + YouTube Link)</label>
+          <div id="lessons-container"></div>
+          <button class="btn btn-outlined btn-sm" onclick="addLessonRow()" style="margin-top:6px"><i
+              class="fas fa-plus"></i> Add</button>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Final Quiz (Optional) — Select the correct answer per question</label>
+          <div id="quiz-questions-container"></div>
+          <button class="btn btn-outlined btn-sm" onclick="addQuizRow()" style="margin-top:6px"><i
+              class="fas fa-plus"></i> Add Question</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="closeCourseEditor()">Cancel</button>
+        <button class="btn btn-primary" onclick="saveCourse()"><i class="fas fa-paper-plane"></i> Create Course</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="profile-editor-modal">
+    <div class="modal-box modal-sm">
+      <div class="modal-header">
+        <h3>Edit Profile</h3>
+        <button class="btn-icon" onclick="closeEditProfile()"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group"><label class="form-label">Name</label><input type="text" id="pe-name"
+            class="form-input"></div>
+        <div class="form-group"><label class="form-label">Bio</label><input type="text" id="pe-bio" class="form-input"
+            placeholder="Tell us about yourself..."></div>
+        <div class="form-group"><label class="form-label">Profile Photo URL</label><input type="text" id="pe-photo"
+            class="form-input" placeholder="https://..."></div>
+        <div class="form-group"><label class="form-label">Banner URL</label><input type="text" id="pe-banner"
+            class="form-input" placeholder="https://..."></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="form-group"><label class="form-label"><i class="fab fa-github"></i> GitHub</label><input
+              type="text" id="pe-github" class="form-input"></div>
+          <div class="form-group"><label class="form-label"><i class="fab fa-linkedin"></i> LinkedIn</label><input
+              type="text" id="pe-linkedin" class="form-input"></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="form-group"><label class="form-label"><i class="fab fa-twitter"></i> Twitter/X</label><input
+              type="text" id="pe-twitter" class="form-input"></div>
+          <div class="form-group"><label class="form-label"><i class="fas fa-globe"></i> Website</label><input
+              type="text" id="pe-website" class="form-input"></div>
+        </div>
+        <div id="pe-preview"
+          style="margin-top:12px;padding:12px;border:1px solid var(--border-light);border-radius:var(--radius);display:none">
+          <div style="font-size:11px;font-weight:600;color:var(--text-muted);margin-bottom:6px">Banner Preview</div>
+          <div style="height:60px;border-radius:4px;overflow:hidden;background:var(--bg)"><img id="pe-banner-preview"
+              src="" style="width:100%;height:100%;object-fit:cover"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="closeEditProfile()">Cancel</button>
+        <button class="btn btn-primary" onclick="saveProfile()"><i class="fas fa-save"></i> Save</button>
+      </div>
+    </div>
+  </div>
+  <div id="toast-container" class="toast-container"></div>
+  <script src = "blog/blog.js"></script>
+</body>
+</html>
