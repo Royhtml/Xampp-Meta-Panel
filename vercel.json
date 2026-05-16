@@ -1,7 +1,7 @@
 {
+  "cleanUrls": true,
   "rewrites": [
     {
-      "cleanUrls": true,
       "source": "/",
       "destination": "/index.html"
     },
