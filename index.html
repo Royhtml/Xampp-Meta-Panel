@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="icon" type="image/x-icon" href="icon/icon.png">
   <link rel="stylesheet" href="css/main.css">
+  <script src="js/inpeck.js"></script>
 </head>
 <div class="mobile-bottom-nav">
   <div class="mobile-nav-bar">
@@ -43,7 +45,7 @@
   </div>
   <div class="m-body">
     <div class="m-srv">
-      <div class="m-srv-ic" style="background:#fef2f2;color:#ef4444"><i class="fas fa-feather-alt"></i></div>
+      <div class="m-srv-ic" style="background:#fef2f2;color:#ef4444"><i class="fas fa-apple-alt"></i></div>
       <div class="m-srv-inf">
         <div class="m-srv-nm">License</div>
       </div>
@@ -53,13 +55,6 @@
       <div class="m-srv-ic" style="background:#eff6ff;color:#3bcef6"><i class="fas fa-database"></i></div>
       <div class="m-srv-inf">
         <div class="m-srv-nm">Version</div>
-      </div>
-      <button class="m-srv-tb go">Open</button>
-    </div>
-    <div class="m-srv">
-      <div class="m-srv-ic" style="background:#eff6ff;color:#3b82f6"><i class="fas fa-book"></i></div>
-      <div class="m-srv-inf">
-        <div class="m-srv-nm">Install OS</div>
       </div>
       <button class="m-srv-tb go">Open</button>
     </div>
@@ -107,14 +102,18 @@
   </div>
   <div class="m-body">
     <div class="m-sec">Document Navigation</div>
-    <a href="#pengenalan" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">1</span> Introduction & Features</a>
+    <a href="#pengenalan" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">1</span> Introduction &
+      Features</a>
     <a href="#instalasi" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">2</span> Installation Guide</a>
     <a href="#penggunaan" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">3</span> Basic Usage</a>
     <a href="#laravel" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">4</span> Laravel Integration</a>
     <a href="#whatsapp-bot" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">5</span> WhatsApp Chat Bot</a>
-    <a href="#cross-device" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">6</span> Mobile & Laptop Testing</a>
-    <a href="#konfigurasi" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">7</span> Advanced Configuration</a>
-    <a href="#komparasi" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">8</span> Comparison & Statistics</a>
+    <a href="#cross-device" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">6</span> Mobile & Laptop
+      Testing</a>
+    <a href="#konfigurasi" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">7</span> Advanced
+      Configuration</a>
+    <a href="#komparasi" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">8</span> Comparison &
+      Statistics</a>
     <a href="#performa" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">9</span> Performance Analysis</a>
     <a href="#troubleshooting" class="m-toc" onclick="closeMSheet()"><span class="m-toc-n">10</span> Troubleshooting</a>
 
@@ -138,8 +137,7 @@
 
     <div class="m-div"></div>
 
-    <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager"
-      class="m-install-row">
+    <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager" class="m-install-row">
       <i class="fas fa-download"></i> Install Extension
     </a>
   </div>
@@ -159,15 +157,15 @@
             class="text-blue-600 font-normal">Panel</span></span>
       </div>
       <div class="hidden lg:flex items-center gap-4 text-sm font-medium">
-        <a href="https://github.com/Royhtml/Xampp-Meta-Panel/releases/tag/1.0.0" 
+        <a href="https://github.com/Royhtml/Xampp-Meta-Panel/releases/tag/1.0.0"
           class="text-gray-600 hover:text-gray-900 transition"><i class="fas fa-box mr-1"></i>Patch</a>
-        <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager" 
+        <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager"
           class="text-gray-600 hover:text-gray-900 transition"><i class="fas fa-puzzle-piece mr-1"></i> VSCode</a>
-        <a href="https://github.com/Royhtml/Xampp-Meta-Panel" 
-          class="text-gray-600 hover:text-gray-900 transition"><i class="fab fa-github mr-1"></i> GitHub</a>
-        <a href="blog.html" 
-          class="text-gray-600 hover:text-gray-900 transition"><i class="fa-solid fa-newspaper mr-1"></i></i> Hub</a>
-        <a href="https://xampp-meta-panel-api-key.vercel.app/"  class="btn-primary text-sm py-2 px-4 rounded-full">
+        <a href="https://github.com/Royhtml/Xampp-Meta-Panel" class="text-gray-600 hover:text-gray-900 transition"><i
+            class="fab fa-github mr-1"></i> GitHub</a>
+        <a href="blog.html" class="text-gray-600 hover:text-gray-900 transition"><i
+            class="fa-solid fa-newspaper mr-1"></i></i> Hub</a>
+        <a href="https://xampp-meta-panel-api-key.vercel.app/" class="btn-primary text-sm py-2 px-4 rounded-full">
           <i class="fas fa-download"></i> API Key
         </a>
         <div class="flex items-center gap-2 border-l border-gray-300 pl-4">
@@ -180,15 +178,10 @@
               class="text-xs font-bold px-3 py-1.5 rounded-full text-gray-700 hover:bg-white hover:shadow-sm transition border border-transparent mx-1 flex items-center gap-1">
               <i class="fas fa-apple-alt text-red-500"></i> Version
             </button>
-            <a href = "comingson.html"><button
-              class="text-xs font-bold px-3 py-1.5 rounded-full text-gray-700 hover:bg-white hover:shadow-sm transition border border-transparent mx-1 flex items-center gap-1">
-              <i class="fas fa-server text-red-500"></i> Panel
-            </button></a>
-            <button onclick="openModal('installModal')"
-              class="text-xs font-bold px-3 py-1.5 rounded-full text-blue-600 hover:bg-white hover:shadow-sm transition border border-transparent flex items-center gap-1"
-              title="Open Install Options">
-              <i class="fas fa-database"></i> OS
-            </button>
+            <a href="https://meta-panel-server-room.vercel.app/"><button
+                class="text-xs font-bold px-3 py-1.5 rounded-full text-blue-600 hover:bg-white hover:shadow-sm transition border border-transparent flex items-center gap-1">
+                <i class="fas fa-server text-blue-500"></i> Panel
+              </button></a>
           </div>
         </div>
         <div id="licenseModal"
@@ -199,140 +192,14 @@
               <i class="fas fa-times text-lg"></i>
             </button>
             <h3 class="text-lg font-bold text-gray-800 mb-4 text-center">Software License</h3>
-            <p class="text-sm text-gray-600 mb-6 text-center">Please download or view our official license document in PDF format.</p>
-            <a href="link-ke-file-lisensi.pdf" 
+            <p class="text-sm text-gray-600 mb-6 text-center">Please download or view our official license document in
+              PDF format.</p>
+            <a href="link-ke-file-lisensi.pdf"
               class="flex items-center justify-center gap-2 w-full bg-red-500 text-white font-semibold py-2.5 rounded-lg hover:bg-red-600 transition">
               <i class="fas fa-file-pdf"></i> Open License (PDF)
             </a>
           </div>
         </div>
-        <div id="versionModal"
-          class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div class="bg-white rounded-xl p-6 w-96 shadow-2xl relative">
-            <button onclick="closeModal('versionModal')"
-              class="absolute top-3 right-3 text-gray-400 hover:text-gray-700">
-              <i class="fas fa-times text-lg"></i>
-            </button>
-            <h3 class="text-lg font-bold text-gray-800 mb-4">Select Version</h3>
-            <div class="relative mb-4">
-              <i class="fas fa-search absolute left-3 top-3 text-gray-400 text-sm"></i>
-              <input type="text" id="versionSearch" onkeyup="filterVersions()" placeholder="Search version..."
-                class="w-full border border-gray-300 rounded-lg pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
-            </div>
-            <ul id="versionList" class="max-h-48 overflow-y-auto pr-1 space-y-1">
-              <li
-                class="version-item cursor-pointer text-sm font-medium text-gray-700 p-2.5 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">
-                <a href = "version/xampp-manager-4.4.4.vsix"><i class="fas fa-code-branch mr-2 text-gray-400"></i> v4.4.4 (Latest)</li></a>
-              <li
-                class="version-item cursor-pointer text-sm font-medium text-gray-700 p-2.5 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">
-                <a href = "version/xampp-manager-4.4.2.vsix"><i class="fas fa-code-branch mr-2 text-gray-400"></i> v4.4.2</li></a>
-              <li
-                class="version-item cursor-pointer text-sm font-medium text-gray-700 p-2.5 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">
-                <a href = "version/xampp-manager-4.3.2.vsix"><i class="fas fa-code-branch mr-2 text-gray-400"></i> v4.3.2</li></a>
-              <li
-                class="version-item cursor-pointer text-sm font-medium text-gray-700 p-2.5 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">
-                <a href = "version/xampp-manager-4.2.2.vsix"><i class="fas fa-code-branch mr-2 text-gray-400"></i> v4.2.2</li></a>
-              <li
-                class="version-item cursor-pointer text-sm font-medium text-gray-700 p-2.5 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">
-                <a href = "version/xampp-manager-4.1.2.vsix"><i class="fas fa-code-branch mr-2 text-gray-400"></i> v4.1.2</li></a>
-              <li
-                class="version-item cursor-pointer text-sm font-medium text-gray-700 p-2.5 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">
-                <a href = "version/xampp-manager-4.0.0.vsix"><i class="fas fa-code-branch mr-2 text-gray-400"></i> v4.0.0</li></a>
-              <li
-                class="version-item cursor-pointer text-sm font-medium text-gray-700 p-2.5 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">
-                <a href = "version/xampp-manager-3.0.0.vsix"><i class="fas fa-code-branch mr-2 text-gray-400"></i> v3.0.0</li></a>
-              <li
-                class="version-item cursor-pointer text-sm font-medium text-gray-700 p-2.5 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">
-                <a href = "version/xampp-manager-2.0.0.vsix"><i class="fas fa-code-branch mr-2 text-gray-400"></i> v2.0.0</li></a>
-              <li
-                class="version-item cursor-pointer text-sm font-medium text-gray-700 p-2.5 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">
-                <a href = "version/xampp-manager-1.0.0.vsix"><i class="fas fa-code-branch mr-2 text-gray-400"></i> v1.0.0</li></a>
-            </ul>
-          </div>
-        </div>
-        <div id="installModal"
-          class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div class="bg-white rounded-2xl p-8 w-[450px] shadow-2xl relative">
-            <button onclick="closeModal('installModal')"
-              class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 bg-gray-100 hover:bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center transition">
-              <i class="fas fa-times"></i>
-            </button>
-
-            <div class="text-center mb-6">
-              <h3 class="text-2xl font-semibold text-gray-800">Install Platform</h3>
-              <p class="text-gray-500 text-sm mt-1">Select your operating system or environment</p>
-            </div>
-            <div class="grid grid-cols-3 gap-4">
-              <button
-                class="flex flex-col items-center justify-center p-4 border border-gray-200 rounded-xl hover:bg-blue-50 hover:border-blue-300 hover:shadow-sm transition group">
-                <i class="fab fa-windows text-3xl text-blue-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                <span class="text-sm font-medium text-gray-700">Windows</span>
-              </button>
-              <button
-                class="flex flex-col items-center justify-center p-4 border border-gray-200 rounded-xl hover:bg-gray-50 hover:border-gray-400 hover:shadow-sm transition group">
-                <i class="fab fa-apple text-3xl text-gray-800 mb-2 group-hover:scale-110 transition-transform"></i>
-                <span class="text-sm font-medium text-gray-700">macOS</span>
-              </button>
-              <button
-                class="flex flex-col items-center justify-center p-4 border border-gray-200 rounded-xl hover:bg-yellow-50 hover:border-yellow-400 hover:shadow-sm transition group">
-                <i class="fab fa-linux text-3xl text-yellow-600 mb-2 group-hover:scale-110 transition-transform"></i>
-                <span class="text-sm font-medium text-gray-700">Linux</span>
-              </button>
-              <button
-                class="flex flex-col items-center justify-center p-4 border border-gray-200 rounded-xl hover:bg-green-50 hover:border-green-400 hover:shadow-sm transition group">
-                <i class="fab fa-android text-3xl text-green-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                <span class="text-sm font-medium text-gray-700">Android</span>
-              </button>
-              <button
-                class="flex flex-col items-center justify-center p-4 border border-gray-200 rounded-xl hover:bg-gray-50 hover:border-gray-400 hover:shadow-sm transition group">
-                <i
-                  class="fab fa-app-store-ios text-3xl text-blue-600 mb-2 group-hover:scale-110 transition-transform"></i>
-                <span class="text-sm font-medium text-gray-700">iOS</span>
-              </button>
-              <button
-                class="flex flex-col items-center justify-center p-4 border border-gray-200 rounded-xl hover:bg-blue-50 hover:border-blue-300 hover:shadow-sm transition group">
-                <i class="fab fa-python text-3xl text-blue-500 mb-2 group-hover:scale-110 transition-transform"></i>
-                <span class="text-sm font-medium text-gray-700">PyPI</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <script>
-          function openModal(modalId) {
-            document.getElementById(modalId).classList.remove('hidden');
-          }
-          function closeModal(modalId) {
-            document.getElementById(modalId).classList.add('hidden');
-            if (modalId === 'versionModal') {
-              document.getElementById('versionSearch').value = '';
-              filterVersions();
-            }
-          }
-          window.onclick = function (event) {
-            const modals = ['licenseModal', 'versionModal', 'installModal'];
-            modals.forEach(id => {
-              const modal = document.getElementById(id);
-              if (event.target == modal) {
-                closeModal(id);
-              }
-            });
-          }
-          function filterVersions() {
-            let input = document.getElementById('versionSearch');
-            let filter = input.value.toLowerCase();
-            let ul = document.getElementById("versionList");
-            let li = ul.getElementsByClassName("version-item");
-
-            for (let i = 0; i < li.length; i++) {
-              let txtValue = li[i].textContent || li[i].innerText;
-              if (txtValue.toLowerCase().indexOf(filter) > -1) {
-                li[i].style.display = "";
-              } else {
-                li[i].style.display = "none";
-              }
-            }
-          }
-        </script>
         <button id="btn-open-drawer"
           class="bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm py-2 px-4 rounded-full flex items-center gap-2 transition font-bold shadow-sm">
           <i class="fas fa-bug text-red-500"></i> Issues & Bugs
@@ -384,7 +251,8 @@
         class="absolute inset-0 bg-white/90 z-10 flex flex-col items-center justify-center p-6 text-center hidden">
         <i class="fas fa-lock text-5xl text-gray-300 mb-4"></i>
         <h3 class="text-xl font-bold text-gray-800 mb-2">Access Locked</h3>
-        <p class="text-gray-600 mb-6 max-w-sm">You must log in using a Google account to view discussions, report bugs, and comment.</p>
+        <p class="text-gray-600 mb-6 max-w-sm">You must log in using a Google account to view discussions, report bugs,
+          and comment.</p>
         <button id="btn-login-drawer"
           class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-full flex items-center gap-3 shadow-lg transition">
           <i class="fab fa-google text-lg"></i> Login to Continue
@@ -397,7 +265,8 @@
         </div>
       </div>
       <div id="view-form" class="hidden bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-        <h3 id="form-title" class="font-bold text-gray-800 mb-4 text-lg border-b pb-2">Create New Report / Discussion</h3>
+        <h3 id="form-title" class="font-bold text-gray-800 mb-4 text-lg border-b pb-2">Create New Report / Discussion
+        </h3>
         <input type="hidden" id="form-post-id">
         <label class="block text-xs font-bold text-gray-600 mb-1 uppercase tracking-wide">Issue Title</label>
         <input type="text" id="input-title" placeholder="Example: Bug when starting Apache..."
@@ -461,7 +330,7 @@
           <a href="#instalasi" class="btn-primary rounded-full">
             Get Started
           </a>
-          <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager" 
+          <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager"
             class="btn-outline rounded-full">
             <i class="fas fa-external-link-alt"></i> VSCode Marketplace
           </a>
@@ -528,7 +397,8 @@
           <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-mobile-alt text-blue-600"></i></div>
             <h4 class="text-gray-900 font-medium mb-1 text-base">Fix Mobile 403</h4>
-            <p class="text-sm text-gray-600">Fix the "Access Forbidden" error when accessing localhost from a phone with a one-click fix.</p>
+            <p class="text-sm text-gray-600">Fix the "Access Forbidden" error when accessing localhost from a phone with
+              a one-click fix.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-file-code text-green-600"></i></div>
@@ -539,12 +409,14 @@
           <div class="feature-card">
             <div class="feature-icon"><i class="fab fa-whatsapp text-green-500"></i></div>
             <h4 class="text-gray-900 font-medium mb-1 text-base">WhatsApp Bot Ready</h4>
-            <p class="text-sm text-gray-600">Integrated terminal to run Node.js/Python WhatsApp bots without additional applications.</p>
+            <p class="text-sm text-gray-600">Integrated terminal to run Node.js/Python WhatsApp bots without additional
+              applications.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-terminal text-purple-600"></i></div>
             <h4 class="text-gray-900 font-medium mb-1 text-base">Embedded Terminal</h4>
-            <p class="text-sm text-gray-600">Run PHP, Composer, NPM, and other commands directly from the panel without a separate cmd.</p>
+            <p class="text-sm text-gray-600">Run PHP, Composer, NPM, and other commands directly from the panel without
+              a separate cmd.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-database text-orange-600"></i></div>
@@ -554,7 +426,8 @@
           <div class="feature-card">
             <div class="feature-icon"><i class="fas fa-shield-alt text-blue-500"></i></div>
             <h4 class="text-gray-900 font-medium mb-1 text-base">Security Quick Fix</h4>
-            <p class="text-sm text-gray-600">Automatically fix XAMPP security configurations including firewall and root access.</p>
+            <p class="text-sm text-gray-600">Automatically fix XAMPP security configurations including firewall and root
+              access.</p>
           </div>
         </div>
       </section>
@@ -606,12 +479,14 @@
           <h3>Installation Steps</h3>
           <div class="step-card"><span class="step-num">1</span>
             <div><strong class="text-gray-900 text-base">Open Visual Studio Code</strong>
-              <p class="text-sm text-gray-600 mt-1">Make sure the latest version of VSCode is installed on your system.</p>
+              <p class="text-sm text-gray-600 mt-1">Make sure the latest version of VSCode is installed on your system.
+              </p>
             </div>
           </div>
           <div class="step-card"><span class="step-num">2</span>
             <div><strong class="text-gray-900 text-base">Open the Extensions Panel</strong>
-              <p class="text-sm text-gray-600 mt-1">Press <span class="inline-code">Ctrl + Shift + X</span> or click the Extensions icon in the left sidebar.</p>
+              <p class="text-sm text-gray-600 mt-1">Press <span class="inline-code">Ctrl + Shift + X</span> or click the
+                Extensions icon in the left sidebar.</p>
             </div>
           </div>
           <div class="step-card"><span class="step-num">3</span>
@@ -622,12 +497,14 @@
           </div>
           <div class="step-card"><span class="step-num">4</span>
             <div><strong class="text-gray-900 text-base">Click Install</strong>
-              <p class="text-sm text-gray-600 mt-1">Wait until the installation process is complete. The XAMPP icon will appear in the Activity Bar.</p>
+              <p class="text-sm text-gray-600 mt-1">Wait until the installation process is complete. The XAMPP icon will
+                appear in the Activity Bar.</p>
             </div>
           </div>
           <div class="step-card"><span class="step-num">5</span>
             <div><strong class="text-gray-900 text-base">Set XAMPP Path</strong>
-              <p class="text-sm text-gray-600 mt-1">The XAMPP path setting will be automatically detected. If not, open Settings and set <span class="inline-code">xampp.metaPanel.xamppPath</span>.</p>
+              <p class="text-sm text-gray-600 mt-1">The XAMPP path setting will be automatically detected. If not, open
+                Settings and set <span class="inline-code">xampp.metaPanel.xamppPath</span>.</p>
             </div>
           </div>
           <div class="code-block font-mono">
@@ -643,7 +520,8 @@
             <h4><i class="fas fa-info-circle mr-2"></i>Auto-Detect Path</h4>
             <p>XAMPP Meta Panel automatically detects the XAMPP installation location at common paths: <code
                 class="inline-code">C:\xampp</code>, <code class="inline-code">D:\xampp</code>, or <code
-                class="inline-code">C:\Program Files\xampp</code>. If XAMPP is installed in a custom location, you need to set the path manually.</p>
+                class="inline-code">C:\Program Files\xampp</code>. If XAMPP is installed in a custom location, you need
+              to set the path manually.</p>
           </div>
         </div>
       </section>
@@ -652,7 +530,8 @@
       <section id="penggunaan" class="doc-section">
         <h2 class="section-title product-sans"><span class="section-number">3</span> Basic Usage</h2>
         <div class="mt-4">
-          <p>After installation, the XAMPP Meta Panel icon will appear in the VSCode Activity Bar (left sidebar). Here is how to access and use the panel:</p>
+          <p>After installation, the XAMPP Meta Panel icon will appear in the VSCode Activity Bar (left sidebar). Here
+            is how to access and use the panel:</p>
           <h3>Opening the Meta Panel</h3>
           <div class="code-block font-mono">
             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -662,7 +541,8 @@
             <span class="text-gray-500">// Method 2: Activity Bar</span><br>
             <span class="text-gray-800">Click the XAMPP icon in the VSCode left sidebar</span><br><br>
             <span class="text-gray-500">// Method 3: Keyboard Shortcut</span><br>
-            <span class="text-blue-600">Ctrl+Alt+X</span> <span class="text-gray-800">(default, can be customized)</span>
+            <span class="text-blue-600">Ctrl+Alt+X</span> <span class="text-gray-800">(default, can be
+              customized)</span>
           </div>
           <h3>Main Panel Features</h3>
           <div class="table-container">
@@ -720,7 +600,8 @@
           </div>
           <div class="success-card mt-4">
             <h4><i class="fas fa-check-circle mr-2"></i>Tip: Draggable Panel</h4>
-            <p>The Meta Panel tab can be dragged to any area in VSCode. Place it on the right sidebar for a more comfortable layout, or in the bottom panel for monitoring alongside the terminal.</p>
+            <p>The Meta Panel tab can be dragged to any area in VSCode. Place it on the right sidebar for a more
+              comfortable layout, or in the bottom panel for monitoring alongside the terminal.</p>
           </div>
         </div>
       </section>
@@ -728,7 +609,8 @@
         <h2 class="section-title product-sans"><span class="section-number">4</span> Laravel & PHP Framework Integration
         </h2>
         <div class="mt-4">
-          <p>One of the most powerful features of XAMPP Meta Panel is its ability to automatically detect and manage Laravel projects. You no longer need to open a separate CMD just to run <code
+          <p>One of the most powerful features of XAMPP Meta Panel is its ability to automatically detect and manage
+            Laravel projects. You no longer need to open a separate CMD just to run <code
               class="inline-code">php artisan serve</code>.</p>
           <h3>Laravel Workflow with Meta Panel</h3>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 mb-6">
@@ -813,14 +695,17 @@
           </div>
           <div class="info-card mt-4">
             <h4><i class="fas fa-info-circle mr-2"></i>Free Directory</h4>
-            <p>You don't need to move your project to the <code class="inline-code">htdocs</code> folder. XAMPP Meta Panel runs the PHP Built-in Server or Artisan Serve from any directory on your system.</p>
+            <p>You don't need to move your project to the <code class="inline-code">htdocs</code> folder. XAMPP Meta
+              Panel runs the PHP Built-in Server or Artisan Serve from any directory on your system.</p>
           </div>
         </div>
       </section>
       <section id="whatsapp-bot" class="doc-section">
         <h2 class="section-title product-sans"><span class="section-number">5</span> WhatsApp Chat Bot Integration</h2>
         <div class="mt-4">
-          <p>XAMPP Meta Panel provides an ideal environment for developing and running WhatsApp bots. With integrated terminals and easy service management, you can run the full stack (web server + database + bot runtime) from one place.</p>
+          <p>XAMPP Meta Panel provides an ideal environment for developing and running WhatsApp bots. With integrated
+            terminals and easy service management, you can run the full stack (web server + database + bot runtime) from
+            one place.</p>
           <h3>WhatsApp Bot Architecture with XAMPP Meta Panel</h3>
           <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
             <div class="flex flex-col gap-4">
@@ -866,7 +751,8 @@
                     class="fab fa-cloudflare text-gray-800 text-xl"></i></div>
                 <div class="flex-1">
                   <h4 class="text-gray-900 font-medium text-base">Vercel Deployment</h4>
-                  <p class="text-sm text-gray-600">Deploy source code (.zip) or .html To run plain PHP scripts on your computer, also serves as an API dashboard.</p>
+                  <p class="text-sm text-gray-600">Deploy source code (.zip) or .html To run plain PHP scripts on your
+                    computer, also serves as an API dashboard.</p>
                 </div>
               </div>
             </div>
@@ -874,7 +760,8 @@
           <h3>Quick Start: WhatsApp Bot</h3>
           <div class="step-card"><span class="step-num">1</span>
             <div><strong class="text-gray-900 text-base">Start MySQL from Meta Panel</strong>
-              <p class="text-sm text-gray-600 mt-1">Make sure the database is running to store sessions and message logs.</p>
+              <p class="text-sm text-gray-600 mt-1">Make sure the database is running to store sessions and message
+                logs.</p>
             </div>
           </div>
           <div class="step-card"><span class="step-num">2</span>
@@ -902,7 +789,8 @@
           </div>
           <div class="step-card"><span class="step-num">4</span>
             <div><strong class="text-gray-900 text-base">Run the Bot</strong>
-              <p class="text-sm text-gray-600 mt-1">Scan the QR Code that appears in the terminal with your WhatsApp, and the bot is ready to run!</p>
+              <p class="text-sm text-gray-600 mt-1">Scan the QR Code that appears in the terminal with your WhatsApp,
+                and the bot is ready to run!</p>
             </div>
           </div>
           <div class="code-block font-mono">
@@ -922,14 +810,17 @@
         </div>
       </section>
       <section id="cross-device" class="doc-section">
-        <h2 class="section-title product-sans"><span class="section-number">6</span> Cross-Device Testing (Mobile & Laptop)</h2>
+        <h2 class="section-title product-sans"><span class="section-number">6</span> Cross-Device Testing (Mobile &
+          Laptop)</h2>
         <div class="mt-4">
           <p>XAMPP by default blocks access from external IPs, causing the <strong>"Access Forbidden /
-              403"</strong> error when you try to open localhost from a smartphone. XAMPP Meta Panel solves this problem with the <strong>Fix Mobile 403</strong> feature that works in one click.</p>
+              403"</strong> error when you try to open localhost from a smartphone. XAMPP Meta Panel solves this problem
+            with the <strong>Fix Mobile 403</strong> feature that works in one click.</p>
           <h3>Complete Mobile Testing Guide</h3>
           <div class="step-card"><span class="step-num">1</span>
             <div><strong class="text-gray-900 text-base">Connect to the Same Network</strong>
-              <p class="text-sm text-gray-600 mt-1">Make sure your laptop and phone are connected to the same WiFi or hotspot.
+              <p class="text-sm text-gray-600 mt-1">Make sure your laptop and phone are connected to the same WiFi or
+                hotspot.
               </p>
             </div>
           </div>
@@ -957,7 +848,8 @@
           </div>
           <div class="step-card"><span class="step-num">5</span>
             <div><strong class="text-gray-900 text-base">Access from Phone</strong>
-              <p class="text-sm text-gray-600 mt-1">Open the browser on your phone, type the laptop IP in the address bar:</p>
+              <p class="text-sm text-gray-600 mt-1">Open the browser on your phone, type the laptop IP in the address
+                bar:</p>
             </div>
           </div>
           <div class="code-block font-mono">
@@ -968,7 +860,9 @@
           </div>
           <div class="warning-card mt-4">
             <h4><i class="fas fa-exclamation-triangle mr-2"></i>Security</h4>
-            <p>The Fix Mobile 403 feature opens LAN access for development purposes. Do not use it on a public network. After testing, it is recommended to restore the configuration to its original state (click the "Restore Security" button).</p>
+            <p>The Fix Mobile 403 feature opens LAN access for development purposes. Do not use it on a public network.
+              After testing, it is recommended to restore the configuration to its original state (click the "Restore
+              Security" button).</p>
           </div>
           <h3>What Does "Fix Mobile 403" Do?</h3>
           <p>Technically, this feature modifies the <code class="inline-code">httpd-xampp.conf</code> file located in
@@ -1152,9 +1046,11 @@
         </div>
       </section>
       <section id="performa" class="doc-section">
-        <h2 class="section-title product-sans"><span class="section-number">9</span> WhatsApp Bot Performance Analysis</h2>
+        <h2 class="section-title product-sans"><span class="section-number">9</span> WhatsApp Bot Performance Analysis
+        </h2>
         <div class="mt-4">
-          <p>The following charts show the advantages of XAMPP Meta Panel in facilitating the development and deployment of WhatsApp Chat Bots.</p>
+          <p>The following charts show the advantages of XAMPP Meta Panel in facilitating the development and deployment
+            of WhatsApp Chat Bots.</p>
           <h3>Feature Advantages for WhatsApp Bot (Line Chart)</h3>
           <div class="chart-container tall"><canvas id="lineChart"></canvas></div>
           <h3>Time Required per Task (Minutes)</h3>
@@ -1166,7 +1062,8 @@
               </li>
               <li><strong class="text-gray-900">65% reduction in time</strong> for debugging database issues</li>
               <li><strong class="text-gray-900">90% easier</strong> to restart services during development</li>
-              <li><strong class="text-gray-900">3x more productive</strong> thanks to terminal and panel integration in one editor
+              <li><strong class="text-gray-900">3x more productive</strong> thanks to terminal and panel integration in
+                one editor
               </li>
             </ul>
           </div>
@@ -1179,8 +1076,10 @@
         <div class="mt-4">
           <div class="danger-card mb-4">
             <h4><i class="fas fa-times-circle mr-2"></i>Error: "Apache Shutdown Unexpectedly"</h4>
-            <p>90% of cases are caused by <strong>Port 80</strong> or <strong>Port 443</strong> already being used by another application.</p>
-            <p class="mt-2"><strong class="text-gray-900">Solution via Meta Panel:</strong> Click Config → httpd.conf. Change
+            <p>90% of cases are caused by <strong>Port 80</strong> or <strong>Port 443</strong> already being used by
+              another application.</p>
+            <p class="mt-2"><strong class="text-gray-900">Solution via Meta Panel:</strong> Click Config → httpd.conf.
+              Change
               <code class="inline-code">Listen 80</code> to <code class="inline-code">Listen 8080</code>. Save
               and restart Apache.
             </p>
@@ -1190,7 +1089,8 @@
             <p>Usually occurs because MySQL data is corrupt or port 3306 is conflicting.</p>
             <p class="mt-2"><strong class="text-gray-900">Solution:</strong> Open Config → my.ini, change <code
                 class="inline-code">port=3306</code> to <code class="inline-code">port=3307</code>. If it fails,
-              open <code class="inline-code">mysql/data</code> and delete the files <code class="inline-code">ib_logfile0</code>
+              open <code class="inline-code">mysql/data</code> and delete the files <code
+                class="inline-code">ib_logfile0</code>
               and <code class="inline-code">ib_logfile1</code>.</p>
           </div>
           <div class="warning-card mb-4">
@@ -1201,7 +1101,8 @@
           </div>
           <div class="info-card mb-4">
             <h4><i class="fas fa-info-circle mr-2"></i>Extension does not appear in the sidebar</h4>
-            <p>Right-click on the Activity Bar, make sure "XAMPP Meta Panel" is checked. If it's not there, try reloading VSCode.
+            <p>Right-click on the Activity Bar, make sure "XAMPP Meta Panel" is checked. If it's not there, try
+              reloading VSCode.
             </p>
           </div>
           <div class="info-card mb-4">
@@ -1211,15 +1112,15 @@
           </div>
           <div class="success-card mb-4">
             <h4><i class="fas fa-check-circle mr-2"></i>Tip: Clear XAMPP Cache</h4>
-            <p>If the page doesn't update, try deleting the <code class="inline-code">xampp/tmp</code> folder and restart Apache.
+            <p>If the page doesn't update, try deleting the <code class="inline-code">xampp/tmp</code> folder and
+              restart Apache.
             </p>
           </div>
           <div class="mt-8 flex flex-wrap gap-4">
-            <a href="https://github.com/Royhtml/Xampp-Meta-Panel/issues"  class="btn-outline">
+            <a href="https://github.com/Royhtml/Xampp-Meta-Panel/issues" class="btn-outline">
               <i class="fab fa-github"></i> Report Issue on GitHub
             </a>
-            <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager" 
-              class="btn-primary">
+            <a href="https://marketplace.visualstudio.com/items?itemName=RoyHtml.xampp-manager" class="btn-primary">
               <i class="fas fa-puzzle-piece"></i> VSCode Marketplace
             </a>
           </div>

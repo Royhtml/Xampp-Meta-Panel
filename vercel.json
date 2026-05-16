@@ -1,4 +1,29 @@
 {
-  "name": "Xampp-Meta-Panel",
-  "cleanUrls": true
+  "rewrites": [
+    {
+      "cleanUrls": true,
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/js/main.js",
+      "destination": "/404.html"
+    },
+    {
+      "source": "/js/main",
+      "destination": "/404.html"
+    },
+        {
+      "source": "/js/inpeck.js",
+      "destination": "/404.html"
+    },
+    {
+      "source": "/js/mobile.js",
+      "destination": "/404.html"
+    },
+    {
+      "source": "/js/module.js",
+      "destination": "/404.html"
+    }
+  ]
 }

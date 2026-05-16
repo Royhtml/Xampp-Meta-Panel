@@ -73,7 +73,6 @@ function syncMAccount() {
         user.style.display = 'none';
     }
 }
-syncMServer();
 syncMAccount();
 const _ham = document.querySelector('.lg\\:hidden[onclick]');
 if (_ham && _ham.getAttribute('onclick')?.includes('mobile-toc')) {
