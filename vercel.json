@@ -22,6 +22,14 @@
       "destination": "/404.html"
     },
     {
+      "source": "404.html",
+      "destination": "/404.html"
+    },
+    {
+      "source": "blog.html",
+      "destination": "/blog.html"
+    },
+    {
       "source": "/js/module.js",
       "destination": "/404.html"
     }
