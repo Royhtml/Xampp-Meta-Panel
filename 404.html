@@ -1,82 +1,119 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Halaman Tidak Ditemukan | Meta Panel</title>
+  <title>404 - Meta Panel</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Google Sans"', 'Roboto', 'Arial', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            google: {
+              blue: '#1A73E8',
+              blueHover: '#1557B0',
+              red: '#EA4335',
+              yellow: '#FBBC04',
+              green: '#34A853',
+              gray: '#5F6368',
+              light: '#F8F9FA',
+              border: '#DADCE0'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="/icon/icon.png">
-  <script src="js/inpeck.js"></script>
-  <link rel = "stylesheet" href = "css/terlupakan.css">
+  <script src="js/inpeck.js" defer></script>
+  <link rel="stylesheet" href="css/terlupakan.css">
 </head>
-<body class="antialiased selection:bg-blue-200 selection:text-blue-900 h-screen flex flex-col">
-  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3 cursor-pointer hover:opacity-80 transition">
-        <div class="w-10 h-10 rounded-full flex items-center justify-center bg-blue-50 text-blue-600">
-          <i class="fas fa-server text-lg"></i>
+
+<body
+  class="antialiased text-gray-800 bg-white selection:bg-blue-100 selection:text-google-blue min-h-screen flex flex-col font-sans">
+  <header class="sticky top-0 z-50 bg-white border-b border-google-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3 cursor-pointer group">
+        <div
+          class="w-9 h-9 rounded bg-google-light border border-google-border flex items-center justify-center text-google-blue group-hover:bg-blue-50 transition-colors">
+          <img src="icon/icon.png" class="w-6 h-6" alt="Google">
         </div>
         <div>
-          <h1 class="text-xl font-bold tracking-tight text-gray-800">Meta Panel</h1>
-          <p class="text-[11px] font-medium text-gray-500 uppercase tracking-wider">Server Room Designer</p>
+          <h1 class="text-lg font-medium text-gray-700 tracking-tight">Meta Panel</h1>
         </div>
       </a>
-      <a href="/" class="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-full border border-gray-200 bg-white hover:bg-gray-50 hover:shadow-md transition-all duration-300 text-sm font-medium text-gray-700">
-        <i class="fas fa-home text-xs"></i> Kembali ke Beranda
+      <a href="/"
+        class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-md hover:bg-google-light text-sm font-medium text-google-gray transition-colors">
+        <i class="fas fa-home text-sm"></i> Beranda
       </a>
     </div>
   </header>
-  <main class="flex-1 flex items-center justify-center px-4 sm:px-6">
-    <div class="text-center max-w-2xl mx-auto">
-      <div class="relative w-48 h-48 mx-auto mb-8 animate-fade-in">
-        <div class="absolute inset-0 border-4 border-dashed border-blue-100 rounded-full spin-slow"></div>
-        <div class="absolute inset-4 border-4 border-dashed border-purple-100 rounded-full spin-slow" style="animation-direction: reverse; animation-duration: 15s;"></div>
-        <div class="absolute inset-0 flex items-center justify-center">
-          <div class="w-24 h-24 bg-gradient-to-br from-[#1A73E8] to-[#9b72cb] rounded-3xl flex items-center justify-center shadow-2xl rotate-12 hover:rotate-0 transition-transform duration-500">
-            <i class="fas fa-unlink text-4xl text-white -rotate-12 hover:rotate-0 transition-transform duration-500"></i>
-            <i class="fas fa-unlink text-4xl text-white absolute opacity-20 blur-sm scale-125"></i>
+  <main class="flex-1 flex items-center justify-center px-4 sm:px-6 py-12">
+    <div class="text-center max-w-2xl mx-auto w-full">
+      <div class="mb-6 flex justify-center items-center gap-2 select-none">
+        <h1 class="text-[100px] sm:text-[140px] md:text-[180px] font-bold leading-none text-google-blue">4</h1>
+        <div class="relative w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36">
+          <div class="absolute inset-0 bg-google-red rounded-full animate-bounce" style="animation-duration: 2s;"></div>
+          <div class="absolute inset-2 bg-white rounded-full flex items-center justify-center">
+            <i class="fas fa-unlink text-google-gray text-2xl sm:text-4xl md:text-5xl"></i>
           </div>
         </div>
+        <h1 class="text-[100px] sm:text-[140px] md:text-[180px] font-bold leading-none text-google-yellow">4</h1>
       </div>
-      <div class="animate-fade-in delay-100">
-        <h1 class="text-[120px] md:text-[160px] font-bold leading-none text-transparent bg-clip-text bg-gradient-to-r from-[#1A73E8] to-[#9b72cb] text-glitch select-none">
-          404
-        </h1>
-      </div>
-      <div class="animate-fade-in delay-200 -mt-6">
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Koneksi Terputus!</h2>
-        <p class="text-md text-gray-500 mb-8 max-w-lg mx-auto">
-          Maaf, halaman yang Anda cari tidak ditemukan. Mungkin file telah dipindahkan, dihapus, atau URL yang Anda masukkan salah.
+      <div class="mb-8">
+        <h2 class="text-2xl sm:text-3xl font-medium text-gray-800 mb-3">Halaman tidak ditemukan.</h2>
+        <p class="text-base text-google-gray max-w-md mx-auto">
+          URL yang diminta tidak ditemukan di server ini. Hal tersebut adalah satu-satunya yang kami ketahui.
         </p>
       </div>
-      <div class="animate-fade-in delay-300 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="/" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#1A73E8] text-white font-medium rounded-full hover:bg-[#1557B0] hover:shadow-lg transition-all duration-300">
-          <i class="fas fa-home"></i> Kembali ke Dashboard
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="/"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-google-blue text-white text-sm font-medium rounded hover:bg-google-blueHover focus:ring-4 focus:ring-blue-200 transition-all">
+          Kembali ke Dashboard
         </a>
-        <button onclick="history.back()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-gray-700 font-medium rounded-full border border-gray-200 hover:bg-gray-50 hover:shadow-md transition-all duration-300">
-          <i class="fas fa-arrow-left"></i> Halaman Sebelumnya
+        <button onclick="history.back()"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-white text-google-blue text-sm font-medium border border-google-border rounded hover:bg-blue-50 focus:ring-4 focus:ring-blue-50 transition-all">
+          Halaman Sebelumnya
         </button>
       </div>
-      <div class="animate-fade-in delay-200 mt-12 bg-gray-900 rounded-2xl p-5 text-left shadow-xl border border-gray-800 max-w-md mx-auto overflow-hidden">
-        <div class="flex items-center gap-2 mb-4">
-          <div class="w-3 h-3 rounded-full bg-red-500"></div>
-          <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-          <div class="w-3 h-3 rounded-full bg-green-500"></div>
-          <span class="text-xs text-gray-500 ml-2 font-mono">system_log</span>
+      <div
+        class="mt-12 bg-[#202124] rounded-lg p-4 text-left border border-gray-700 max-w-lg mx-auto overflow-hidden shadow-sm">
+        <div class="flex items-center justify-between mb-3 border-b border-gray-700 pb-2">
+          <span class="text-xs text-gray-400 font-mono flex items-center gap-2">
+            <i class="fas fa-terminal text-[10px]"></i> cloud_shell
+          </span>
+          <div class="flex gap-1.5">
+            <div class="w-2.5 h-2.5 rounded-full bg-google-gray"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-google-gray"></div>
+          </div>
         </div>
-        <pre class="text-sm text-gray-300 font-mono leading-relaxed"><code><span class="text-green-400">metapanel@server</span>:<span class="text-blue-400">~</span>$ traceurl [current_path]
-<span class="text-yellow-400">[WARNING]</span> Resource not found.
-<span class="text-red-400">[ERROR 404]</span> Node is unreachable.
-<span class="text-green-400">metapanel@server</span>:<span class="text-blue-400">~</span>$ <span class="animate-pulse">_</span></code></pre>
+        <pre
+          class="text-xs sm:text-sm text-gray-300 font-mono leading-relaxed overflow-x-auto"><code><span class="text-google-green">metapanel@server</span>:<span class="text-google-blue">~</span>$ traceurl request
+<span class="text-google-yellow">[WARNING]</span> Resource not found.
+<span class="text-google-red">[ERROR 404]</span> Node is unreachable.
+<span class="text-google-green">metapanel@server</span>:<span class="text-google-blue">~</span>$ <span class="animate-pulse">_</span></code></pre>
       </div>
 
     </div>
   </main>
-  <footer class="py-6 text-center text-sm text-gray-400 border-t border-gray-100">
-    &copy; 2024 Meta Panel. Server Room Designer & Simulator.
+
+  <!-- Footer -->
+  <footer class="py-6 text-center text-sm text-google-gray border-t border-google-border bg-google-light">
+    &copy; 2026 Meta Panel. Server Room Designer & Simulator by Dwi Bakti N Dev/Roy.
   </footer>
 
 </body>
+
 </html>
