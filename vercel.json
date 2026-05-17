@@ -1,37 +1,17 @@
 {
   "cleanUrls": true,
-  "rewrites": [
+  "routes": [
     {
-      "source": "/",
-      "destination": "/index.html"
+      "src": "/js/(.*)",
+      "dest": "/404.html",
+      "status": 404
     },
     {
-      "source": "/js/main.js",
-      "destination": "/404.html"
+      "handle": "filesystem"
     },
     {
-      "source": "/js/main",
-      "destination": "/404.html"
-    },
-        {
-      "source": "/js/inpeck.js",
-      "destination": "/404.html"
-    },
-    {
-      "source": "/js/mobile.js",
-      "destination": "/404.html"
-    },
-    {
-      "source": "404.html",
-      "destination": "/404.html"
-    },
-    {
-      "source": "blog.html",
-      "destination": "/blog.html"
-    },
-    {
-      "source": "/js/module.js",
-      "destination": "/404.html"
+      "src": "/",
+      "dest": "/index.html"
     }
   ]
 }
