@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ "$1" = "panel" ]; then
+    echo "open" > "$(dirname "$0")/.meta-panel-trigger"
+else
+    echo "Usage: meta panel"
+fi
