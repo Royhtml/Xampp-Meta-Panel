@@ -3,7 +3,7 @@
 # XAMPP Meta Panel For VS Code
 
 <p align="center">
-<img src="https://github.com/Royhtml/Xampp-Meta-Panel/raw/main/resources/icon.png?raw=true" alt="XAMPP Manager Logo" width="128" />
+<img src="https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/metapanel.png?raw=true" alt="XAMPP Manager Logo" width="128" />
 </p>
 
 <p align="center">
