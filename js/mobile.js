@@ -1,9 +1,8 @@
-
 let mActiveTab = 'home';
 let mSheetOpen = false;
 
 function mobileNav(tab) {
-    if (tab === mActiveTab && mSheetOpen && tab !== 'home' && tab !== 'issues') {
+    if (tab === mActiveTab && mSheetOpen && tab !== 'home') {
         closeMSheet();
         setMTab('home');
         return;
@@ -16,14 +15,6 @@ function mobileNav(tab) {
             break;
         case 'server':
             openMSheet('server');
-            break;
-        case 'issues':
-            closeMSheet();
-            document.getElementById('btn-open-drawer').click();
-            break;
-        case 'account':
-            openMSheet('account');
-            syncMAccount();
             break;
         case 'menu':
             openMSheet('menu');
@@ -58,29 +49,25 @@ function closeMSheet() {
     document.body.style.overflow = '';
     setMTab('home');
 }
-function syncMAccount() {
-    const prof = document.getElementById('user-profile');
-    const logged = prof && !prof.classList.contains('hidden');
-    const guest = document.getElementById('m-acc-guest');
-    const user = document.getElementById('m-acc-user');
-    if (logged) {
-        guest.style.display = 'none';
-        user.style.display = 'block';
-        document.getElementById('m-av').src = document.getElementById('user-avatar').src;
-        document.getElementById('m-nm').textContent = document.getElementById('user-name').textContent;
-    } else {
-        guest.style.display = 'block';
-        user.style.display = 'none';
-    }
-}
-syncMAccount();
+
 const _ham = document.querySelector('.lg\\:hidden[onclick]');
 if (_ham && _ham.getAttribute('onclick')?.includes('mobile-toc')) {
     _ham.setAttribute('onclick', "mobileNav('menu')");
 }
-const _pcObs = new MutationObserver(() => {
-    const cards = document.querySelectorAll('#posts-container > div:not(.col-span-full)');
-    updateMBadge(cards.length);
-});
-const _pc = document.getElementById('posts-container');
-if (_pc) _pcObs.observe(_pc, { childList: true });
+
+function openModal(id) {
+    closeMSheet();
+    const el = document.getElementById(id);
+    if (el) el.classList.remove('hidden');
+}
+
+function openModal2(id) {
+    closeMSheet();
+    const el = document.getElementById(id) || document.getElementById('licenseModal');
+    if (el) el.classList.remove('hidden');
+}
+
+function closeModal(id) {
+    const el = document.getElementById(id);
+    if (el) el.classList.add('hidden');
+}
