@@ -1,15 +1,27 @@
 {
-  "name": "xampp-meta-panel",
+  "name": "xampp-meta-panel-react",
+  "private": true,
   "version": "1.0.0",
-  "description": "Xampp Meta Panel Migration",
   "type": "module",
   "scripts": {
-    "dev": "node server.js",
-    "build": "echo 'No build step'",
-    "start": "node server.js"
+    "dev": "vite --port 3000 --host 0.0.0.0",
+    "build": "vite build",
+    "start": "vite --port 3000 --host 0.0.0.0"
   },
   "dependencies": {
-    "express": "^4.21.2",
-    "helmet": "^8.3.0"
+    "chart.js": "^4.4.1",
+    "framer-motion": "^11.18.2",
+    "lucide-react": "^0.344.0",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.2.0",
+    "recharts": "^3.10.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.1.4"
   }
 }
