@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-<strong>🚀 Run Apache, MySQL, and PHP directly from VS Code — No need to manually install XAMPP!</strong>
+<strong>🚀 Run Apache, MySQL, and PHP directly from VS Code No need to manually install XAMPP!</strong>
 </p>
 
 <p align="center">
@@ -22,6 +22,153 @@
     <img src="https://img.shields.io/badge/Gmail-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Gmail">
   </a>
 </p>
+
+# META PANEL V5.3
+
+<img src = "https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/Screenshot%202026-08-21%20181206.png?raw=true">
+
+A new feature is now available that allows you to use Laragon and XAMPP simultaneously. You can easily choose which server to use—Laragon or XAMPP—via the Laragon meta panel without the hassle of worrying about where to place your project files; simply set them up according to your needs when running the Laragon server.
+
+# META PANEL V5.2
+<img src = "https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/Foto/meta1.png?raw=true">
+
+The latest update, Meta Panel version 5.2, introduces a variety of features—making it ideal for users looking to create projects of any scale, whether small or large. You can try out this latest version right now and take advantage of its diverse, free features.
+
+# XAMPP Controll Panel For Antigrafity And Vscode
+<img src = "https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/Foto/meta2.png?raw=true">
+
+The XAMPP Control Panel is designed to be user-friendly and convenient; you can run it directly without the hassle of opening the full control panel interface—simply using the executable file is enough to get it up and running.
+
+# New Design Stickers Meta Panel Server
+<img src = "https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/Foto/sticker.png?raw=true">
+
+With this feature, users can create designs that match their desired decor for a more beautiful look using custom configurations; it is easy to use, lightweight, and doesn't take up much storage space—making it suitable even for low-end laptops.
+
+# New Design Color
+<img src = "https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/Foto/thema.png?raw=true">
+
+With this feature, users can change the theme to suit their needs, choosing from attractive, customizable options.
+
+
+## ⭐ Why Developers Choose XAMPP Meta Panel
+
+Unlike traditional XAMPP managers, XAMPP Meta Panel is designed to be an **all-in-one development environment** directly inside VS Code.
+
+✔ No need to switch between multiple applications.
+
+✔ Save development time with one-click server management.
+
+✔ Portable runtime for machines without XAMPP installed.
+
+✔ AI-powered coding assistant with unlimited local API support.
+
+✔ Built for beginners and professional developers.
+
+✔ Etc.
+
+Whether you're developing PHP, Laravel, HTML, Flutter, IoT, or Android applications, everything is available from one unified interface.
+
+
+## 🛡️ Why You Can Trust XAMPP Meta Panel
+
+Security and transparency are important.
+
+This extension is designed to run **locally on your computer**.
+
+- ✅ No hidden cryptocurrency miners
+- ✅ No background telemetry collection
+- ✅ Local PHP and MariaDB runtime
+- ✅ Local AI API available at `127.0.0.1`
+- ✅ Your projects stay on your machine
+- ✅ You control when services start or stop
+- ✅ Etc.
+
+Your source code and databases remain under your control.
+
+## 📊 Comparison
+
+| Feature | Traditional XAMPP | XAMPP Meta Panel |
+|----------|-----------------|-----------------|
+| Start Apache | ✅ | ✅ |
+| Start MySQL | ✅ | ✅ |
+| VS Code Integration | ❌ | ✅ |
+| Built-in AI | ❌ | ✅ |
+| WhatsApp Remote Control | ❌ | ✅ |
+| HTML to EXE | ❌ | ✅ |
+| Android Emulator Manager | ❌ | ✅ |
+| Portable Runtime | ❌ | ✅ |
+| One Click Project Launch | ❌ | ✅ |
+
+
+## 💬 Why Not Just Use XAMPP?
+
+Because XAMPP only manages your server.
+
+XAMPP Meta Panel manages your entire development workflow.
+
+Instead of opening five different applications, you stay inside VS Code and keep your focus on writing code.
+
+## 🌍 Built for Modern Development
+
+Perfect for:
+
+- PHP Developers
+- Laravel Developers
+- Web Designers
+- Students
+- Backend Engineers
+- Full Stack Developers
+- IoT Developers
+- Flutter Developers
+- Android Developers
+- Etc.
+
+## ❤️ Community Driven
+
+This project is continuously improved based on developer feedback.
+
+If you have ideas, feature requests, or bug reports, feel free to open an issue or contribute.
+
+Every suggestion helps make XAMPP Meta Panel even better.
+
+
+# ⭐ Ready to Boost Your Productivity?
+
+Install **XAMPP Meta Panel** today and experience a faster, smarter, and more integrated development workflow inside VS Code.
+
+✔ One Click Server Management
+
+✔ Built-in AI
+
+✔ Unlimited Local API
+
+✔ WhatsApp Remote Control
+
+✔ HTML to EXE Compiler
+
+✔ Android & IoT Toolkit
+
+✔ Etc.
+
+Spend less time configuring your environment and more time building great software.
+
+## 🚀 Save Time Every Day
+
+Developers spend valuable time opening multiple tools:
+
+- XAMPP Control Panel
+- Browser
+- phpMyAdmin
+- Terminal
+- VS Code
+- AI Chat
+- Android Emulator
+- Etc.
+
+XAMPP Meta Panel combines all of these into a single workflow.
+
+Less switching.
+More coding.
 
 ---
 
