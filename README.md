@@ -23,6 +23,44 @@
   </a>
 </p>
 
+```mermaid
+erDiagram
+    USERS ||--o{ ORDERS : places
+    USERS ||--o{ SESSIONS : has
+    ORDERS ||--|{ ORDER_ITEMS : contains
+    PRODUCTS ||--o{ ORDER_ITEMS : includes
+
+    USERS {
+        int id PK
+        string username
+        string email
+        datetime created_at
+    }
+    ORDERS {
+        int id PK
+        int user_id FK
+        decimal total
+        string status
+    }
+    ORDER_ITEMS {
+        int id PK
+        int order_id FK
+        int product_id FK
+        int quantity
+    }
+    PRODUCTS {
+        int id PK
+        string name
+        decimal price
+    }
+    SESSIONS {
+        string id PK
+        int user_id FK
+        datetime expires_at
+    }
+```
+
+
 # META PANEL V5.3
 
 <img src = "https://github.com/Royhtml/Xampp-Meta-Panel/blob/main/Screenshot%202026-08-21%20181206.png?raw=true">
